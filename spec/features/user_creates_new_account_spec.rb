@@ -1,24 +1,13 @@
 require 'rails_helper'
 
-feature 'user creates a new account', %Q{
+feature 'user creates a new account', %Q(
   As a site visitor
   I want to be able to visit the site
   So that I can create a new account
-  } do
-  # Acceptance Criteria:
-    # I can navigate to a sign up page.
-    # I can sign up for a new account.
+  ) do
 
-    # User must provide
-    # Name
-    # Photo* (if user is providing chef services)
-    # Location (city, state)
-    # Email
-    # Background*
-    # Description*
   scenario 'user creates a new account' do
     visit new_user_registration_path
-    save_and_open_page
 
     fill_in 'First name', with: "FirstName"
     fill_in 'Last name', with: "LastName"
@@ -33,7 +22,6 @@ feature 'user creates a new account', %Q{
   end
 
   scenario 'without requirements' do
-
     visit new_user_registration_path
     click_on 'Sign up'
 

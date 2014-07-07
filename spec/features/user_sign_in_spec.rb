@@ -2,15 +2,10 @@ require 'rails_helper'
 
 feature 'user signs in', %Q(As a site visitor
 I want to be able to visit the site
-So that I can sign in) do
-
-  # Acceptance Criteria:
-  # I can navigate to a sign in page.
-  # I can sign into my account.
-  # I can sign out of my account.
+So that I can sign in
+) do
 
   scenario 'user signs into account' do
-
     login_as(FactoryGirl.create(:user), scope: :user)
     visit root_path
 
@@ -18,7 +13,6 @@ So that I can sign in) do
   end
 
   scenario "user enters incorrect password" do
-
     user = FactoryGirl.create(:user)
     visit new_user_session_path
 
@@ -33,7 +27,6 @@ So that I can sign in) do
   end
 
   scenario 'user signs out of account' do
-
     login_as(FactoryGirl.create(:user), scope: :user)
     visit root_path
 

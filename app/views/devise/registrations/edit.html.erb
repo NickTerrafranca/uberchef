@@ -6,6 +6,23 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
+  <div><%= f.label :address %><br />
+  <%= f.text_field :address, autofocus: true %></div>
+
+  <div><%= f.label :city %><br />
+  <%= f.text_field :city, autofocus: true %></div>
+
+  <div><%= f.label :state %><br />
+  <%= f.text_field :state, autofocus: true %></div>
+
+  <div><%= f.label :zip %><br />
+  <%= f.text_field :zip, autofocus: true %></div>
+
+  <div><%= f.label :about %><br />
+  <%= f.text_field :about, autofocus: true %></div>
+
+  <p>####Upload profile photo</p>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
