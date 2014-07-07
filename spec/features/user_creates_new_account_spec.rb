@@ -18,22 +18,24 @@ feature 'user creates a new account', %Q{
     # Description*
   scenario 'user creates a new account' do
     visit new_user_registration_path
+    save_and_open_page
 
-    fill_in 'First Name', with: "FirstName"
-    fill_in 'Last Name', with: "LastName"
+    fill_in 'First name', with: "FirstName"
+    fill_in 'Last name', with: "LastName"
+    fill_in 'City', with: "CityName"
+    fill_in 'State', with: "StateName"
     fill_in 'Email', with: "example@example.com"
     fill_in 'Password', with: "password"
-    fill_in 'Password Confirmation', with: "password"
+    fill_in 'Password confirmation', with: "password"
 
-    click_on 'Sign Up'
-
+    click_on 'Sign up'
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
   scenario 'without requirements' do
 
     visit new_user_registration_path
-    click_on 'Sign Up'
+    click_on 'Sign up'
 
     expect(page).to have_content "can't be blank"
   end
@@ -44,7 +46,7 @@ feature 'user creates a new account', %Q{
     visit new_user_registration_path
     fill_in 'Email', with: user.email
 
-    click_on "Sign Up"
+    click_on "Sign up"
     expect(page).to have_content 'Email has already been taken'
   end
 end
