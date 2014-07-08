@@ -17,14 +17,15 @@ ActiveRecord::Schema.define(version: 20140707182627) do
   enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
+    t.integer  "user_id"
     t.string   "title",       null: false
     t.string   "address",     null: false
-    t.string   "state",       null: false
     t.string   "city",        null: false
+    t.string   "state",       null: false
     t.string   "zip",         null: false
     t.datetime "start_time",  null: false
     t.datetime "end_time"
-    t.integer  "num_guest",   null: false
+    t.integer  "guest_count", null: false
     t.decimal  "budget",      null: false
     t.text     "description"
     t.datetime "created_at"
@@ -34,14 +35,14 @@ ActiveRecord::Schema.define(version: 20140707182627) do
   create_table "users", force: true do |t|
     t.string   "first_name",                              null: false
     t.string   "last_name",                               null: false
+    t.string   "email",                  default: "",     null: false
     t.string   "address"
-    t.string   "state",                                   null: false
     t.string   "city",                                    null: false
+    t.string   "state",                                   null: false
     t.string   "zip"
     t.string   "profile_photo"
     t.text     "about"
     t.string   "role",                   default: "user", null: false
-    t.string   "email",                  default: "",     null: false
     t.string   "encrypted_password",     default: "",     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
