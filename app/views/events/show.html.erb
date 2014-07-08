@@ -1,0 +1,35 @@
+<ul>
+  <li>
+    Event title: <%=@event.title %>
+  </li>
+
+  <li>
+    Event location: <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip }"%>
+  </li>
+
+  <li>
+    Event start time: <%=@event.start_time %>
+  </li>
+
+  <% if @event.end_time %>
+    <li>
+      Event end time: <%=@event.end_time %>
+    </li>
+  <% end %>
+
+  <li>
+    Expected number of guests: <%=@event.guest_count %>
+  </li>
+
+  <li>
+    Budget per person: $<%=@event.budget %>
+  </li>
+
+  <li>
+    Event details: <%=@event.description %>
+  </li>
+
+  <li>
+    Contact the user: <%=@event.user.email %>
+  </li>
+</ul>

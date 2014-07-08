@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 20140707182627) do
   enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",     null: false
     t.string   "title",       null: false
     t.string   "address",     null: false
     t.string   "city",        null: false
     t.string   "state",       null: false
-    t.string   "zip",         null: false
+    t.string   "zip"
     t.datetime "start_time",  null: false
     t.datetime "end_time"
     t.integer  "guest_count", null: false
     t.decimal  "budget",      null: false
-    t.text     "description"
+    t.text     "description", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,5 +58,4 @@ ActiveRecord::Schema.define(version: 20140707182627) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
 end

@@ -1,0 +1,42 @@
+<%= form_for @event do |f| %>
+
+  <% if @event.errors.any? %>
+      <ul>
+        <% @event.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+  <div><%= f.label :title, 'Event title' %><br>
+  <%= f.text_field :title, autofocus: true %></div>
+
+  <div><%= f.label :address %><br>
+  <%= f.text_field :address, autofocus: true %></div>
+
+  <div><%= f.label :city %><br>
+  <%= f.text_field :city, autofocus: true %></div>
+
+  <div><%= f.label :state %><br>
+  <%= f.text_field :state, autofocus: true %></div>
+
+  <div><%= f.label :zip %><br>
+  <%= f.text_field :zip, autofocus: true %></div>
+
+  <div><%= f.label :start_time, 'Event start time' %><br>
+  <%= f.text_field :start_time, autofocus: true %></div>
+
+  <div><%= f.label :end_time, 'Event end time' %><br>
+  <%= f.text_field :end_time, autofocus: true %></div>
+
+  <div><%= f.label :guest_count, 'Expected number of guests' %><br>
+  <%= f.text_field :guest_count, autofocus: true %></div>
+
+  <div><%= f.label :budget, 'Budget per person' %><br>
+  <%= f.text_field :budget, autofocus: true %></div>
+
+  <div><%= f.label :description, 'Event details' %><br>
+  <%= f.text_field :description, autofocus: true %></div>
+
+  <div><%= f.submit "Submit" %></div>
+<% end %>
