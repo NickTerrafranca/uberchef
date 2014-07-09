@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @event = Event.order('created_at DESC')

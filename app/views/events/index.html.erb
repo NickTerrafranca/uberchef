@@ -1,7 +1,7 @@
 <ul>
 <% @event.each do |e| %>
   <li>
-    Event title: <%= e.title %>
+    <%= link_to "#{e.title}", event_path(e) %>
     <ul>
       <li>
         Location: <%="#{e.city}, #{ e.state}"%>

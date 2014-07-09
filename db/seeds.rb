@@ -24,7 +24,8 @@ events = [
     end_time: DateTime.parse('2014-07-19T21:30:00+04:00'),
     guest_count: 30,
     budget: 12,
-    description: 'Want to have a back yard pig roast for my "foodie friends". Want someone to cleanup and provide beer.'
+    description: 'Want to have a back yard pig roast for my "foodie friends".
+    Want someone to cleanup and provide beer.'
   },
   {
     user_id: 3,
@@ -51,7 +52,8 @@ events = [
     end_time: DateTime.parse('2014-08-10T14:30:00+04:00'),
     guest_count: 15,
     budget: 10,
-    description: 'Its my kids 2nd birthday and I just need someone to man the grill while I tend to the party.
+    description: 'Its my kids 2nd birthday and I just need someone to man the
+    grill while I tend to the party.
     I will provide the materials needed.'
   },
   {
@@ -65,7 +67,8 @@ events = [
     end_time: DateTime.parse('2014-07-27T11:00:00+04:00'),
     guest_count: 4,
     budget: 100,
-    description: "My wife is having a baby next week and we need someone to cook a bunch of dinners for the week.
+    description: "My wife is having a baby next week and we need someone to
+    cook a bunch of dinners for the week.
     There are several dietary restrictions to be discussed."
   }
 ]
@@ -93,43 +96,43 @@ users = [
   {
     first_name: 'Sue',
     last_name: 'Qi',
-    email: 'nterrafranca@hotmail.com',
+    email: 'example1@example.com',
     address: '3530n Tilden St',
     city: 'Washington',
-    state: "DC",
+    state: 'DC',
     zip: '09888',
     profile_photo: '',
-    about:'',
+    about: '',
     password: 'a12345678'
   },
   {
     first_name: 'Ron',
     last_name: 'Burgundy',
-    email: 'nterrafranca@hotmail.com',
+    email: 'example2@example.com',
     address: '1 Appleton Street',
     city: 'Boston',
     state: 'MA',
     zip: '02118',
     profile_photo: '',
-    about:'',
+    about: '',
     password: 'b12345678'
   },
   {
     first_name: 'Ruth',
     last_name: 'Wadsworth',
-    email: 'nterrafranca@hotmail.com',
+    email: 'example3@example.com',
     address: '127 Waban st.',
     city: "Wellesley",
     state: 'MA',
     zip: '02119',
     profile_photo: '',
-    about:'',
+    about: '',
     password: 'c12345678'
   },
   {
     first_name: 'Michael',
     last_name: 'Michaelson',
-    email: 'nterrafranca@hotmail.com',
+    email: 'example4@example.com',
     address: '1 Arbor Way',
     city: 'Jamaica Plain',
     state: 'MA',
@@ -141,13 +144,13 @@ users = [
   {
     first_name: 'Kevin',
     last_name: 'Smith',
-    email: 'nterrafranca@hotmail.com',
+    email: 'example5@example.com',
     address: '34 Water Street',
     city: 'Boston',
     state: 'MA',
     zip: '02130',
     profile_photo: '',
-    about: "I am awesome!",
+    about: 'I am awesome!',
     password: 'e12345678'
   }
 ]
@@ -165,7 +168,7 @@ users.each do |user_hash|
     password: user_hash[:password]
   }
 
-  user = User.find_by(user_attr)
+  # user = User.find_by(user_attr)
   user ||= User.create!(user_attr)
 
 end
