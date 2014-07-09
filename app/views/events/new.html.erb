@@ -36,7 +36,7 @@
   <%= f.text_field :budget, autofocus: true %></div>
 
   <div><%= f.label :description, 'Event details' %><br>
-  <%= f.text_field :description, autofocus: true %></div>
+  <%= f.text_area :description, :cols => "20", :rows => "10" %></div>
 
   <div><%= f.submit "Submit" %></div>
 <% end %>
