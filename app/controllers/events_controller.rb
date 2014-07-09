@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @event = Event.order('created_at DESC')
+  end
+
   def show
     @event = Event.all.find(params[:id])
   end
