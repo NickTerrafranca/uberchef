@@ -30,6 +30,6 @@
   </li>
 
   <li>
-    Contact the user: <%=@event.user.email %>
+    Contact the user about this event: <%= mail_to @event.user.email %>
   </li>
 </ul>
