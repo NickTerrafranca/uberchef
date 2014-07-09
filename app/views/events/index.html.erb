@@ -1,0 +1,26 @@
+<ul>
+<% @event.each do |e| %>
+  <li>
+    <%= link_to "#{e.title}", event_path(e) %>
+    <ul>
+      <li>
+        Location: <%="#{e.city}, #{ e.state}"%>
+      </li>
+
+      <li>
+       Start time: <%= e.start_time %>
+      </li>
+
+      <% if e.end_time %>
+        <li>
+          Event end time: <%= e.end_time %>
+        </li>
+      <% end %>
+
+      <li>
+        Event details: <%= e.description %>
+      </li><br><br>
+    </ul>
+  </li>
+  <% end %>
+</ul>
