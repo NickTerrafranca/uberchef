@@ -21,7 +21,7 @@ events = [
     state: 'MA',
     zip: '02130',
     start_time: DateTime.parse('2014-07-19T19:30:00+04:00'),
-    end_time: '',
+    end_time: DateTime.parse('2014-07-19T21:30:00+04:00'),
     guest_count: 30,
     budget: 12,
     description: 'Want to have a back yard pig roast for my "foodie friends". Want someone to cleanup and provide beer.'
@@ -34,7 +34,7 @@ events = [
     state: 'MA',
     zip: '02119',
     start_time: DateTime.parse('2014-07-29T13:00:00+04:00'),
-    end_time: '',
+    end_time: DateTime.parse('2014-07-29T13:20:00+04:00'),
     guest_count: 5,
     budget: 30,
     description: "I am hosting afternoon tea for several London guests.
@@ -62,7 +62,7 @@ events = [
     state: 'MA',
     zip: '02130',
     start_time: DateTime.parse('2014-07-27T11:00:00+04:00'),
-    end_time: '',
+    end_time: DateTime.parse('2014-07-27T11:00:00+04:00'),
     guest_count: 4,
     budget: 100,
     description: "My wife is having a baby next week and we need someone to cook a bunch of dinners for the week.
@@ -99,7 +99,8 @@ users = [
     state: "DC",
     zip: '09888',
     profile_photo: '',
-    about:''
+    about:'',
+    password: 'a12345678'
   },
   {
     first_name: 'Ron',
@@ -110,7 +111,8 @@ users = [
     state: 'MA',
     zip: '02118',
     profile_photo: '',
-    about:''
+    about:'',
+    password: 'b12345678'
   },
   {
     first_name: 'Ruth',
@@ -121,7 +123,8 @@ users = [
     state: 'MA',
     zip: '02119',
     profile_photo: '',
-    about:''
+    about:'',
+    password: 'c12345678'
   },
   {
     first_name: 'Michael',
@@ -132,7 +135,8 @@ users = [
     state: 'MA',
     zip: '02130',
     profile_photo: '',
-    about: 'Single dad. Working hard as a hand model and caring for two kids.'
+    about: 'Single dad. Working hard as a hand model and caring for two kids.',
+    password: 'd12345678'
   },
   {
     first_name: 'Kevin',
@@ -143,7 +147,8 @@ users = [
     state: 'MA',
     zip: '02130',
     profile_photo: '',
-    about: "I am awesome!"
+    about: "I am awesome!",
+    password: 'e12345678'
   }
 ]
 users.each do |user_hash|
@@ -156,10 +161,11 @@ users.each do |user_hash|
     state: user_hash[:state],
     zip: user_hash[:zip],
     profile_photo: user_hash[:profile_photo],
-    about: user_hash[:about]
+    about: user_hash[:about],
+    password: user_hash[:password]
   }
 
-  user = User.find_by(event_attr)
-  user ||= User.create!(event_attr)
+  user = User.find_by(user_attr)
+  user ||= User.create!(user_attr)
 
 end
