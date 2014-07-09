@@ -23,7 +23,7 @@ feature 'user_views_events', %Q(
     save_and_open_page
     expect(page).to have_content event.title
     expect(page).to have_content event.city
-    expect(page).to have_content event.start_time
+    expect(page).to have_content event.start_time.strftime("%B %d at %I:%M %p")
   end
 
   scenario 'user views a single event' do

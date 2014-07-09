@@ -4,16 +4,16 @@
   </li>
 
   <li>
-    Event location: <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip }"%>
+    Event location: <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
   </li>
 
   <li>
-    Event start time: <%=@event.start_time %>
+    Event start time: <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
   </li>
 
   <% if @event.end_time %>
     <li>
-      Event end time: <%=@event.end_time %>
+      Event end time: <%=@event.end_time.strftime("%B %d at %I:%M %p") %>
     </li>
   <% end %>
 
@@ -33,3 +33,5 @@
     Contact the user about this event: <%= mail_to @event.user.email %>
   </li>
 </ul>
+
+<%=link_to 'Back', root_path %>

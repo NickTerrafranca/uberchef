@@ -8,12 +8,12 @@
       </li>
 
       <li>
-       Start time: <%= e.start_time %>
+       Start time: <%= e.start_time.strftime("%B %d at %I:%M %p") %>
       </li>
 
       <% if e.end_time %>
         <li>
-          Event end time: <%= e.end_time %>
+          Event end time: <%= e.end_time.strftime("%B %d at %I:%M %p") %>
         </li>
       <% end %>
 
@@ -24,3 +24,4 @@
   </li>
   <% end %>
 </ul>
+<%=link_to 'Back', landing_page_path %>
