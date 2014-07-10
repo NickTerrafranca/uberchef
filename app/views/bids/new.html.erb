@@ -1,3 +1,44 @@
+ <h3><%=@event.title%></h3>
+<ul>
+  <li>
+    Event title: <%=@event.title %>
+  </li>
+
+  <li>
+    Event location: <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
+  </li>
+
+  <li>
+    Event start time: <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
+  </li>
+
+  <% if @event.end_time %>
+    <li>
+      Event end time: <%=@event.end_time.strftime("%B %d at %I:%M %p") %>
+    </li>
+  <% end %>
+
+  <li>
+    Expected number of guests: <%=@event.guest_count %>
+  </li>
+
+  <li>
+    Budget per person: $<%=@event.budget %>
+  </li>
+
+   <li>
+    This events total bid price: $<%=@event.budget * @event.guest_count%>
+  </li>
+
+  <li>
+    Event details: <%=@event.description %>
+  </li>
+
+  <li>
+    <%= link_to "Contact the user about this event", new_event_bid_path(@event) %>
+  </li>
+</ul>
+
 <%= form_for [@event, @bid] do |f| %>
   <% if @bid.errors.any? %>
         <ul>
@@ -6,8 +47,6 @@
           <% end %>
         </ul>
       <% end %>
-
-  <!-- <%= @event.budget * @event.guest_count %> -->
 
   <div><%= f.label :message %><br>
   <%= f.text_area :message, autofocus: true, :cols => "20", :rows => "10" %></div>

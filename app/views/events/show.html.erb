@@ -1,8 +1,5 @@
+<h3><%=@event.title %></h3>
 <ul>
-  <li>
-    Event title: <%=@event.title %>
-  </li>
-
   <li>
     Event location: <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
   </li>
@@ -25,12 +22,12 @@
     Budget per person: $<%=@event.budget %>
   </li>
 
-  <li>
-    Event details: <%=@event.description %>
+   <li>
+    This events total bid price: $<%=@event.budget * @event.guest_count%>
   </li>
 
   <li>
-    <%= link_to "Contact the user about this event", new_event_bid_path(@event) %>
+    Event details: <%=@event.description %>
   </li>
 </ul>
 
