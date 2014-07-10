@@ -29,6 +29,11 @@
   <li>
     Event details: <%=@event.description %>
   </li>
+
+  <li>
+    <%= link_to "Contact this user with an offer", new_event_bid_path(@event) %>
+  </li>
+
 </ul>
 
 <%=link_to 'Back', events_path %>

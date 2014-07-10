@@ -1,10 +1,6 @@
  <h3><%=@event.title%></h3>
 <ul>
   <li>
-    Event title: <%=@event.title %>
-  </li>
-
-  <li>
     Event location: <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
   </li>
 
@@ -32,10 +28,6 @@
 
   <li>
     Event details: <%=@event.description %>
-  </li>
-
-  <li>
-    <%= link_to "Contact the user about this event", new_event_bid_path(@event) %>
   </li>
 </ul>
 
