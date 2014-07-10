@@ -20,7 +20,6 @@ feature 'user_views_events', %Q(
 
     visit  events_path
 
-    save_and_open_page
     expect(page).to have_link event.title, event_path(event)
     expect(page).to have_content event.city
     expect(page).to have_content event.start_time.strftime("%B %d at %I:%M %p")
