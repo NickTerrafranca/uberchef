@@ -30,7 +30,7 @@
   </li>
 
   <li>
-    Contact the user about this event: <%= mail_to @event.user.email %>
+    <%= link_to "Contact the user about this event", new_event_bid_path(@event) %>
   </li>
 </ul>
 

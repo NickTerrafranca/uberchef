@@ -33,6 +33,6 @@ feature 'user_views_events', %Q(
 
     expect(page).to have_content event.title
     expect(page).to have_content event.description
-    expect(page).to have_content event.user.email
+    # expect(page).to have_content event.user.email
   end
 end
