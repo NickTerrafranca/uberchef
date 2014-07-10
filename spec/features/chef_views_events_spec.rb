@@ -21,7 +21,7 @@ feature 'user_views_events', %Q(
     visit  events_path
 
     save_and_open_page
-    expect(page).to have_content event.title
+    expect(page).to have_link event.title, event_path(event)
     expect(page).to have_content event.city
     expect(page).to have_content event.start_time.strftime("%B %d at %I:%M %p")
   end
@@ -30,9 +30,9 @@ feature 'user_views_events', %Q(
     login_as user
     event = FactoryGirl.create(:event)
     # visit event_path #vs.
-    visit events_path
+    visit event_path(event)
 
-    click_link("#{event.title}")
+    # click_link("#{event.title}")
     expect(page).to have_content event.title
     expect(page).to have_content event.description
     expect(page).to have_content event.user.email

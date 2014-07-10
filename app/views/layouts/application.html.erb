@@ -7,15 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-   <%= render 'devise/menu/login_items' %>
-   <%= render 'devise/menu/registration_items' %>
-</nav>
+  <div class="br-pattern-bg"></div>
+  <nav>
+     <%= render 'devise/menu/login_items' %>
+     <%= render 'devise/menu/registration_items' %>
+  </nav>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

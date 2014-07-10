@@ -23,6 +23,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 
+gem 'devise'
+
+# gem 'kaminari' '>= 0.13.0.'
+
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :test, :development do
   gem 'spring'

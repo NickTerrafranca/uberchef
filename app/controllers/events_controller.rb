@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
+
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @event = Event.order('city ASC')
