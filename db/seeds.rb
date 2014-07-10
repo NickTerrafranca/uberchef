@@ -35,11 +35,10 @@ events = [
     state: 'MA',
     zip: '02119',
     start_time: DateTime.parse('2014-07-29T13:00:00+04:00'),
-    end_time: DateTime.parse('2014-07-29T13:20:00+04:00'),
     guest_count: 5,
     budget: 30,
     description: "I am hosting afternoon tea for several London guests.
-    Must deliver exquisitely crafted tea sandwiches, cakes and biscuits"
+    Must deliver exquisitely crafted tea sandwiches, cakes and biscuits. Preparation will not be done on site"
   },
   {
     user_id: 4,
@@ -64,7 +63,6 @@ events = [
     state: 'MA',
     zip: '02130',
     start_time: DateTime.parse('2014-07-27T11:00:00+04:00'),
-    end_time: DateTime.parse('2014-07-27T11:00:00+04:00'),
     guest_count: 4,
     budget: 100,
     description: "My wife is having a baby next week and we need someone to

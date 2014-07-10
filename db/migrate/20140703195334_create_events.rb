@@ -10,9 +10,10 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :start_time, null: false
       t.datetime :end_time
       t.integer :guest_count, null: false
-      t.decimal :budget, null: false
+      t.integer :budget, null: false
       t.text :description, null: false
       t.timestamps
     end
+    add_index :events, [:title, :city, :user_id]
   end
 end

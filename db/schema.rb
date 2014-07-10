@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707182627) do
+ActiveRecord::Schema.define(version: 20140710141830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bids", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "event_id",   null: false
+    t.text     "message"
+    t.integer  "amount",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bids", ["user_id", "event_id"], name: "index_bids_on_user_id_and_event_id", using: :btree
 
   create_table "events", force: true do |t|
     t.integer  "user_id",     null: false
@@ -26,11 +37,13 @@ ActiveRecord::Schema.define(version: 20140707182627) do
     t.datetime "start_time",  null: false
     t.datetime "end_time"
     t.integer  "guest_count", null: false
-    t.decimal  "budget",      null: false
+    t.integer  "budget",      null: false
     t.text     "description", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["title", "city", "user_id"], name: "index_events_on_title_and_city_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name",                              null: false

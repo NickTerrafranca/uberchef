@@ -29,10 +29,9 @@ feature 'user_views_events', %Q(
   scenario 'user views a single event' do
     login_as user
     event = FactoryGirl.create(:event)
-    # visit event_path #vs.
+
     visit event_path(event)
 
-    # click_link("#{event.title}")
     expect(page).to have_content event.title
     expect(page).to have_content event.description
     expect(page).to have_content event.user.email
