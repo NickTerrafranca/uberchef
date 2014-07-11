@@ -11,40 +11,60 @@
     Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
   </li>
 
-  <%if @event%>
-      Events
-      <%=@event.each do |e|%>
+  <%if @event.exists? %>
+    Events
+    <%=@event.each do |e|%>
 
-         <li>
-          <%=e.title%>
-        </li>
+       <li>
+        <%=e.title%>
+      </li>
 
+      <li>
+        <%=e.description%>
+      </li>
+
+      <li>
+        <%=e.start_time%>
+      </li>
+
+      <%if e.end_time%>
         <li>
-          <%=e.description%>
+          <%=e.end_time%>
         </li>
+      <%end%>
 
-        <li>
-          <%=e.start_time%>
-        </li>
+      <li>
+        <%=e.guest_count%>
+      </li>
 
-        <%if e.end_time%>
-          <li>
-            <%=e.end_time%>
-          </li>
-        <%end%>
+      <li>
+        <%=e.budget%>
+      </li>
 
-        <li>
-          <%=e.guest_count%>
-        </li>
-
-        <li>
-          <%=e.budget%>
-        </li>
-
-        <li>
-          <%="#{e.address} #{e.city} #{e.state}"%>
-        </li>
+      <li>
+        <%="#{e.address} #{e.city} #{e.state}"%>
+      </li>
     <%end%>
   <% end %>
 
-</ul>
+
+
+  <li>
+    <%=%>
+  </li>
+
+  <li>
+    <%=%>
+  </li>
+
+  <li>
+    <%=%>
+  </li>
+
+  <li>
+    <%=%>
+  </li>
+
+  <li>
+    <%=%>
+  </li>
