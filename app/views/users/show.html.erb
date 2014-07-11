@@ -33,12 +33,12 @@ Events I have Created:
           </li>
 
           <li>
-            <%=e.start_time%>
+            <%=e.start_time.strftime("%B %d at %I:%M %p")%>
           </li>
 
           <%if e.end_time %>
             <li>
-              <%=e .end_time %>
+              <%=e .end_time.strftime("%B %d at %I:%M %p") %>
             </li>
           <%end%>
 
@@ -53,16 +53,21 @@ Events I have Created:
           <li>
             <%="#{e.address} #{e.city} #{e.state}"%>
           </li>
-          Bid on by:
-          <li>
-            <%=.%>
-          </li>
+
+          <%if e.bids.exists? %>
+             Bid on by:
+            <%e.bids.map do |i|%>
+              <li>
+                <%=link_to "#{i.applicant.first_name} #{i.applicant.last_name}", user_path(i)%>
+              </li>
+            <%end%>
+          <%end%>
+
         </ul>
       </li>
     </ol>
   <%end%>
 <%end%>
-### Display associated bids here.<br>
 
 Events I have Bid on:
 <%if @user.events_bid_on.any? %>
@@ -79,12 +84,12 @@ Events I have Bid on:
           </li>
 
           <li>
-            <%=b.start_time%>
+            <%=b.start_time.strftime("%B %d at %I:%M %p")%>
           </li>
 
           <%if b.end_time %>
             <li>
-              <%=b.end_time %>
+              <%=b.end_time.strftime("%B %d at %I:%M %p") %>
             </li>
           <%end%>
 
