@@ -1,70 +1,123 @@
-<h3>
-<%="#{@user.first_name} #{@user.last_name}"%>
-</h3>
+#Photo<%=@user.profile_photo%>
+<h4>
+  <%="#{@user.first_name} #{@user.last_name}"%>
+  <ul>
+    <li>
+      Email: <%=@user.email%>
+    </li>
 
-<ul>
-  <li>
-    Email: <%=@user.email%>
-  </li>
-
-  <li>
-    Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
-  </li>
-
-  <%if @event.exists? %>
-    Events
-    <%=@event.each do |e|%>
-
-       <li>
-        <%=e.title%>
-      </li>
-
+    <li>
+      Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
+    </li>
+    <% if @user.about%>
       <li>
-        <%=e.description%>
-      </li>
-
-      <li>
-        <%=e.start_time%>
-      </li>
-
-      <%if e.end_time%>
-        <li>
-          <%=e.end_time%>
-        </li>
-      <%end%>
-
-      <li>
-        <%=e.guest_count%>
-      </li>
-
-      <li>
-        <%=e.budget%>
-      </li>
-
-      <li>
-        <%="#{e.address} #{e.city} #{e.state}"%>
+        About: <%= @user.about %>
       </li>
     <%end%>
-  <% end %>
 
+  </ul>
+</h3>
 
+Events I have Created:
+<%if @user.events_hosted.any? %>
+  <%@user.events_hosted.each do |e|%>
+    <ol>
+      <li>
+        <ul>
+          <li>
+            <%=e.title%>
+          </li>
 
-  <li>
-    <%=%>
-  </li>
+          <li>
+            <%=e.description%>
+          </li>
 
-  <li>
-    <%=%>
-  </li>
+          <li>
+            <%=e.start_time%>
+          </li>
 
-  <li>
-    <%=%>
-  </li>
+          <%if e.end_time %>
+            <li>
+              <%=e .end_time %>
+            </li>
+          <%end%>
 
-  <li>
-    <%=%>
-  </li>
+          <li>
+            <%=e.guest_count%>
+          </li>
 
-  <li>
-    <%=%>
-  </li>
+          <li>
+            <%=e.budget%>
+          </li>
+
+          <li>
+            <%="#{e.address} #{e.city} #{e.state}"%>
+          </li>
+          Bid on by:
+          <li>
+            <%=.%>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  <%end%>
+<%end%>
+### Display associated bids here.<br>
+
+Events I have Bid on:
+<%if @user.events_bid_on.any? %>
+  <%@user.events_bid_on.each do |b|%>
+    <ol>
+      <li>
+        <ul>
+          <li>
+            <%=b.title%>
+          </li>
+
+          <li>
+            <%=b.description%>
+          </li>
+
+          <li>
+            <%=b.start_time%>
+          </li>
+
+          <%if b.end_time %>
+            <li>
+              <%=b.end_time %>
+            </li>
+          <%end%>
+
+          <li>
+            <%=b.guest_count%>
+          </li>
+
+          <li>
+            <%=b.budget%>
+          </li>
+
+          <li>
+            <%="#{b.address} #{b.city} #{b.state}"%>
+          </li>
+
+          <br>
+          My Bid:
+
+          <% b.bids.each do |i| %>
+
+            <li>
+            Message<br>
+            <%=i.message %>
+            </li>
+
+            <li>
+            Bid<br>
+              $<%=i.amount%>
+            </li>
+          <%end%>
+        </ul>
+      </li>
+    </ol>
+  <%end%>
+<%end%>
+

@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @event = Event.find(current_user.id)
+        # binding.pry
+
+    # @event = Event.find(current_user)
     # binding.pry
     # if @user.bids.any?#exists?
     #   @bid = Bid.find(current_user.id)

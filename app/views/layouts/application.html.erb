@@ -11,9 +11,10 @@
   <nav>
      <%= render 'devise/menu/login_items' %>
      <%= render 'devise/menu/registration_items' %>
-     <%= link_to "User profile page", user_path(current_user) %>
   </nav>
-
+  <%if user_signed_in?%>
+     <%= link_to "User profile page", user_path(current_user) %>
+  <%end%>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
