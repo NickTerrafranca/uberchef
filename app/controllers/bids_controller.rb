@@ -1,5 +1,4 @@
 class BidsController < ApplicationController
-
   before_action :authenticate_user!
 
   def show
@@ -14,10 +13,8 @@ class BidsController < ApplicationController
   def create
     @bid = Bid.create(bid_params)
     @event = Event.find(params[:event_id])
-    # binding.pry
     @bid.user_id = current_user.id
     @bid.event = @event
-
     if @bid.save
       flash[:notice] = 'Successfully created...'
       redirect_to event_bid_path(@event, @bid)
@@ -32,5 +29,4 @@ class BidsController < ApplicationController
   def bid_params
     params.require(:bid).permit(:message, :amount)
   end
-
 end

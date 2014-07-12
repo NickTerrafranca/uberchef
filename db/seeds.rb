@@ -166,7 +166,7 @@ users.each do |user_hash|
     password: user_hash[:password]
   }
 
-  # user = User.find_by(user_attr)
+  user = User.find_by(user_attr)
   user ||= User.create!(user_attr)
 
 end
