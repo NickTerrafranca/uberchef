@@ -18,8 +18,9 @@
   </ul>
 </h3>
 
-Events I have Created:
+
 <%if @user.events_hosted.any? %>
+  Events I have Created:
   <%@user.events_hosted.each do |e|%>
     <ol>
       <li>
@@ -59,7 +60,7 @@ Events I have Created:
              Bid on by:
             <%e.bids.map do |i|%>
               <li>
-                <%=link_to "#{i.applicant.first_name} #{i.applicant.last_name}", user_path(i)%>
+                <%=link_to "#{i.applicant.first_name} #{i.applicant.last_name}", user_path(i.applicant)%>
               </li>
             <%end%>
           <%end%>
@@ -70,8 +71,9 @@ Events I have Created:
   <%end%>
 <%end%>
 
-Events I have Bid on:
+
 <%if @user.events_bid_on.any? %>
+  Events I have Bid on:
   <%@user.events_bid_on.each do |b|%>
     <ol>
       <li>
