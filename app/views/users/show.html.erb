@@ -18,41 +18,40 @@
   </ul>
 </h3>
 
-
 <%if @user.events_hosted.any? %>
-  Events Created:
+  Events User Created:
   <%@user.events_hosted.each do |e|%>
     <ol>
       <li>
         <ul>
           <li>
-            <%=e.title%>
+            Description: <%=e.title%>
           </li>
 
           <li>
-            <%=e.description%>
+            Details: <%=e.description%>
           </li>
 
           <li>
-            <%=e.start_time.strftime("%B %d at %I:%M %p")%>
+            Start time: <%=e.start_time.strftime("%B %d at %I:%M %p")%>
           </li>
 
           <%if e.end_time %>
             <li>
-              <%=e.end_time.strftime("%B %d at %I:%M %p") %>
+              End time: <%=e.end_time.strftime("%B %d at %I:%M %p") %>
             </li>
           <%end%>
 
           <li>
-            <%=e.guest_count%>
+            Number of guests expected: <%=e.guest_count%>
           </li>
 
           <li>
-            <%=e.budget%>
+            Budget per guest <%=e.budget%>
           </li>
 
           <li>
-            <%="#{e.address} #{e.city} #{e.state}"%>
+            Location: <%="#{e.address} #{e.city} #{e.state}"%>
           </li>
 
           <%if e.bids.exists? %>
@@ -64,48 +63,47 @@
               </li>
             <%end%>
           <%end%>
-
         </ul>
       </li>
     </ol>
   <%end%>
 <%end%>
 
-
 <%if @user.events_bid_on.any? %>
   Events Bid On:
-  <%@user.events_bid_on.each do |b|%>
-    <ol>
+  <ol>
+    <%@user.events_bid_on.each do |b|%>
+
       <li>
         <ul>
           <li>
-            <%=b.title%>
+            Description: <%=b.title%>
           </li>
 
           <li>
-            <%=b.description%>
+            Details: <%=b.description%>
           </li>
 
           <li>
-            <%=b.start_time.strftime("%B %d at %I:%M %p")%>
+            Start time: <%=b.start_time.strftime("%B %d at %I:%M %p")%>
           </li>
 
           <%if b.end_time %>
             <li>
-              <%=b.end_time.strftime("%B %d at %I:%M %p") %>
+              End time: <%=b.end_time.strftime("%B %d at %I:%M %p") %>
             </li>
           <%end%>
 
           <li>
-            <%=b.guest_count%>
+            Number of guests expected: <%=b.guest_count%>
           </li>
 
           <li>
-            <%=b.budget%>
+            Budget per guest: <%=b.budget%>
           </li>
 
           <li>
-            <%="#{b.address} #{b.city} #{b.state}"%>
+            Location: <%="#{b.address} #{b.city} #{b.state}"%>
           </li>
 
           <br>
@@ -125,7 +123,8 @@
           <%end%>
         </ul>
       </li>
-    </ol>
-  <%end%>
+      <br>
+    <%end%>
+  </ol>
 <%end%>
 
