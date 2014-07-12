@@ -7,14 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="br-pattern-bg"></div>
-  <nav>
-     <%= render 'devise/menu/login_items' %>
-     <%= render 'devise/menu/registration_items' %>
-  </nav>
-  <%if user_signed_in?%>
-     <%= link_to "User profile page", user_path(current_user) %>
-  <%end%>
+  <div class="br-pattern-bg">
+    <nav>
+      <%= render 'devise/menu/login_items' %>
+      <%= render 'devise/menu/registration_items' %>
+      <li>
+        <%if user_signed_in?%>
+          <%= link_to "Profile", user_path(current_user) %>
+        <%end%>
+      </li>
+    </nav>
+  </div>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
