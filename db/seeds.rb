@@ -168,5 +168,4 @@ users.each do |user_hash|
 
   user = User.find_by(user_attr)
   user ||= User.create!(user_attr)
-
 end
