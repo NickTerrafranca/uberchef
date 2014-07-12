@@ -17,6 +17,9 @@
 
   </ul>
 </h3>
+<div>
+  <%= link_to "Message #{@user.first_name} #{@user.last_name}", new_user_message_path(@user) %>
+</div>
 
 <%if @user.events_hosted.any? %>
   User's Events:
@@ -127,4 +130,3 @@
     <%end%>
   </ol>
 <%end%>
-

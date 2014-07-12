@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :show, :new, :create]
   end
 
-  resources :messages, only: [:index, :show]
+  resources :messages, only: [:index, :show,  :create]
 
   resources :events, only: [:index, :show, :new, :create] do
     resources :bids, only: [:index, :show, :new, :create]
