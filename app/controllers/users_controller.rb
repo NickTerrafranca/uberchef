@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user = User.order('last_name')
+  end
+
   def show
-    # binding.pry
     @user = User.find(params[:id])
-    # @user = current_user
   end
 end

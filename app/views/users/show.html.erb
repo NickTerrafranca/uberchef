@@ -20,7 +20,7 @@
 
 
 <%if @user.events_hosted.any? %>
-  Events I have Created:
+  Events Created:
   <%@user.events_hosted.each do |e|%>
     <ol>
       <li>
@@ -39,7 +39,7 @@
 
           <%if e.end_time %>
             <li>
-              <%=e .end_time.strftime("%B %d at %I:%M %p") %>
+              <%=e.end_time.strftime("%B %d at %I:%M %p") %>
             </li>
           <%end%>
 
@@ -73,7 +73,7 @@
 
 
 <%if @user.events_bid_on.any? %>
-  Events I have Bid on:
+  Events Bid On:
   <%@user.events_bid_on.each do |b|%>
     <ol>
       <li>
