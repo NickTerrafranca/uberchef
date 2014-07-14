@@ -9,13 +9,32 @@
 <body>
   <div class="br-pattern-bg">
     <nav>
+      <li>
+        <%= link_to "UberChef", events_path %>
+      </li>
       <%= render 'devise/menu/login_items' %>
       <%= render 'devise/menu/registration_items' %>
-      <li>
-        <%if user_signed_in?%>
+
+      <%if user_signed_in?%>
+        <li>
           <%= link_to "Profile", user_path(current_user) %>
-        <%end%>
-      </li>
+        </li>
+      <%end%>
+
+      <%if user_signed_in?%>
+        <li>
+          <%= link_to "Messages", user_messages_path(current_user) %>
+        </li>
+      <%end%>
+
+      <%if user_signed_in?%>
+        <li>
+          <%= link_to "Post your event", new_event_path %>
+        </li>
+        <li>
+          <%= link_to "Users", users_path %>
+        </li>
+      <%end%>
     </nav>
   </div>
   <p class="notice"><%= notice %></p>

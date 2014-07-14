@@ -1,0 +1,14 @@
+<ul>
+  <li>
+    <%= link_to "Reply", new_user_message_path(@message.sender) %>
+  </li>
+
+  <li>
+    <%= link_to "Delete message", message_path(@message), method: :delete %>
+  </li>
+
+</ul>
+<div>
+  From: <%="#{@message.sender.first_name} #{@message.sender.last_name}" %><br><br>
+  Message: <%= @message.body %>
+</div>

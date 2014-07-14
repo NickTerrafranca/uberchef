@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show, :index] do
-    resources :messages, only: [:index, :show, :new, :create]
+    resources :messages, except: [:edit, :update]
   end
 
-  resources :messages, only: [:index, :show,  :create]
+  resources :messages, :messages, except: [:edit, :update]
 
   resources :events, only: [:index, :show, :new, :create] do
     resources :bids, only: [:index, :show, :new, :create]

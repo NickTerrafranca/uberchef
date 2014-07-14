@@ -1,0 +1,24 @@
+<div></div>
+<div>
+  <ul>
+  Inbox
+    <% @received_messages.each do |m| %>
+      <li>
+        From: <%=link_to "#{m.sender.first_name} #{m.sender.last_name}", message_path(m) %><br>
+        Message: <%= m.body %>
+      </li>
+    <%end%>
+  </ul>
+</div>
+
+<div>
+  <ul>
+  Outbox
+    <% @sent_messages.each do |m| %>
+      <li>
+        Sent to: <%="#{m.receiver.first_name} #{m.receiver.last_name}" %><br>
+        Message: <%= m.body %>
+      </li>
+    <%end%>
+  </ul>
+</div>

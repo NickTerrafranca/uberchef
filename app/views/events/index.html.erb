@@ -1,27 +1,28 @@
 <ul>
-<% @event.each do |e| %>
-  <li>
-    <%= link_to "#{e.title}", event_path(e) %>
-    <ul>
+  <% @event.each do |e| %>
+    <% if e.start_time >= Date.today %>
       <li>
-        Location: <%="#{e.city}, #{ e.state}"%>
+        <%= link_to "#{e.title}", event_path(e) %>
+        <ul>
+          <li>
+            Location: <%="#{e.city}, #{ e.state}"%>
+          </li>
+
+          <li>
+            Start time: <%= e.start_time.strftime("%B %d at %I:%M %p") %>
+          </li>
+
+          <% if e.end_time %>
+            <li>
+              Event end time: <%= e.end_time.strftime("%B %d at %I:%M %p") %>
+            </li>
+          <% end %>
+
+          <li>
+          Event details: <%= e.description %>
+          </li><br><br>
+        </ul>
       </li>
-
-      <li>
-       Start time: <%= e.start_time.strftime("%B %d at %I:%M %p") %>
-      </li>
-
-      <% if e.end_time %>
-        <li>
-          Event end time: <%= e.end_time.strftime("%B %d at %I:%M %p") %>
-        </li>
-      <% end %>
-
-      <li>
-        Event details: <%= e.description %>
-      </li><br><br>
-    </ul>
-  </li>
+    <% end %>
   <% end %>
 </ul>
-<%=link_to 'Back', root_path %>
