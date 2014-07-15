@@ -5,46 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
+    <script src="/js/vendor/modernizr.js"></script>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <nav>
-      <li>
-        <%= link_to "UberChef", events_path %>
-      </li>
-      <%= render 'devise/menu/login_items' %>
-      <%= render 'devise/menu/registration_items' %>
 
-      <%if user_signed_in?%>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
         <li>
-          <%= link_to "Profile", user_path(current_user) %>
+          <h2>
+            <%= link_to "UberChef", events_path %>
+          </h2>
         </li>
-      <%end%>
+        <li class="toggle-topbar menu-icon">
+          <a href="#">
+          <span>Menu</span>
+          </a></li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#">Menu</a>
+            <ul class="dropdown">
+              <li>
+                <%= render 'devise/menu/login_items' %>
+              </li>
+              <li>
+                <%= render 'devise/menu/registration_items' %>
+              </li>
 
-      <%if user_signed_in?%>
-        <li>
-          <%= link_to "Messages", user_messages_path(current_user) %>
-        </li>
-      <%end%>
+              <%if user_signed_in?%>
+                <li>
+                  <%= link_to "Profile", user_path(current_user) %>
+                </li>
+              <%end%>
 
-      <%if user_signed_in?%>
-        <li>
-          <%= link_to "Post your event", new_event_path %>
-        </li>
-        <li>
-          <%= link_to "Users", users_path %>
-        </li>
-      <%end%>
+              <%if user_signed_in?%>
+                <li>
+                  <%= link_to "Message", user_messages_path(current_user) %>
+                </li>
+              <%end%>
+
+              <%if user_signed_in?%>
+                <li>
+                  <%= link_to "Post your event", new_event_path %>
+                </li>
+                <li>
+                  <%= link_to "Users", users_path %>
+                </li>
+              <%end%>
+            </ul>
+          </li>
+        </ul>
     </nav>
-  </div>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+
+  <!-- think bout putting these somewhere -->
+
+
+    <div class="row">
+      <div class="small-10 small-centered columns ">
+
+      <!-- <div data-alert class="alert-box secondary"> -->
+        <p class="notice"><%= notice %></p>
+
+        <!-- <a href="#" class="close">&times;</a> -->
+      <!-- </div> -->
+
+
+      <!-- <div data-alert class="alert-box alert round"> -->
+        <p class="alert"><%= alert %></p>
+        <!-- <a href="#" class="close">&times;</a> -->
+      <!-- </div> -->
+
+      <%= yield %>
+      <%= javascript_include_tag "application" %>
+    </div>
+
+    <script src="/js/foundation.min.js"></script> <!-- not sure where this goes -->
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/fastclick.js"></script>
+    <!-- should this go here? -->
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
