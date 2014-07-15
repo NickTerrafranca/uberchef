@@ -4,92 +4,100 @@
   </li>
 <%end%>
 
-<h4>
-  <%="#{@user.first_name} #{@user.last_name}"%>
-  <ul>
-    <li>
-      Email: <%=@user.email%>
-    </li>
+<ul class="no-bullet">
+  <li>
+    <h3><%="#{@user.first_name} #{@user.last_name}"%></h3>
+  </li>
 
-    <li>
-      Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
-    </li>
-    <% if @user.about %>
-      <li>
-        About: <%= @user.about %>
-      </li>
-    <%end%>
+  <li>
+    Email: <%=@user.email%>
+  </li>
 
-  </ul>
-</h3>
-<div>
+  <li>
+    Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
+  </li>
+
+  <% if @user.about %>
+    <li>
+      About: <%= @user.about %>
+    </li>
+  <%end%>
+
   <% unless @user == current_user%>
-    <%= link_to "Message #{@user.first_name} #{@user.last_name}", new_user_message_path(@user) %>
+    <li>
+        <%= link_to "Message #{@user.first_name} #{@user.last_name}", new_user_message_path(@user) %>
+    </li>
   <%end%>
-</div>
+</ul>
 
-<%if @user.events_hosted.any?%>
-  Hosted Events:
-  <%@user.events_hosted.each do |e|%>
-    <ol>
+<%if @user.events_hosted.any? %>
+  <div class="row">
+    <%@user.events_hosted.each do |e|%>
       <% if e.start_time >= Date.today %>
-      <li>
-        <ul>
-          <li>
-            Description: <%=e.title%>
-          </li>
-
-          <li>
-            Details: <%=e.description%>
-          </li>
-
-          <li>
-            Start time: <%=e.start_time.strftime("%B %d at %I:%M %p")%>
-          </li>
-
-          <%if e.end_time %>
-            <li>
-              End time: <%=e.end_time.strftime("%B %d at %I:%M %p") %>
-            </li>
-          <%end%>
-
-          <li>
-            Number of guests expected: <%=e.guest_count%>
-          </li>
-
-          <li>
-            Budget per guest <%=e.budget%>
-          </li>
-
-          <li>
-            Location: <%="#{e.address} #{e.city} #{e.state}"%>
-          </li>
-
-          <%if e.bids.exists? %>
-            <br>
-             Bid on by:
-            <%e.bids.map do |i|%>
+        <ol  class="vcard">
+          <p>
+            Events Hosted
+          </p>
+          <li class="vcard">
+            <ul>
               <li>
-                <%=link_to "#{i.applicant.first_name} #{i.applicant.last_name}", user_path(i.applicant)%>
+                <%=link_to e.title, event_path(e) %>
               </li>
-            <%end%>
-          <%end%>
-        </ul>
-      </li>
+
+              <li>
+                Details: <%=e.description%>
+              </li>
+
+              <li>
+                Start time: <%=e.start_time.strftime("%B %d at %I:%M %p")%>
+              </li>
+
+              <%if e.end_time %>
+                <li>
+                  End time: <%=e.end_time.strftime("%B %d at %I:%M %p") %>
+                </li>
+              <%end%>
+
+              <li>
+                Number of guests expected: <%=e.guest_count%>
+              </li>
+
+              <li>
+                Budget per guest <%=e.budget%>
+              </li>
+
+              <li>
+                Location: <%="#{e.address} #{e.city} #{e.state}"%>
+              </li>
+
+              <%if e.bids.exists? %>
+                <br>
+                 Bid on by:
+                <%e.bids.map do |i|%>
+                  <li>
+                    <%=link_to "#{i.applicant.first_name} #{i.applicant.last_name}", user_path(i.applicant)%>
+                  </li>
+                <%end%>
+              <%end%>
+            </ul>
+          </li>
+        </ol>
       <%end%>
-    </ol>
-  <%end%>
+    <%end%>
+  </div>
 <%end%>
 
+
+<div class="row">
 <%if @user.events_bid_on.any? %>
-  Events Bids:
-  <ol>
+  <ul class="vcard">
+  <p>Bids</p>
     <%@user.events_bid_on.each do |b|%>
 
       <li>
-        <ul>
+        <ul   class="vcard">
           <li>
-            Description: <%=b.title%>
+            Event: <%=link_to b.title, event_path(b)%>
           </li>
 
           <li>
@@ -119,23 +127,22 @@
           </li>
 
           <br>
-          My Bid:
 
           <% b.bids.each do |i| %>
 
             <li>
-            Message<br>
+            Bid Details<br>
             <%=i.message %>
             </li>
 
             <li>
-            Bid<br>
-              $<%=i.amount%>
+              Amount $<%=i.amount%>
             </li>
           <%end%>
         </ul>
       </li>
       <br>
     <%end%>
-  </ol>
+  </ul>
 <%end%>
+</div>

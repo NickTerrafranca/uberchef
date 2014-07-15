@@ -1,3 +1,4 @@
+
 <%= form_for @event do |f| %>
 
     <%if @event.errors.any? %>
@@ -7,36 +8,57 @@
         <% end %>
       </ul>
     <% end %>
+    <div class="row">
+      <div class="small-5 columns">
+        <div>
+        <%= f.text_field :title, autofocus: true, placeholder: 'Event title' %>
+        </div>
 
-  <div><%= f.label :title, 'Event title' %><br>
-  <%= f.text_field :title, autofocus: true %></div>
+        <div>
+        <%= f.text_field :address, autofocus: true, placeholder: "Address" %>
+        </div>
 
-  <div><%= f.label :address %><br>
-  <%= f.text_field :address, autofocus: true %></div>
+        <div>
+        <%= f.text_field :city, autofocus: true, placeholder: "City" %>
+        </div>
 
-  <div><%= f.label :city %><br>
-  <%= f.text_field :city, autofocus: true %></div>
+        <div>
+        <%= f.text_field :state, autofocus: true, placeholder: "State" %>
+        </div>
 
-  <div><%= f.label :state %><br>
-  <%= f.text_field :state, autofocus: true %></div>
+        <div>
+        <%= f.text_field :zip, autofocus: true, placeholder: "Zip" %>
+        </div>
 
-  <div><%= f.label :zip %><br>
-  <%= f.text_field :zip, autofocus: true %></div>
+        <div>
+        <%= f.text_field :start_time, autofocus: true, placeholder: 'Event start time'%>
+        </div>
 
-  <div><%= f.label :start_time, 'Event start time' %><br>
-  <%= f.text_field :start_time, autofocus: true %></div>
+        <div>
+        <%= f.text_field :end_time, autofocus: true, placeholder: 'Event end time' %>
+        </div>
+      </div>
 
-  <div><%= f.label :end_time, 'Event end time' %><br>
-  <%= f.text_field :end_time, autofocus: true %></div>
+      <div class="small-5 columns">
+        <div>
+        <%= f.text_field :guest_count, autofocus: true, placeholder: 'Expected number of guests' %>
+        </div>
 
-  <div><%= f.label :guest_count, 'Expected number of guests' %><br>
-  <%= f.text_field :guest_count, autofocus: true %></div>
+        <div>
+        <%= f.text_field :budget, autofocus: true, placeholder: 'Budget price per person' %>
+        </div>
 
-  <div><%= f.label :budget, 'Budget price per person' %><br>
-  <%= f.text_field :budget, autofocus: true %></div>
+        <div>
+        <%= f.text_area :description, placeholder: 'Event details', :cols => "20", :rows => "10" %>
+        </div>
+      </div>
+    </div>
 
-  <div><%= f.label :description, 'Event details' %><br>
-  <%= f.text_area :description, :cols => "20", :rows => "10" %></div>
-
-  <div><%= f.submit "Submit" %></div>
+  <br>
+  <div class="row">
+    <div class="small-6 small-centered columns">
+    <%= f.submit "Submit", class: "button expand" %>
+    </div>
+  </div>
 <% end %>
+

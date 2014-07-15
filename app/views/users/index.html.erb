@@ -1,6 +1,6 @@
-<div>
+<div class="small-4 columns">
   <%@user.each do |u|%>
-    <ul>
+    <ul class="no-bullet">
       <%if u.profile_photo && !u.profile_photo.empty? %>
         <li>
           <%=u.profile_photo %>

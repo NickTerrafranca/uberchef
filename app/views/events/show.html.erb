@@ -1,33 +1,51 @@
 <h3><%=@event.title %></h3>
-<ul>
+<ul class="vcard">
   <li>
-    Event location: <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
+    <strong>Event location</strong><br> <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
   </li>
 
   <li>
-    Event start time: <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
+    <strong>
+      Event start time<br>
+    </strong>
+    <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
   </li>
 
   <% if @event.end_time %>
     <li>
-      Event end time: <%=@event.end_time.strftime("%B %d at %I:%M %p") %>
+      <strong>
+        Event end time<br>
+      </strong>
+      <%=@event.end_time.strftime("%B %d at %I:%M %p") %>
     </li>
   <% end %>
 
   <li>
-    Expected number of guests: <%=@event.guest_count %>
+    <strong>
+      Expected number of guests<br>
+    </strong>
+    <%=@event.guest_count %>
   </li>
 
   <li>
-    Budget per person: $<%=@event.budget %>
+    <strong>
+      Budget per person<br>
+    </strong>
+    $<%=@event.budget %>
   </li>
 
    <li>
-    This events total bid price: $<%=@event.budget * @event.guest_count%>
+     <strong>
+      This events total bid price<br>
+    </strong>
+    $<%=@event.budget * @event.guest_count%>
   </li>
 
   <li>
-    Event details: <%=@event.description %>
+    <strong>
+      Event details<br>
+    </strong>
+    <%=@event.description %>
   </li>
 
   <li>
@@ -36,4 +54,3 @@
 
 </ul>
 
-<%=link_to 'Back', events_path %>

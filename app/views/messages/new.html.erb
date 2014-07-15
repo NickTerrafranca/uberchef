@@ -1,4 +1,16 @@
-<div>
+<div class="small-9 columns">
+  <%if @user.profile_photo && !@user.profile_photo.empty? %>
+    <li>
+      <%=@user.profile_photo %>
+    </li>
+  <%end%>
+
+  <ul class="no-bullet">
+    <li>
+      To: <h3><%="#{@user.first_name} #{@user.last_name}"%></h3>
+    </li>
+  </ul>
+
   <%= form_for [@user, @message] do |m| %>
 
     <% if @message.errors.any? %>
@@ -12,6 +24,6 @@
     <div><%= m.label :body, 'Message' %><br>
     <%= m.text_area :body, :cols => "30", :rows => "10" %></div>
 
-    <div><%= m.submit "Send message" %></div>
+    <div><%= m.submit "Send message", class: "button [tiny small large]"  %></div>
   <% end %>
 </div>

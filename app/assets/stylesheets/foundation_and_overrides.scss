@@ -257,14 +257,10 @@
 
 // We use this to control alert padding.
 
-
-
-        $alert-transition-speed: 300ms;
-        $alert-transition-ease: ease-out;
-        $alert-padding-top: rem-calc(10);
-        $alert-padding-default-float: $alert-padding-top;
-        $alert-padding-opposite-direction: $alert-padding-top + rem-calc(10);
-        $alert-padding-bottom: $alert-padding-top;
+// $alert-padding-top: rem-calc(10);
+// $alert-padding-default-float: $alert-padding-top;
+// $alert-padding-opposite-direction: $alert-padding-top + rem-calc(10);
+// $alert-padding-bottom: $alert-padding-top;
 
 // We use these to control text style.
 // $alert-font-weight: $font-weight-normal;
@@ -294,8 +290,8 @@
 // $alert-radius: $global-radius;
 
 // We use this to control transition effects
-// $alert-transition-speed: 300ms;
-// $alert-transition-ease: ease-out;
+ $alert-transition-speed: 300ms;
+ $alert-transition-ease: ease-out;
 
 // Block Grid
 

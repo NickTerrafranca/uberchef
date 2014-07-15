@@ -16,4 +16,22 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+  setTimeout(function() {
+    $(".alert-box").hide();
+  }, 3000);
+});
+
+
+// var a = [1, 2, 3];
+
+// a.each(function(x) {
+//   console.log(x);
+// });
+
+// a = [1, 2, 3]
+
+// a.each do |x|
+//   puts x
+// end

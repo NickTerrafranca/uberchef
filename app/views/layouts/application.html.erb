@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-    <script src="/js/vendor/modernizr.js"></script>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -61,36 +60,26 @@
           </li>
         </ul>
     </nav>
-
-
-  <!-- think bout putting these somewhere -->
-
+    <%if notice %>
+        <div data-alert class="alert-box secondary">
+          <p class="notice"><%= notice %></p>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <%end%>
+      <%if alert %>
+        <div data-alert class="alert-box secondary">
+          <p class="notice"><%= alert %></p>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <%end%>
 
     <div class="row">
-      <div class="small-10 small-centered columns ">
-
-      <!-- <div data-alert class="alert-box secondary"> -->
-        <p class="notice"><%= notice %></p>
-
-        <!-- <a href="#" class="close">&times;</a> -->
-      <!-- </div> -->
-
-
-      <!-- <div data-alert class="alert-box alert round"> -->
-        <p class="alert"><%= alert %></p>
-        <!-- <a href="#" class="close">&times;</a> -->
-      <!-- </div> -->
-
+      <div class="small-10 columns ">
+      <br><br>
       <%= yield %>
-      <%= javascript_include_tag "application" %>
+      </div>
     </div>
 
-    <script src="/js/foundation.min.js"></script> <!-- not sure where this goes -->
-    <script src="/js/vendor/jquery.js"></script>
-    <script src="/js/vendor/fastclick.js"></script>
-    <!-- should this go here? -->
-    <script>
-      $(document).foundation();
-    </script>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
