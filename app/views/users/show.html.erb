@@ -1,42 +1,43 @@
+<br>
 <%if @user.profile_photo && !@user.profile_photo.empty? %>
   <li>
     <%=@user.profile_photo %>
   </li>
 <%end%>
-
-<ul class="no-bullet">
-  <li>
-    <h3><%="#{@user.first_name} #{@user.last_name}"%></h3>
-  </li>
-
-  <li>
-    Email: <%=@user.email%>
-  </li>
-
-  <li>
-    Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
-  </li>
-
-  <% if @user.about %>
+<div class="row user-border">
+  <ul class="no-bullet">
     <li>
-      About: <%= @user.about %>
+      <h3><%="#{@user.first_name} #{@user.last_name}"%></h3>
     </li>
-  <%end%>
 
-  <% unless @user == current_user%>
     <li>
-        <%= link_to "Message #{@user.first_name} #{@user.last_name}", new_user_message_path(@user) %>
+      Email: <%=@user.email%>
     </li>
-  <%end%>
-</ul>
 
+    <li>
+      Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
+    </li>
+
+    <% if @user.about %>
+      <li>
+        About: <%= @user.about %>
+      </li>
+    <%end%>
+
+    <% unless @user == current_user%>
+      <li>
+          <%= link_to "Message #{@user.first_name} #{@user.last_name}", new_user_message_path(@user) %>
+      </li>
+    <%end%>
+  </ul>
+</div>
 <%if @user.events_hosted.any? %>
-  <div class="row">
+  <div class="row user-border">
     <%@user.events_hosted.each do |e|%>
       <% if e.start_time >= Date.today %>
         <ol  class="vcard">
           <p>
-            Events Hosted
+            Hosted events
           </p>
           <li class="vcard">
             <ul>
@@ -88,61 +89,61 @@
 <%end%>
 
 
-<div class="row">
-<%if @user.events_bid_on.any? %>
-  <ul class="vcard">
-  <p>Bids</p>
-    <%@user.events_bid_on.each do |b|%>
+<div class="row user-border">
+  <%if @user.events_bid_on.any? %>
+    <ul class="vcard">
+    <p>Bids</p>
+      <%@user.events_bid_on.each do |b|%>
 
-      <li>
-        <ul   class="vcard">
-          <li>
-            Event: <%=link_to b.title, event_path(b)%>
-          </li>
-
-          <li>
-            Details: <%=b.description%>
-          </li>
-
-          <li>
-            Start time: <%=b.start_time.strftime("%B %d at %I:%M %p")%>
-          </li>
-
-          <%if b.end_time %>
+        <li>
+          <ul class="vcard">
             <li>
-              End time: <%=b.end_time.strftime("%B %d at %I:%M %p") %>
-            </li>
-          <%end%>
-
-          <li>
-            Number of guests expected: <%=b.guest_count%>
-          </li>
-
-          <li>
-            Budget per guest: <%=b.budget%>
-          </li>
-
-          <li>
-            Location: <%="#{b.address} #{b.city} #{b.state}"%>
-          </li>
-
-          <br>
-
-          <% b.bids.each do |i| %>
-
-            <li>
-            Bid Details<br>
-            <%=i.message %>
+              Event: <%=link_to b.title, event_path(b)%>
             </li>
 
             <li>
-              Amount $<%=i.amount%>
+              Details: <%=b.description%>
             </li>
-          <%end%>
-        </ul>
-      </li>
-      <br>
-    <%end%>
-  </ul>
-<%end%>
+
+            <li>
+              Start time: <%=b.start_time.strftime("%B %d at %I:%M %p")%>
+            </li>
+
+            <%if b.end_time %>
+              <li>
+                End time: <%=b.end_time.strftime("%B %d at %I:%M %p") %>
+              </li>
+            <%end%>
+
+            <li>
+              Number of guests expected: <%=b.guest_count%>
+            </li>
+
+            <li>
+              Budget per guest: <%=b.budget%>
+            </li>
+
+            <li>
+              Location: <%="#{b.address} #{b.city} #{b.state}"%>
+            </li>
+
+            <br>
+
+            <% b.bids.each do |i| %>
+
+              <li>
+              Bid Details<br>
+              <%=i.message %>
+              </li>
+
+              <li>
+                Amount $<%=i.amount%>
+              </li>
+            <%end%>
+          </ul>
+        </li>
+        <br>
+      <%end%>
+    </ul>
+  <%end%>
 </div>

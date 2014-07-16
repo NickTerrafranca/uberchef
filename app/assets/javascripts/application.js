@@ -13,14 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require_tree .
 
 $(function(){
   $(document).foundation();
-  setTimeout(function() {
-    $(".alert-box").hide();
-  }, 3000);
+
+  // setTimeout(function() {
+  //   $(".alert-box").hide();
+  // }, 3000);
 });
 
 

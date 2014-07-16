@@ -9,77 +9,72 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
 
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li>
-          <h2>
-            <%= link_to "UberChef", events_path %>
-          </h2>
-        </li>
-        <li class="toggle-topbar menu-icon">
-          <a href="#">
-          <span>Menu</span>
-          </a></li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-          <li class="has-dropdown">
-            <a href="#">Menu</a>
-            <ul class="dropdown">
-              <li>
-                <%= render 'devise/menu/login_items' %>
-              </li>
-              <li>
-                <%= render 'devise/menu/registration_items' %>
-              </li>
-
-              <%if user_signed_in?%>
-                <li>
-                  <%= link_to "Profile", user_path(current_user) %>
-                </li>
-              <%end%>
-
-              <%if user_signed_in?%>
-                <li>
-                  <%= link_to "Message", user_messages_path(current_user) %>
-                </li>
-              <%end%>
-
-              <%if user_signed_in?%>
-                <li>
-                  <%= link_to "Post your event", new_event_path %>
-                </li>
-                <li>
-                  <%= link_to "Users", users_path %>
-                </li>
-              <%end%>
-            </ul>
+    <div class="fixed">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li>
+            <h3><%= link_to "UberChef", events_path %></h3>
+          </li>
+          <li class="toggle-topbar menu-icon">
+            <a href="#">
+            <span>Menu</span>
+            </a>
           </li>
         </ul>
-    </nav>
-    <%if notice %>
-        <div data-alert class="alert-box secondary">
-          <p class="notice"><%= notice %></p>
-          <a href="#" class="close">&times;</a>
-        </div>
-      <%end%>
-      <%if alert %>
-        <div data-alert class="alert-box secondary">
-          <p class="notice"><%= alert %></p>
-          <a href="#" class="close">&times;</a>
-        </div>
-      <%end%>
 
-    <div class="row">
-      <div class="small-10 columns ">
-      <br><br>
-      <%= yield %>
-      </div>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="has-dropdown">
+              <a href="#">Menu</a>
+              <ul class="dropdown">
+                <li>
+                  <%= render 'devise/menu/login_items' %>
+                </li>
+                <li>
+                  <%= render 'devise/menu/registration_items' %>
+                </li>
+
+                <%if user_signed_in?%>
+                  <li>
+                    <%= link_to "Profile", user_path(current_user) %>
+                  </li>
+                <%end%>
+
+                <%if user_signed_in?%>
+                  <li>
+                    <%= link_to "Message", user_messages_path(current_user) %>
+                  </li>
+                <%end%>
+
+                <%if user_signed_in?%>
+                  <li>
+                    <%= link_to "Post your event", new_event_path %>
+                  </li>
+                  <li>
+                    <%= link_to "Users", users_path %>
+                  </li>
+                <%end%>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
     </div>
 
+    <div class="row content">
+      <div class="small-10 columns ">
+        <% if notice %>
+          <p><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p><%= alert %></p>
+        <% end %>
+        <!-- <br><br> -->
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

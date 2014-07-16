@@ -1,22 +1,20 @@
-<div class="small-8 columns">
-  <ul class="vcard">
-  Inbox
-    <% @received_messages.each do |m| %>
-      <li>
-        From: <%=link_to "#{m.sender.first_name} #{m.sender.last_name}", message_path(m) %><br>
-        <%= m.body %><br><br>
-      </li>
-    <%end%>
-  </ul>
-</div>
-<div class="small-4 columns">
-  <ul class="vcard">
-  Outbox
-    <% @sent_messages.each do |m| %>
-      <li>
-        Sent to: <%="#{m.receiver.first_name} #{m.receiver.last_name}" %><br><br>
-        Message: <%= m.body %>
-      </li>
-    <%end%>
-  </ul>
+<div>
+  <ul>
+  <table>
+    <thead>
+      Inbox
+      <tr>
+      <th width="200">From</th>
+      <th width="500">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @received_messages.each do |m| %>
+        <tr>
+          <td><%=link_to "#{m.sender.first_name} #{m.sender.last_name}", message_path(m) %></td>
+          <td><%= m.body %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
 </div>

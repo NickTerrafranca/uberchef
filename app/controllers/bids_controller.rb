@@ -2,7 +2,7 @@ class BidsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @bid = Bid.find(params[:id]).order('amount DESC')
+    @bid = Bid.find(params[:id])
   end
 
   def new
