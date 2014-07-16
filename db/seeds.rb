@@ -64,10 +64,79 @@ events = [
     zip: '02130',
     start_time: DateTime.parse('2014-07-27T11:00:00+04:00'),
     guest_count: 4,
-    budget: 100,
+    budget: 50,
     description: "My wife is having a baby next week and we need someone to
     cook a bunch of dinners for the week.
     There are several dietary restrictions to be discussed."
+  },
+
+
+  {
+    user_id: 6,
+    title: 'Office lunch for the staff',
+    address: '221 South Huntington Ave',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02130',
+    start_time: DateTime.parse('2015-07-27T11:00:00+04:00'),
+    guest_count: 50,
+    budget: 10,
+    description: "This is a monthly thing that we do. Looking for verity and
+    vegan friendliness. This could become a permanent gig
+    fir the right person"
+  },
+  {
+    user_id: 7,
+    title: 'Romantic dinner for a couple',
+    address: '21 Beacon St',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02166',
+    start_time: DateTime.parse('2014-11-27T19:00:00+04:00'),
+    guest_count: 4,
+    budget: 500,
+    description: "My wife is having an anniversary and want a super high-end
+    chef to cook dinner for us in our Back Bay condo."
+  },
+  {
+    user_id: 8,
+    title: 'BBQ!!!',
+    address: '32 Blah St',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02188',
+    start_time: DateTime.parse('2014-10-12T13:00:00+04:00'),
+    guest_count: 40,
+    budget: 100,
+    description: "I am from TX and want to have a good old fashioned Texas BBQ.
+    I will do the cooking but need a smoker,
+    brisket and a trained set of hands. Must know BBQ!!"
+  },
+  {
+    user_id: 9,
+    title: "Hors d'oeuvre",
+    address: '34 Rich Street',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02119',
+    start_time: DateTime.parse('2014-12-29T20:00:00+04:00'),
+    guest_count: 30,
+    budget: 100,
+    description: "I want to throw a New years eve party for friends. Need high
+    end Hors d'oeuvre and snacks. Also would be interested in hiring a bartender. "
+  },
+  {
+    user_id: 10,
+    title: 'Cooking classes',
+    address: '21 Winter St',
+    city: 'Sommerville',
+    state: 'MA',
+    zip: '02110',
+    start_time: DateTime.parse('2014-11-10T11:00:00+04:00'),
+    guest_count: 4,
+    budget: 100,
+    description: "I am looking for a chef to teach a cooking class for myself
+    and a small group of friends. I like Italian and Greek food."
   }
 ]
 
@@ -99,9 +168,7 @@ users = [
     city: 'Washington',
     state: 'DC',
     zip: '09888',
-    profile_photo: '',
-    about: '',
-    password: 'a12345678'
+    password: 'a123456hg78'
   },
   {
     first_name: 'Ron',
@@ -111,9 +178,7 @@ users = [
     city: 'Boston',
     state: 'MA',
     zip: '02118',
-    profile_photo: '',
-    about: '',
-    password: 'b12345678'
+    password: 'b1fhjkh2345678'
   },
   {
     first_name: 'Ruth',
@@ -123,9 +188,7 @@ users = [
     city: "Wellesley",
     state: 'MA',
     zip: '02119',
-    profile_photo: '',
-    about: '',
-    password: 'c12345678'
+    password: 'cl12345678'
   },
   {
     first_name: 'Michael',
@@ -135,9 +198,8 @@ users = [
     city: 'Jamaica Plain',
     state: 'MA',
     zip: '02130',
-    profile_photo: '',
     about: 'Single dad. Working hard as a hand model and caring for two kids.',
-    password: 'd12345678'
+    password: 'k12345678'
   },
   {
     first_name: 'Kevin',
@@ -147,9 +209,62 @@ users = [
     city: 'Boston',
     state: 'MA',
     zip: '02130',
-    profile_photo: '',
     about: 'I am awesome!',
+    password: 'r12345678'
+  },
+  {
+    first_name: 'Travis',
+    last_name: 'Ci',
+    email: 'example6@example.com',
+    address: '34 Winter Street',
+    city: 'Cambridge',
+    state: 'MA',
+    zip: '02142',
+
+    about: 'I am great at what I do!',
     password: 'e12345678'
+  },
+  {
+    first_name: 'Robert',
+    last_name: 'Smith',
+    email: 'example7@example.com',
+    address: '60 Perkins Street',
+    city: 'Jamaica Plain',
+    state: 'MA',
+    zip: '02160',
+    password: 'e12345678'
+  },
+  {
+    first_name: 'Kevin',
+    last_name: 'Smith',
+    email: 'example8@example.com',
+    address: '34 Water Street',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02130',
+    password: 'u12345678'
+  },
+  {
+    first_name: 'Gias ',
+    last_name: 'Baltar',
+    email: 'example9@example.com',
+    address: '100 Galaxy Way',
+    city: 'Caprica City',
+    state: 'CAP',
+    zip: '021302466453',
+
+    about: 'I specialize in the manufacture of Cylon detectors.',
+    password: 'w12345678'
+  },
+  {
+    first_name: 'Han',
+    last_name: 'Solo',
+    email: 'example0@example.com',
+    address: '6560',
+    city: 'Clout City',
+    state: 'CL',
+    zip: '0212342111',
+    password: 'ewe412345678'
   }
 ]
 users.each do |user_hash|
@@ -166,6 +281,6 @@ users.each do |user_hash|
     password: user_hash[:password]
   }
 
-  user = User.find_by(user_attr)
+  # user = User.find_by(user_attr)
   user ||= User.create!(user_attr)
 end
