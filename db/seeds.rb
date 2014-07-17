@@ -7,7 +7,6 @@ events = [
     state: "DC",
     zip: '09888',
     start_time: DateTime.parse('2014-09-19T17:30:00+04:00'),
-    end_time: DateTime.parse('2014-09-19T21:30:00+04:00'),
     guest_count: 9,
     budget: 30,
     description: 'Looking to host a sushi making cooking class for my girlfriends 30th birthday party.
@@ -21,7 +20,6 @@ events = [
     state: 'MA',
     zip: '02130',
     start_time: DateTime.parse('2014-07-19T19:30:00+04:00'),
-    end_time: DateTime.parse('2014-07-19T21:30:00+04:00'),
     guest_count: 30,
     budget: 12,
     description: 'Want to have a back yard pig roast for my "foodie friends".
@@ -48,7 +46,6 @@ events = [
     state: 'MA',
     zip: '02663',
     start_time: DateTime.parse('2014-08-10T12:00:00+04:00'),
-    end_time: DateTime.parse('2014-08-10T14:30:00+04:00'),
     guest_count: 15,
     budget: 10,
     description: 'Its my kids 2nd birthday and I just need someone to man the
@@ -245,7 +242,7 @@ users = [
     password: 'u12345678'
   },
   {
-    first_name: 'Gias ',
+    first_name: 'Gaius ',
     last_name: 'Baltar',
     email: 'example9@example.com',
     address: '100 Galaxy Way',
