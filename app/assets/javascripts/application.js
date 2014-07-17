@@ -15,6 +15,10 @@
 //= require foundation
 //= require_tree .
 
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
+
 $(function(){
   $(document).foundation();
 
@@ -23,6 +27,8 @@ $(function(){
   // }, 3000);
 });
 
+$('.datepicker').pickadate();
+$('.timepicker').pickatime();
 
 // var a = [1, 2, 3];
 

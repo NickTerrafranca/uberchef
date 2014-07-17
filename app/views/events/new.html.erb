@@ -11,45 +11,45 @@
     <div class="row">
       <div class="small-5 columns">
         <div>
-        <%= f.text_field :title, autofocus: true, placeholder: 'Event title' %>
+          <%= f.text_field :title, autofocus: true, placeholder: 'Event title' %>
         </div>
 
         <div>
-        <%= f.text_field :address, autofocus: true, placeholder: "Address" %>
+          <%= f.text_field :address, autofocus: true, placeholder: "Address" %>
         </div>
 
         <div>
-        <%= f.text_field :city, autofocus: true, placeholder: "City" %>
+          <%= f.text_field :city, autofocus: true, placeholder: "City" %>
         </div>
 
         <div>
-        <%= f.text_field :state, autofocus: true, placeholder: "State" %>
+          <%= f.text_field :state, autofocus: true, placeholder: "State" %>
         </div>
 
         <div>
-        <%= f.text_field :zip, autofocus: true, placeholder: "Zip" %>
+          <%= f.text_field :zip, autofocus: true, placeholder: "Zip" %>
         </div>
 
         <div>
-        <%= f.text_field :start_time, autofocus: true, placeholder: 'Event start time'%>
+          <%= f.datetime_local_field :start_time, autofocus: true, placeholder: 'Event end time', class: "datepicker"%>
         </div>
 
-        <div>
-        <%= f.text_field :end_time, autofocus: true, placeholder: 'Event end time' %>
-        </div>
+        <!-- <div>
+          <%= f.time_select :end_time, class: "timepicker" %>
+        </div> -->
       </div>
 
       <div class="small-5 columns">
         <div>
-        <%= f.text_field :guest_count, autofocus: true, placeholder: 'Expected number of guests' %>
+          <%= f.text_field :guest_count, autofocus: true, placeholder: 'Expected number of guests' %>
         </div>
 
         <div>
-        <%= f.text_field :budget, autofocus: true, placeholder: 'Budget price per person' %>
+          <%= f.text_field :budget, autofocus: true, placeholder: 'Budget price per person' %>
         </div>
 
         <div>
-        <%= f.text_area :description, placeholder: 'Event details', :cols => "20", :rows => "10" %>
+          <%= f.text_area :description, placeholder: 'Event details', :cols => "20", :rows => "10" %>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
   <br>
   <div class="row">
     <div class="small-6 small-centered columns">
-    <%= f.submit "Submit", class: "button expand" %>
+      <%= f.submit "Submit", class: "button expand" %>
     </div>
   </div>
 <% end %>
