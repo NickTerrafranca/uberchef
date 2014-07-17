@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
- */
 *= require pickadate/default
 *= require pickadate/default.date
 *= require pickadate/default.time
+ */
+
 
 .content {
   margin-top: 20px;

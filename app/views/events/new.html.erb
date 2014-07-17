@@ -31,12 +31,12 @@
         </div>
 
         <div>
-          <%= f.datetime_local_field :start_time, autofocus: true, placeholder: 'Event end time', class: "datepicker"%>
+          <%= f.text_field :start_time, autofocus: true, placeholder: 'Event start time', class: "datepicker"%>
         </div>
 
-        <!-- <div>
-          <%= f.time_select :end_time, class: "timepicker" %>
-        </div> -->
+        <div>
+          <%= f.text_field :end_time, autofocus: true, placeholder: 'Event end time', class: "timepicker" %>
+        </div>
       </div>
 
       <div class="small-5 columns">
