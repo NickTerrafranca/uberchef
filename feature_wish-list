@@ -1,0 +1,22 @@
+Format nave color and font style.
+JS date picker
+Application information/introduction page for unauthenticated users.
+Landing page as the first thing that a user see when they log in.
+Pagination
+Have a Guest Count range drop down in the new event form
+Method in model that totals the event budget price
+Display “featured” events (if chef).
+Delete messages en mass with check boxes.
+Display an event’s bidders in some sort of order.
+Ability for a user to edit their events. (Chefs that have bid on this event may be notified with a message).
+Ability to create a profile as a Chef (user will get added form fields like speciality and past work)
+Profile photo upload.
+Email user when they get messages while logged out
+Email user when they have new bids on their events.
+User ratings
+Ability to “accept” a bid(this will remove the event from general view. Once the events date has expired the user is allowed to rate the chef and the chef can rate the user.)
+Chef/event reviews (by user)
+
+MONEY AS INTEGER IN PENNIES?
+
+Admin name spacing and all of the features that comes with it!
