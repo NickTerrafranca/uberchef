@@ -38,6 +38,11 @@
           <%= f.text_field :pickadate_time, placeholder: 'Start time', class: "timepicker" %>
         </div>
 
+        <div>
+          <%= f.label :duration, 'Approximate duration' %>
+          <%= f.select(:duration, options_for_select(['1 to 2 hours', '2 to 3 hours', '3 to 4 hours', '4 to 5 hours', '5 to 6 hours', '6 + hours']), include_blank: true) %>
+        </div>
+
       </div>
 
       <div class="small-5 columns">
@@ -62,4 +67,3 @@
     </div>
   </div>
 <% end %>
-

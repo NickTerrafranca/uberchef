@@ -2,28 +2,26 @@ events = [
   {
     user_id: 1,
     title: 'Sushi party',
-    address: '3530 Tilden St',
+    address: '3530n Tilden St',
     city: 'Washington',
-    state: 'DC',
+    state: "DC",
     zip: '09888',
     start_time: DateTime.parse('2014-09-19T17:30:00+04:00'),
     duration: '1 to 2',
     guest_count: 9,
     budget: 30,
-    description: 'Looking to host a sushi making cooking class for my
-    girlfriends 30th birthday party.
-    I have a large modern kitchen. Will be providing alcohol but want helping
-    selection Saki to go with the food.'
+    description: 'Looking to host a sushi making cooking class for my girlfriends 30th birthday party.
+    I have a large modern kitchen. Will be providing alcohol but want helping selection Saki to go with the food.'
   },
   {
     user_id: 2,
-    title: 'Mayday pig roast',
+    title: 'Pig roast',
     address: '50 Center Street',
     city: 'Boston',
     state: 'MA',
     zip: '02130',
-    start_time: DateTime.parse('2015-05-01T19:30:00+04:00'),
-    duration: '5 to 6',
+    start_time: DateTime.parse('2014-10-19T19:30:00+04:00'),
+    duration: '4 to 5',
     guest_count: 30,
     budget: 12,
     description: 'Want to have a back yard pig roast for my "foodie friends".
@@ -33,7 +31,7 @@ events = [
     user_id: 3,
     title: 'Tea time',
     address: '127 Waban st.',
-    city: 'Wellesley',
+    city: "Wellesley",
     state: 'MA',
     zip: '02119',
     start_time: DateTime.parse('2014-11-21T13:00:00+04:00'),
@@ -41,8 +39,7 @@ events = [
     guest_count: 5,
     budget: 30,
     description: "I am hosting afternoon tea for several London guests.
-    Must deliver exquisitely crafted tea sandwiches, cakes and biscuits.
-    Preparation will not be done on site"
+    Must deliver exquisitely crafted tea sandwiches, cakes and biscuits. Preparation will not be done on site"
   },
   {
     user_id: 4,
@@ -51,7 +48,7 @@ events = [
     city: 'North Redding',
     state: 'MA',
     zip: '02663',
-    start_time: DateTime.parse('2014-10-10T12:00:00+04:00'),
+    start_time: DateTime.parse('2014-09-10T12:00:00+04:00'),
     duration: '2 to 3',
     guest_count: 15,
     budget: 10,
@@ -66,7 +63,7 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02130',
-    start_time: DateTime.parse('2014-08-27T11:00:00+04:00'),
+    start_time: DateTime.parse('2014-12-27T11:00:00+04:00'),
     duration: '1 to 2',
     guest_count: 4,
     budget: 50,
@@ -82,8 +79,8 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02130',
-    start_time: DateTime.parse('2015-01-05T11:00:00+04:00'),
-    duration: '1 to 2',
+    start_time: DateTime.parse('2015-07-27T11:00:00+04:00'),
+    duration: '2 to 3',
     guest_count: 50,
     budget: 10,
     description: "This is a monthly thing that we do. Looking for verity and
@@ -98,7 +95,7 @@ events = [
     state: 'MA',
     zip: '02166',
     start_time: DateTime.parse('2014-11-27T19:00:00+04:00'),
-    duration: '3 to 4',
+    duration: '2 to 3',
     guest_count: 4,
     budget: 500,
     description: "My wife is having an anniversary and want a super high-end
@@ -112,7 +109,7 @@ events = [
     state: 'MA',
     zip: '02188',
     start_time: DateTime.parse('2014-10-12T13:00:00+04:00'),
-    duration: '6 to 7',
+    duration: '6 +',
     guest_count: 40,
     budget: 100,
     description: "I am from TX and want to have a good old fashioned Texas BBQ.
@@ -127,18 +124,17 @@ events = [
     state: 'MA',
     zip: '02119',
     start_time: DateTime.parse('2014-12-29T20:00:00+04:00'),
-    duration: '1 to 2',
+    duration: '3 to 4',
     guest_count: 30,
     budget: 100,
     description: "I want to throw a New years eve party for friends. Need high
-    end Hors d'oeuvre and snacks. Also would be interested in hiring a
-    bartender."
+    end Hors d'oeuvre and snacks. Also would be interested in hiring a bartender. "
   },
   {
     user_id: 10,
     title: 'Cooking classes',
     address: '21 Winter St',
-    city: 'Somerville',
+    city: 'Sommerville',
     state: 'MA',
     zip: '02110',
     start_time: DateTime.parse('2014-11-10T11:00:00+04:00'),
@@ -149,7 +145,7 @@ events = [
     and a small group of friends. I like Italian and Greek food."
   }
 ]
-puts events
+
 events.each do |event_hash|
   event_attr = {
     user_id: event_hash[:user_id],
@@ -159,7 +155,7 @@ events.each do |event_hash|
     state: event_hash[:state],
     zip: event_hash[:zip],
     start_time: event_hash[:start_time],
-    duration: event_hash[:duration],
+    duration: event_hash[:start_time],
     guest_count: event_hash[:guest_count],
     budget: event_hash[:budget],
     description: event_hash[:description]
@@ -262,7 +258,6 @@ users = [
     city: 'Caprica City',
     state: 'CAP',
     zip: '021302466453',
-
     about: 'I specialize in the manufacture of Cylon detectors.',
     password: 'w12345678'
   },

@@ -35,7 +35,9 @@ class Event < ActiveRecord::Base
   private
 
   def set_start_time
-    date = [pickadate_date, pickadate_time].join(' ')
-    self.start_time = Time.zone.parse(date)
+    if pickadate_time && pickadate_date
+      date = [pickadate_date, pickadate_time].join(' ')
+      self.start_time = Time.zone.parse(date)
+    end
   end
 end
