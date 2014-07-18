@@ -27,7 +27,7 @@ feature 'user creates a new event', %Q(
     fill_in 'State', with: event.state
     fill_in 'Zip', with: event.zip
     fill_in 'Event start time', with: event.start_time
-    fill_in 'Event end time', with: event.end_time
+    fill_in 'Approximate duration', with: event.duration
     fill_in 'Expected number of guests', with: event.guest_count
     fill_in 'Budget price per person', with: event.budget
     fill_in 'Event details', with: event.description

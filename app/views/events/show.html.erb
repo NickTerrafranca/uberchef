@@ -12,14 +12,12 @@
     <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
   </li>
 
-
-    <li>
-      <strong>
-        Event duration<br>
-      </strong>
-      <%=@event.duration%>
-    </li>
-
+  <li>
+    <strong>
+      Event duration<br>
+    </strong>
+    <%=@event.duration%>
+  </li>
 
   <li>
     <strong>
@@ -50,7 +48,7 @@
   </li>
 
   <li>
-    <%= link_to "Contact this user with an offer", new_event_bid_path(@event) %>
+    <%= link_to "Make an offer on this event", new_event_bid_path(@event) %>
   </li>
 
 </ul>

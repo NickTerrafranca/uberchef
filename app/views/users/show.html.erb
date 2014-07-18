@@ -53,11 +53,9 @@
                 Start time: <%=e.start_time.strftime("%B %d at %I:%M %p")%>
               </li>
 
-              <%if e.end_time %>
-                <li>
-                  End time: <%=e.end_time.strftime("%B %d at %I:%M %p") %>
-                </li>
-              <%end%>
+              <li>
+                Event duration: <%=e.duration%>
+              </li>
 
               <li>
                 Number of guests expected: <%=e.guest_count%>
@@ -109,11 +107,9 @@
               Start time: <%=b.start_time.strftime("%B %d at %I:%M %p")%>
             </li>
 
-            <%if b.end_time %>
-              <li>
-                End time: <%=b.end_time.strftime("%B %d at %I:%M %p") %>
-              </li>
-            <%end%>
+            <li>
+              Event duration: <%=b.duration%>
+            </li>
 
             <li>
               Number of guests expected: <%=b.guest_count%>

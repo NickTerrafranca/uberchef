@@ -7,7 +7,7 @@ FactoryGirl.define do
     state "MA"
     zip "12345"
     start_time DateTime.parse('2014-07-19T19:30:00+04:00')
-    end_time DateTime.parse('2014-07-19T21:30:00+04:00')
+    duration '1 to 2'
     guest_count 30
     budget 20
     description 'Description'

@@ -16,14 +16,12 @@
         <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
       </li>
 
-      <% if @event.end_time %>
-        <li>
-          <strong>
-            Event end time:
-          </strong>
-          <%=@event.end_time.strftime("%B %d at %I:%M %p") %>
-        </li>
-      <% end %>
+      <li>
+        <strong>
+          Event duration<br>
+        </strong>
+        <%=@event.duration%>
+      </li>
 
       <li>
         <strong>

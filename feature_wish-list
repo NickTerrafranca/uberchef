@@ -20,6 +20,7 @@ Email user when they get messages while logged out
 Email user when they have new bids on their events.
 User ratings
 Ability to “accept” a bid(this will remove the event from general view. Once the events date has expired the user is allowed to rate the chef and the chef can rate the user.)
+create a message thread.
 
 MONEY AS INTEGER IN PENNIES?
 
