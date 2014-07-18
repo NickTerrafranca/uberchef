@@ -8,7 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :state, null: false
       t.string :zip
       t.datetime :start_time, null: false
-      t.datetime :end_time
+      t.string :duration, null: false
       t.integer :guest_count, null: false
       t.integer :budget, null: false
       t.text :description, null: false
