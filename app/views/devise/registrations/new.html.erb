@@ -2,46 +2,44 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
     <div class="row">
-      <div class="small-6 columns">
-        <div><%= f.label :first_name %><br />
-          <%= f.text_field :first_name, autofocus: true %></div>
+        <div class="small-5 columns">
+            <div><%= f.label :first_name %><br />
+            <%= f.text_field :first_name, autofocus: true %></div>
 
-        <div><%= f.label :last_name %><br />
-        <%= f.text_field :last_name, autofocus: true %></div>
+            <div><%= f.label :last_name %><br />
+            <%= f.text_field :last_name, autofocus: true %></div>
 
-        <div><%= f.label :address, 'Address*' %><br />
-        <%= f.text_field :address, autofocus: true %></div>
+            <div><%= f.label :address, 'Address*' %><br />
+            <%= f.text_field :address, autofocus: true %></div>
 
-        <div><%= f.label :city %><br />
-        <%= f.text_field :city, autofocus: true %></div>
-
-
-        <div><%= f.label :state %><br />
-        <%= f.text_field :state, autofocus: true %></div>
+            <div><%= f.label :city %><br />
+            <%= f.text_field :city, autofocus: true %></div>
 
 
-        <div><%= f.label :zip, 'Zip*' %><br />
-        <%= f.text_field :zip, autofocus: true %></div>
+            <div><%= f.label :state %><br />
+            <%= f.text_field :state, autofocus: true %></div>
 
 
-        <div><%= f.label :about, 'Short Description about you and/or your skills*' %><br />
-        <%= f.text_area :about, autofocus: true, :cols => "10", :rows => "10" %></div>
+            <div><%= f.label :zip, 'Zip' %><br />
+            <%= f.text_field :zip, autofocus: true %></div>
+            </div>
+            <div class="small-5 columns">
 
-        <div><%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, placeholder: 'user@example.com'  %></div>
+            <div><%= f.label :about, 'Short Description about you and/or your skills' %><br />
+            <%= f.text_area :about, autofocus: true, :cols => "10", :rows => "10" %></div>
+
+            <div><%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, placeholder: 'user@example.com'  %></div>
 
 
+            <div><%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off",  placeholder: 'Minimum of 8 characters' %></div>
 
 
-        <div><%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off",  placeholder: 'Minimum of 8 characters' %></div>
+            <div><%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-
-        <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-        <%= f.submit "Sign up", class: "button [tiny small large]"%><br>
-        Optional Field*
-      </div>
+            <%= f.submit "Sign up", class: "button [tiny small large]"%><br>
+        </div>
     </div>
 <% end %>
