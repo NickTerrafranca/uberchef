@@ -7,5 +7,6 @@ class WelcomeController < ApplicationController
   end
 
   def landing_page
+    # how it works page
   end
 end
