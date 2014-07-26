@@ -1,16 +1,11 @@
-Landing page as the first thing that a user see when they log in.
-Application information/introduction page for unauthenticated users.
 Format nav color and font style.
-<<<<<<< HEAD
 Background texture
-Application information/introduction page for unauthenticated users.
-Landing page as the first thing that a user see when they log in.
 Datepicker needs to not allow selection of dates and times that have past.
 Hide email address.
-=======
 background texture
 Adams comments
->>>>>>> landing_page
+
+event table head click-able for sorting and ordering
 
 Pagination
 Method in model that totals the event budget price

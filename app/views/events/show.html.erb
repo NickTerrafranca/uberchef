@@ -1,55 +1,59 @@
-<div>
-<h3><%=@event.title %></h3>
-<ul class="vcard small-8 columns">
-  <li>
-    <strong>Event location</strong><br> <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
-  </li>
+<div class="row">
+  <h3><%=@event.title %></h3>
+  <ul class="vcard small-8 columns">
+    <li>
+      <strong>Event location</strong><br> <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
+    </li>
 
-  <li>
-    <strong>
-      Event start time<br>
-    </strong>
-    <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
-  </li>
+    <li>
+      <strong>
+        Event start time<br>
+      </strong>
+      <%=@event.start_time.strftime("%B %d at %I:%M %p") %>
+    </li>
 
-  <li>
-    <strong>
-      Event duration<br>
-    </strong>
-    <%=@event.duration%>
-  </li>
+    <li>
+      <strong>
+        Event duration<br>
+      </strong>
+      <%=@event.duration%>
+    </li>
 
-  <li>
-    <strong>
-      Expected number of guests<br>
-    </strong>
-    <%=@event.guest_count %>
-  </li>
+    <li>
+      <strong>
+        Expected number of guests<br>
+      </strong>
+      <%=@event.guest_count %>
+    </li>
 
-  <li>
-    <strong>
-      Budget per person<br>
-    </strong>
-    $<%=@event.budget %>
-  </li>
+    <li>
+      <strong>
+        Budget per person<br>
+      </strong>
+      $<%=@event.budget %>
+    </li>
 
-   <li>
-     <strong>
-      This events total bid price<br>
-    </strong>
-    $<%=@event.budget * @event.guest_count%>
-  </li>
+     <li>
+       <strong>
+        This events total bid price<br>
+      </strong>
+      $<%=@event.budget * @event.guest_count%>
+    </li>
 
-  <li>
-    <strong>
-      Event details<br>
-    </strong>
-    <%=@event.description %>
-  </li>
+    <li>
+      <strong>
+        Event details<br>
+      </strong>
+      <%=@event.description %>
+    </li>
+    <br>
+    <li>
+      <strong>
+        <%= link_to "Make an offer on this event", new_event_bid_path(@event) %>
+      </strong>
+    </li>
 
-  <li>
-    <%= link_to "Make an offer on this event", new_event_bid_path(@event) %>
-  </li>
+  </ul>
 
-</ul>
 </div>
+<div class="row"><%= link_to "Back", events_path %></div>
