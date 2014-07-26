@@ -1,27 +1,24 @@
+<div>
+  <ul>
+  <table>
+  <thead>
+    <tr>
+      <th width="500">Description</th>
+      <th width="200">Location</th>
+      <th width="500">Start time</th>
+      <th width="800">Details</th>
+    </tr>
+  </thead>
 
-<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+  <tbody>
   <% @event.each do |e| %>
     <% if e.start_time >= Date.today %>
-      <li >
-        <%= link_to "#{e.title}", event_path(e) %>
-        <ul class="no-bullet">
-          <li>
-            Location: <%="#{e.city}, #{ e.state}"%>
-          </li>
-
-          <li>
-            Start time: <%= e.start_time.strftime("%B %d at %I:%M %p") %>
-          </li>
-
-          <li>
-            Event duration: <%=e.duration%>
-          </li>
-
-          <li>
-          Event details: <%= e.description %>
-          </li>
-        </ul>
-      </li>
+      <tr>
+        <td><%= link_to "#{e.title}", event_path(e) %></td>
+        <td><%= "#{e.city}, #{ e.state}"%></td>
+        <td><%= e.start_time.strftime("%B %d at %I:%M %p") %></td>
+        <td><%= e.description %></td>
+      </tr>
     <% end %>
   <% end %>
-</ul>
+
