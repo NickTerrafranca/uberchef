@@ -3,10 +3,9 @@
     <table>
       <thead>
         <tr>
-          <th width="500">Description</th>
-          <th width="200">Location</th>
-          <th width="500">Date/Time</th>
-          <th width="600">Details</th>
+          <th width="400">Description</th>
+          <th width="300">Location</th>
+          <th width="300">Date/Time</th>
         </tr>
       </thead>
       <tbody>
@@ -16,7 +15,6 @@
               <td><%= link_to "#{e.title}", event_path(e) %></td>
               <td><%= "#{e.city}, #{ e.state}"%></td>
               <td><%= e.start_time.strftime("%a %B %d, %l:%M %P") %></td>
-              <td><%= e.description %></td>
             </tr>
           <% end %>
         <% end %>
