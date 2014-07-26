@@ -1,16 +1,26 @@
+Landing page as the first thing that a user see when they log in.
+Application information/introduction page for unauthenticated users.
 Format nav color and font style.
+<<<<<<< HEAD
 Background texture
 Application information/introduction page for unauthenticated users.
 Landing page as the first thing that a user see when they log in.
 Datepicker needs to not allow selection of dates and times that have past.
 Hide email address.
+=======
+background texture
+Adams comments
+>>>>>>> landing_page
 
 Pagination
 Method in model that totals the event budget price
 Delete messages en mass with check boxes.
+Messages as a thread
 Chef/event reviews (by user)
+  User rating.
 
-
+Search events
+Browse events by city.
 Profile photo upload.
 Have a Guest Count range drop down in the new event form
 Display “featured” events (if chef).
@@ -21,7 +31,6 @@ Email user when they get messages while logged out
 Email user when they have new bids on their events.
 User ratings
 Ability to “accept” a bid(this will remove the event from general view. Once the events date has expired the user is allowed to rate the chef and the chef can rate the user.)
-create a message thread.
 
 MONEY AS INTEGER IN PENNIES?
 
