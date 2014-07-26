@@ -9,7 +9,7 @@
         <div><%= f.label :last_name %><br />
         <%= f.text_field :last_name, autofocus: true %></div>
 
-        <div><%= f.label :address, 'Address*' %><br />
+        <div><%= f.label :address, 'Address' %><br />
         <%= f.text_field :address, autofocus: true %></div>
 
         <div><%= f.label :city %><br />
@@ -20,10 +20,10 @@
         <%= f.text_field :state, autofocus: true %></div>
 
 
-        <div><%= f.label :zip, 'Zip*' %><br />
+        <div><%= f.label :zip, 'Zip' %><br />
         <%= f.text_field :zip, autofocus: true %></div>
-
-
+        </div>
+        <div class="small-6 columns">
         <div><%= f.label :about, 'Short Description about you and/or your skills*' %><br />
         <%= f.text_area :about, autofocus: true, :cols => "10", :rows => "10" %></div>
 
@@ -41,7 +41,6 @@
         <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
         <%= f.submit "Sign up", class: "button [tiny small large]"%><br>
-        Optional Field*
       </div>
     </div>
 <% end %>
