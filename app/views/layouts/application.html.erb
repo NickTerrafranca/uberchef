@@ -50,7 +50,7 @@
 
                 <%if user_signed_in?%>
                   <li>
-                    <%= link_to "Post your event", new_event_path %>
+                    <%= link_to "Post Event", new_event_path %>
                   </li>
                   <li>
                     <%= link_to "Users", users_path %>
@@ -71,7 +71,6 @@
         <% if alert %>
           <p><%= alert %></p>
         <% end %>
-        <!-- <br><br> -->
         <%= yield %>
       </div>
     </div>
