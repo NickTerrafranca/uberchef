@@ -13,7 +13,7 @@ class BidsController < ApplicationController
   def create
     @bid = Bid.create(bid_params)
     @event = Event.find(params[:event_id])
-    @bid.user_id = current_user.id
+    @bid.user = current_user
     @bid.event = @event
     if @bid.save
       flash[:notice] = 'Successfully created...'
