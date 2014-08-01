@@ -1,10 +1,9 @@
 class Event < ActiveRecord::Base
-
   belongs_to :user
   has_many :bids
   has_many :applicants, through: :bids
 
-  validates :user_id, presence: true
+  validates :user, presence: true
   validates :title, presence: true
   validates :address, presence: true
   validates :city, presence: true
