@@ -12,4 +12,12 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def received_messages(current_user)
+    Message.where('receiver_id = ?', current_user[:id]).order('created_at DESC')
+  end
+
+  def sent_messages(current_user)
+    Message.where('sender_id = ?', current_user[:id])
+  end
 end

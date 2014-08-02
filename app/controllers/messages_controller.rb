@@ -2,12 +2,12 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @received_messages = Message.where('receiver_id = ?', current_user[:id]).order('created_at DESC')
-    @sent_messages = Message.where('sender_id = ?', current_user[:id])
+    @received_messages = current_user.received_messages(current_user)
+    @sent_messages = current_user.sent_messages(current_user)
   end
 
   def show
-    @message = Message.find(params[:id])
+    @message = Message.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id).find(params[:id])
   end
 
   def new
