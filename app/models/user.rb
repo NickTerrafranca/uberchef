@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def received_messages(current_user)
-    Message.where('receiver_id = ?', current_user[:id]).order('created_at DESC')
+    Message.where('receiver_id = ?', current_user[:id])
   end
 
   def sent_messages(current_user)

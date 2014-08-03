@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @received_messages = current_user.received_messages(current_user)
+    @received_messages = current_user.received_messages(current_user).order('created_at DESC')
     @sent_messages = current_user.sent_messages(current_user)
   end
 
@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
+    @message = current_user.received_messages(current_user).find(params[:id])
     @message.destroy
     if @message.destroy
       flash[:notice] = 'Your message was not deleted...'
