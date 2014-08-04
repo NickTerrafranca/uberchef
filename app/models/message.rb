@@ -4,4 +4,12 @@ class Message < ActiveRecord::Base
   validates :sender, presence: true
   validates :receiver, presence: true
   validates :body, presence: true
+
+  # def sent_messages
+  #   Message.where(sender: self)
+  # end
+
+  # def received_messages
+  #   Message.where(receiver: self)
+  # end
 end
