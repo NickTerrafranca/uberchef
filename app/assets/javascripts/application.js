@@ -22,9 +22,9 @@
 $(function(){
   $(document).foundation();
 
-  // setTimeout(function() {
-  //   $(".alert-box").hide();
-  // }, 3000);
+  setTimeout(function() {
+    $(".alert-box").hide();
+  }, 3000);
 });
 
 $('.datepicker').pickadate();
