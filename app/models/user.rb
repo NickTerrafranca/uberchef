@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def received_messages(current_user)
     Message.where('receiver_id = ?', current_user[:id])
   end

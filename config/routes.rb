@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: "welcome#index"
+  root to: 'welcome#index'
 
-  get "welcome/landing_page", as: "landing_page"
+  get 'welcome/landing_page', as: 'landing_page'
 
   devise_for :users
 

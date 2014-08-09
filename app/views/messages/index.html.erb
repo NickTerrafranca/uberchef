@@ -11,7 +11,7 @@
     <tbody>
       <% @received_messages.each do |m| %>
         <tr>
-          <td><%=link_to "#{m.sender.first_name} #{m.sender.last_name}", message_path(m) %></td>
+          <td><%=link_to "#{m.sender.full_name}", message_path(m) %></td>
           <td><%= m.body %></td>
         </tr>
       <%end%>

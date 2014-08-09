@@ -9,6 +9,6 @@
 
 </ul>
 <div>
-  From: <%="#{@message.sender.first_name} #{@message.sender.last_name}" %><br><br>
+  From: <%=@message.sender.full_name %><br><br>
   Message: <%= @message.body %>
 </div>

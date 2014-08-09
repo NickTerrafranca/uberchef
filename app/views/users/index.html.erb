@@ -7,7 +7,7 @@
         </li>
       <%end%>
       <li>
-        <%= link_to "#{u.first_name} #{u.last_name}", user_path(u) %>
+        <%= link_to u.full_name, user_path(u) %>
       </li>
 
       <li>
