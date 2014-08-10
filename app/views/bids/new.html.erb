@@ -6,7 +6,7 @@
         <strong>
           Event location:
         </strong>
-        <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
+        <%=@event.full_address%>
       </li>
 
       <li>
@@ -41,7 +41,7 @@
         <strong>
           This events total bid price:
         </strong>
-        $<%=@event.budget * @event.guest_count%>
+        $<%= @event.bid_total %>
       </li>
 
       <li>
