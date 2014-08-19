@@ -24,7 +24,7 @@ $(function(){
 
   setTimeout(function() {
     $(".alert-box").hide();
-  }, 3000);
+  }, 4000);
 });
 
 $('.datepicker').pickadate();

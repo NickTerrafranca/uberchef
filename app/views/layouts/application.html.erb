@@ -62,11 +62,19 @@
     </div>
 
     <div class="row content">
-      <div class="small-12 columns ">
+      <div class="small-12 columns">
         <% if notice %>
-          <div class="alert-box">
+
+        <div data-alert class="alert-box info radius">
+          <%= notice %>
+          <!-- <a href="#" class="close">&times;</a> -->
+        </div>
+
+
+
+          <!-- <div class="alert-box">
             <p><%= notice %></p>
-          </div>
+          </div> -->
         <% end %>
         <% if alert %>
           <p><%= alert %></p>
