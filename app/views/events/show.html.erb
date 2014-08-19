@@ -2,7 +2,7 @@
   <h3><%=@event.title %></h3>
   <ul class="vcard small-8 columns">
     <li>
-      <strong>Event location</strong><br> <%="#{@event.address} #{@event.city}, #{@event.state}, #{@event.zip}"%>
+      <strong>Event location</strong><br> <%= @event.full_address %>
     </li>
 
     <li>
@@ -37,7 +37,7 @@
        <strong>
         This events total bid price<br>
       </strong>
-      $<%=@event.budget * @event.guest_count%>
+      $<%= @event.bid_total %>
     </li>
 
     <li>

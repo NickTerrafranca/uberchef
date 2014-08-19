@@ -7,7 +7,7 @@
 <div class="row user-border">
   <ul class="no-bullet">
     <li>
-      <h3><%="#{@user.first_name} #{@user.last_name}"%></h3>
+      <h3><%=@user.full_name%></h3>
     </li>
 
     <li>
@@ -26,7 +26,7 @@
 
     <% unless @user == current_user%>
       <li>
-          <%= link_to "Message #{@user.first_name} #{@user.last_name}", new_user_message_path(@user) %>
+          <%= link_to "Message #{@user.full_name}", new_user_message_path(@user) %>
       </li>
     <%end%>
   </ul>
@@ -74,7 +74,7 @@
                  Bid on by:
                 <%e.bids.map do |i|%>
                   <li>
-                    <%=link_to "#{i.applicant.first_name} #{i.applicant.last_name}", user_path(i.applicant)%>
+                    <%=link_to i.applicant.full_name, user_path(i.applicant)%>
                   </li>
                 <%end%>
               <%end%>

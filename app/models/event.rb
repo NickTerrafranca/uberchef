@@ -16,6 +16,14 @@ class Event < ActiveRecord::Base
 
   before_validation :set_start_time
 
+  def full_address
+    "#{address} #{city}, #{state}, #{zip}"
+  end
+
+  def bid_total
+    guest_count * budget
+  end
+
   def pickadate_time=(time)
     @pickadate_time = time
   end
