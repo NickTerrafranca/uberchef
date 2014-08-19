@@ -19,13 +19,16 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 
+// setTimeout(function() {
+  //   $(".alert-box").hide();
+  // }, 3000);
+
 $(function(){
   $(document).foundation();
-
   setTimeout(function() {
     $(".alert-box").hide();
-  }, 4000);
-});
+    }, 4000);
+  });
 
 $('.datepicker').pickadate();
 $('.timepicker').pickatime();
