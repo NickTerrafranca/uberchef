@@ -19,10 +19,6 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 
-// setTimeout(function() {
-  //   $(".alert-box").hide();
-  // }, 3000);
-
 $(function(){
   $(document).foundation();
   setTimeout(function() {
@@ -32,15 +28,3 @@ $(function(){
 
 $('.datepicker').pickadate();
 $('.timepicker').pickatime();
-
-// var a = [1, 2, 3];
-
-// a.each(function(x) {
-//   console.log(x);
-// });
-
-// a = [1, 2, 3]
-
-// a.each do |x|
-//   puts x
-// end
