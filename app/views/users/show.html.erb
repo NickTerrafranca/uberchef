@@ -6,16 +6,23 @@
 <div class="row user-border">
   <ul class="no-bullet">
     <li>
-      <h3><%=@user.full_name%></h3>
+      <h2><%=@user.full_name%></h2>
     </li>
 
-    <li>
-      Email: <%=@user.email%>
-    </li>
+    <% if @user = current_user %>
+      <li>
+        Email: <%=@user.email%>
+      </li>
 
-    <li>
-      Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
-    </li>
+      <li>
+        Address: <%="#{@user.address} #{@user.city} #{@user.state}" %>
+      </li>
+
+    <% else %>
+      <li>
+        Location: <%="#{@user.city} #{@user.state}" %>
+      </li>
+    <% end %>
 
     <% if @user.about %>
       <li>
@@ -35,9 +42,7 @@
     <%@user.events_hosted.each do |e|%>
       <% if e.start_time >= Date.today %>
         <ol  class="vcard">
-          <p>
-            Hosted events
-          </p>
+          <h4>My Events</h4>
           <li class="vcard">
             <ul>
               <li>
@@ -70,19 +75,20 @@
 
               <%if e.bids.exists? %>
                 <br>
-                 <strong>Bids</strong>
+                 <strong>You'r event has bids!</strong>
                 <%e.bids.map do |i|%>
                   <ol>
                     <li>
                       <li>
-                        Name:<%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                        From: <%=link_to i.applicant.full_name, user_path(i.applicant)%>
                       </li>
                       <li>
-                        Message:<%= i.message %>
+                        Message: <%= i.message %>
                       </li>
                       <li>
-                        Amount:$<%= i.amount %>
+                        Bid amount: $<%= i.amount %>
                       </li>
+                      <br>
                     </li>
                   </ol>
                 <%end%>
@@ -99,7 +105,7 @@
 <div class="row user-border">
   <%if @user.events_bid_on.any? %>
     <ul class="vcard">
-    <p>Bids</p>
+    <h4>My Bids</h4>
       <%@user.events_bid_on.each do |b|%>
 
         <li>
@@ -138,11 +144,11 @@
 
               <li>
               Bid Details<br>
-              <%=i.message %>
+                Message: <%=i.message %>
               </li>
 
               <li>
-                Amount $<%=i.amount%>
+                Amount: $<%=i.amount%>
               </li>
             <%end%>
           </ul>
