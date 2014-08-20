@@ -1,4 +1,3 @@
-<br>
 <%if @user.profile_photo && !@user.profile_photo.empty? %>
   <li>
     <%=@user.profile_photo %>
@@ -71,11 +70,21 @@
 
               <%if e.bids.exists? %>
                 <br>
-                 Bid on by:
+                 <strong>Bids</strong>
                 <%e.bids.map do |i|%>
-                  <li>
-                    <%=link_to i.applicant.full_name, user_path(i.applicant)%>
-                  </li>
+                  <ol>
+                    <li>
+                      <li>
+                        Name:<%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                      </li>
+                      <li>
+                        Message:<%= i.message %>
+                      </li>
+                      <li>
+                        Amount:$<%= i.amount %>
+                      </li>
+                    </li>
+                  </ol>
                 <%end%>
               <%end%>
             </ul>

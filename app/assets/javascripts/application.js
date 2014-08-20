@@ -26,5 +26,5 @@ $(function(){
     }, 4000);
   });
 
-$('.datepicker').pickadate();
-$('.timepicker').pickatime();
+// $('.datepicker').pickadate();
+// $('.timepicker').pickatime();
