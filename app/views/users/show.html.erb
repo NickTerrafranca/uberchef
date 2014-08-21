@@ -29,13 +29,18 @@
       <li>
         About: <%= @user.about %>
       </li>
-    <%end%>
+    <% end %>
 
     <% unless @user == current_user%>
       <li>
           <%= link_to "Message #{@user.full_name}", new_user_message_path(@user) %>
       </li>
     <%end%>
+    <% if @user == current_user %>
+    <li>
+      <%= link_to "Edit account", edit_user_registration_path %>
+    </li>
+    <% end %>
   </ul>
 </div>
 
