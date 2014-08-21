@@ -17,6 +17,14 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def address_helper
+    "#{address}, #{city}, #{state} #{zip}"
+  end
+
+  def location
+    "#{city}, #{state}"
+  end
+
   def received_messages(current_user)
     Message.where('receiver_id = ?', current_user[:id])
   end
