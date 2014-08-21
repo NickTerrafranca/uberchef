@@ -5,11 +5,11 @@ class Message < ActiveRecord::Base
   validates :receiver, presence: true
   validates :body, presence: true
 
-  # def sent_messages
-  #   Message.where(sender: self)
-  # end
+  def received_messages(current_user)
+    Message.where('receiver_id = ?', current_user[:id])
+  end
 
-  # def received_messages
-  #   Message.where(receiver: self)
-  # end
+  def sent_messages(current_user)
+    Message.where('sender_id = ?', current_user[:id])
+  end
 end

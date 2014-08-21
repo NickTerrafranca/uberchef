@@ -25,11 +25,11 @@ class User < ActiveRecord::Base
     "#{city}, #{state}"
   end
 
-  def received_messages(current_user)
-    Message.where('receiver_id = ?', current_user[:id])
+  def sent_messages
+    Message.where(sender: self)
   end
 
-  def sent_messages(current_user)
-    Message.where('sender_id = ?', current_user[:id])
+  def received_messages
+    Message.where(receiver: self)
   end
 end
