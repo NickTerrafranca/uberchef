@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id).find(params[:id])
+    @message = Message.where('sender_id = ? OR receiver_id = ?', current_user.id, current_user.id).find(params[:id])
   end
 
   def new
