@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   before_validation :set_start_time
 
   def full_address
-    "#{address} #{city}, #{state}, #{zip}"
+    "#{address} #{city}, #{state} #{zip}"
   end
 
   def bid_total
