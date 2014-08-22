@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @event = Event.order('city ASC')
+    @event = Event.order('created_at DESC').page(params[:page]).per(10)
   end
 
   def show

@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'foundation-rails'
 gem 'pickadate-rails'
+gem 'kaminari'
 
 group :test, :development do
   gem 'spring'
