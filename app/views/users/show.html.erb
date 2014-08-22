@@ -102,6 +102,9 @@
                     <li>
                     Bid amount: $<%= i.amount %>
                     </li>
+                    <li>
+                      <%= link_to "Message #{i.applicant.full_name}", new_user_message_path(i.applicant) %>
+                    </li>
                   </li>
                 </ul>
               <%end%>
