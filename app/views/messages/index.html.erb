@@ -1,20 +1,10 @@
-<div>
-  <ul>
-  <table>
-    <thead>
-      Inbox
-      <tr>
-      <th width="200">From</th>
-      <th width="500">Message</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @received_messages.each do |m| %>
-        <tr>
-          <td><%=link_to "#{m.sender.full_name}", user_path(m.sender) %></td>
-          <td><%= link_to m.body, message_path(m)%></td>
-        </tr>
-      <%end%>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="small-12 columns vcard">
+    <% @all_messages.each do |m| %>
+      <ul class="small-12 columns vcard">
+      <strong><%= m.sender.full_name %></strong>
+      <p><%= m.body %></p>
+      </ul>
+    <%end%>
+  </div>
 </div>
