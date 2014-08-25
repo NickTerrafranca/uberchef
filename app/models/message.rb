@@ -12,4 +12,9 @@ class Message < ActiveRecord::Base
   def sent_messages
     Message.where('sender_id = ?', current_user[:id])
   end
+
+  def message_thread(params)
+    Message.where('sender_id = ? OR receiver_id = ?', current_user.id, params)
+  end
+
 end
