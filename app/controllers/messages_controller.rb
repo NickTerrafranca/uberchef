@@ -2,14 +2,10 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @all_messages = Message.where('sender_id = ? OR receiver_id = ?', current_user.id, current_user.id)
+    @received_messages = current_user.received_messages.order('created_at DESC')
+    @sent_messages = current_user.sent_messages
     # binding.pry
-    # sender_id == current_user.id ||
-
     # @all_messages = Message.message_thread(params[:id])
-    # @received_messages = current_user.received_messages.order('created_at ASC')
-    # @sent_messages = current_user.sent_messages.order('created_at ASC')
-
   end
 
   def show
