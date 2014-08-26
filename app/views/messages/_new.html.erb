@@ -1,17 +1,5 @@
 <div class="small-9 columns">
-  <%if @user.profile_photo && !@user.profile_photo.empty? %>
-    <li>
-      <%=@user.profile_photo %>
-    </li>
-  <%end%>
-
-  <ul class="no-bullet">
-    <li>
-      To: <h3><%= @user.full_name %></h3>
-    </li>
-  </ul>
-
-  <%= form_for [@user, @message] do |m| %>
+    <%= form_for [@user, @message] do |m| %>
 
     <% if @message.errors.any? %>
       <ul>
