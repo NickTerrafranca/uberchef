@@ -4,20 +4,12 @@ class MessagesController < ApplicationController
   def index
     @received_messages = current_user.received_messages.order('created_at DESC')
     @sent_messages = current_user.sent_messages
-    # binding.pry
-    # @all_messages = Message.message_thread(params[:id])
   end
 
   def show
-    # @all_messages = Message.where('sender_id = ? OR sender_id = ?' && 'receiver_id = ? OR receiver_id = ?', current_user.id, params[:id]).order('created_at ASC')
-    @all_messages = Message.find_by_sql(
-      "SELECT *
-      FROM messages
-      WHERE
-      (sender_id = #{current_user.id} OR sender_id = #{params[:id]})
-      AND
-      (receiver_id = #{current_user.id} OR receiver_id = #{params[:id]});"
-      )
+    @user = User.find(params[:id])
+    @message = Message.new
+    @all_messages = Message.where(sender_id: [current_user.id, params[:id]], receiver_id: [current_user.id, params[:id]]).order('created_at ASC')
   end
 
   def new
@@ -31,10 +23,10 @@ class MessagesController < ApplicationController
     @message.receiver_id = params[:user_id]
     if @message.save
       flash[:notice] = 'Message sent...'
-      redirect_to user_messages_path(current_user)
+      redirect_to message_path(params[:user_id])
     else
       flash[:notice] = 'There was a problem sending your message...'
-      render :new
+      render :show
     end
   end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :messages, except: [:edit, :update]
   end
 
-  resources :messages, :messages, except: [:edit, :update]
+  resources :messages, except: [:edit, :update]
 
   resources :events, only: [:index, :show, :new, :create] do
     resources :bids, only: [:index, :show, :new, :create]
