@@ -102,7 +102,8 @@
                     Bid amount: $<%= i.amount %>
                     </li>
                     <li>
-                      <%= link_to "Message #{i.applicant.full_name}", new_user_message_path(@user.id) %>
+                    <% #binding.pry%>
+                      <%= link_to "Message #{i.applicant.full_name}", message_path(i.applicant.id) %>
                     </li>
                   </li>
                 </ul>

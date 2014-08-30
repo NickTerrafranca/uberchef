@@ -2,7 +2,13 @@
   <div class="small-8 columns">
     <% @all_messages.each do |m| %>
       <div class="vcard small-12 columns">
-        <strong><%= m.sender.full_name %></strong>
+        <strong>
+          <% if m.sender == current_user %>
+            <%= 'You said:'%>
+          <% else %>
+            <%= "#{m.sender.full_name} said:" %>
+          <% end %>
+        </strong>
         <br><br>
         <%= m.body %>
       </div>
