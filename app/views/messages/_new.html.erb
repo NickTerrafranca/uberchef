@@ -1,13 +1,12 @@
 <div class="small-8 columns">
-    <%#binding.pry%>
-    <%= form_for [@user, @message] do |m| %>
-      <% if @message.errors.any? %>
-        <ul>
-          <% @message.errors.full_messages.each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-      <% end %>
+  <%= form_for [@user, @message] do |m| %>
+    <% if @message.errors.any? %>
+      <ul>
+        <% @message.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <div>
       <%= m.label :body, 'Message' %>
       <br>

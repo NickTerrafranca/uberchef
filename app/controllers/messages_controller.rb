@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
     @all_messages = Message.where(sender_id: [current_user.id, params[:id]], receiver_id: [current_user.id, params[:id]]).order('created_at ASC')
   end
 
+# do I need this?
   def new
     @user = User.find(params[:user_id])
     @message = Message.new
@@ -30,6 +31,7 @@ class MessagesController < ApplicationController
     end
   end
 
+  # This need to delete the entire thread.
   def destroy
     @message = current_user.received_messages.find(params[:id])
     @message.destroy
