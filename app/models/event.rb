@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  has_many :bids
+  has_many :bids, dependent: :destroy
   has_many :applicants, through: :bids
 
   validates :user, presence: true
