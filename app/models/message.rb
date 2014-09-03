@@ -5,26 +5,20 @@ class Message < ActiveRecord::Base
   validates :receiver, presence: true
   validates :body, presence: true
 
-  # def conversations
-  #   # messages_contributers = Message.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
-  #   messages_contributers = Message.where(sender_id: [current_user.id, params[:id]], receiver_id: [current_user.id, params[:id]])
-  #   message_names = []
-  #   messages_contributers.each do |i|
-  #     binding.pry
-  #     unless message_names.include?(i[:sender_id]) && message_names.include?(i[:receiver_id])
-  #       message_names << [i.sender
-  #     end
-  #   end
-  #   message_names
-  # end
-  def all_messages
+
+  def grouped_messages
     messages = Message.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
-    asociated_users = []
+    associated_users = []
+    user_ids = []
     messages.each do |i|
-    # if the array i[:sender_id] or i[:receiver_id] dos not have a user with the user_id of i[:sender_id] or i[:receiver_id]
-    # find the user with user_id of i[:sender_id] or i[:receiver_id]
-    # and put it in asociated_users
+       user_ids << i[:sender_id] << i[:receiver_id]
     end
+    user_ids.uniq!
+    user_ids.delete(current_user.id)
+    user_ids.each do |i|
+      associated_users << User.find(i)
+    end
+    associated_users
   end
 
 #do I need this?
