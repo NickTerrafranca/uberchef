@@ -4,13 +4,4 @@ class Message < ActiveRecord::Base
   validates :sender, presence: true
   validates :receiver, presence: true
   validates :body, presence: true
-
-#do I need this?
-  def received_messages
-    Message.where('receiver_id = ?', current_user[:id])
-  end
-#or this?
-  def sent_messages
-    Message.where('sender_id = ?', current_user[:id])
-  end
 end

@@ -11,12 +11,6 @@ class MessagesController < ApplicationController
     @all_messages = Message.where(sender_id: [current_user.id, params[:id]], receiver_id: [current_user.id, params[:id]]).order('created_at ASC')
   end
 
-# do I need this?
-  def new
-    @user = User.find(params[:user_id])
-    @message = Message.new
-  end
-
   def create
     @message = Message.create(message_params)
     @message.sender_id = current_user.id
