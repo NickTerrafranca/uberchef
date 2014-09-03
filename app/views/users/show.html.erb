@@ -93,13 +93,13 @@
                 <ul>
                   <li>
                     <li>
-                    From: <%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                      From: <%=link_to i.applicant.full_name, user_path(i.applicant)%>
                     </li>
                     <li>
-                    Message: <%= i.message %>
+                      Message: <%= i.message %>
                     </li>
                     <li>
-                    Bid amount: $<%= i.amount %>
+                      Bid amount: $<%= i.amount %>
                     </li>
                     <li>
                       <%= link_to "Message #{i.applicant.full_name}", message_path(i.applicant.id) %>

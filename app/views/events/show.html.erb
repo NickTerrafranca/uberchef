@@ -47,7 +47,7 @@
       <%=@event.description %>
     </li>
     <br>
-    <% unless @event.applicants.include?(current_user) %>
+    <% unless @event.applicants.include?(current_user) && @event.applicants != current_user %>
       <li>
         <strong>
           <%= link_to "Make an offer on this event", new_event_bid_path(@event) %>
