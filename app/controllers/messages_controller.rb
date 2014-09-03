@@ -2,8 +2,8 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @received_messages = current_user.received_messages.order('created_at DESC')
-    @sent_messages = current_user.sent_messages
+    # @received_messages = current_user.received_messages.order('created_at DESC')
+    # @sent_messages = current_user.sent_messages
   end
 
   def show
@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
     end
   end
 
-  # This need to delete the entire thread.
+  # This needs to delete the entire thread.
   def destroy
     @message = current_user.received_messages.find(params[:id])
     @message.destroy

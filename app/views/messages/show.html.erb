@@ -1,21 +1,19 @@
 <div class="row">
   <div class="small-8 columns">
     <% @all_messages.each do |m| %>
-      <strong>
         <% if m.sender == current_user %>
           <div class="vcard small-12 columns sent_message">
-            <%= 'You said:'%>
+            <strong><%= 'You said:'%></strong>
             <br><br>
             <%= m.body %>
           </div>
         <% else %>
           <div class="vcard small-12 columns recived_massage">
-            <%= "#{m.sender.full_name} said:" %>
+            <strong><%= "#{m.sender.full_name} said:" %></strong>
             <br><br>
             <%= m.body %>
           </div>
         <% end %>
-      </strong>
     <% end %>
   </div>
 </div>

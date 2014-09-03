@@ -8,19 +8,15 @@
         </tr>
       </thead>
       <tbody>
-      <% @sent_messages.each do |m| %>
-          <tr>
-            <td><%=link_to "#{m.sender.full_name}", message_path(m.sender.id) %></td>
 
-          </tr>
-        <%end%>
-        <% @received_messages.each do |m| %>
-          <tr>
-            <td><%=link_to "#{m.sender.full_name}", message_path(m.sender.id) %></td>
-<!-- as Nicholas Terrafranca my message to Yoda dowa not show up -->
-          </tr>
-        <%end%>
+      <%@received_messages.each do |m| %>
+        <tr>
+        <%binding.pry%>
+          <td><%=link_to "#{m.sender.full_name}", message_path(m.sender.id) %></td>
+        </tr>
+      <%end%>
       </tbody>
     </table>
   </ul>
 </div>
+<!-- as Nicholas Terrafranca my message to Yoda dowa not show up -->

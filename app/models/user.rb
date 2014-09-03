@@ -32,4 +32,5 @@ class User < ActiveRecord::Base
   def received_messages
     Message.where(receiver: self)
   end
+
 end
