@@ -47,12 +47,14 @@
       <%=@event.description %>
     </li>
     <br>
-    <li>
-      <strong>
-        <%= link_to "Make an offer on this event", new_event_bid_path(@event) %>
-      </strong>
-    </li>
-
+    <% unless @event.applicants.include?(current_user) %>
+      <li>
+        <strong>
+          <%= link_to "Make an offer on this event", new_event_bid_path(@event) %>
+          <% #binding.pry %>
+        </strong>
+      </li>
+    <% end %>
   </ul>
 
 </div>
