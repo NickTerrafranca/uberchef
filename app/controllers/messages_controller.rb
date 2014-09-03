@@ -2,8 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @received_messages = current_user.received_messages.order('created_at DESC')
-    @sent_messages = current_user.sent_messages
+    @associated_users = current_user.grouped_messages(current_user)
   end
 
   def show

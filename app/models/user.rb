@@ -13,6 +13,21 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def grouped_messages(current_user)
+    messages = Message.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
+    associated_users = []
+    user_ids = []
+    messages.each do |i|
+       user_ids << i[:sender_id] << i[:receiver_id]
+    end
+    user_ids.uniq!
+    user_ids.delete(current_user.id)
+    user_ids.each do |i|
+      associated_users << User.find(i)
+    end
+    associated_users
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

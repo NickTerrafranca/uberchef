@@ -2,16 +2,15 @@
   <ul>
     <table>
       <thead>
-        Inbox
         <tr>
-          <th width="400">From/To</th>
+          <th width="400">Messages</th>
         </tr>
       </thead>
       <tbody>
 
-      <%@received_messages.each do |m| %>
+      <%@associated_users.each do |m| %>
         <tr>
-          <td><%=link_to "#{m.sender.full_name}", message_path(m.sender.id) %></td>
+          <td><%=link_to "#{m.full_name}", message_path(m) %></td>
         </tr>
       <%end%>
 
