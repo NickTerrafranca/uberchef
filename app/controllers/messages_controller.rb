@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @associated_users = current_user.grouped_messages(current_user)
+    @associated_users = current_user.grouped_messages
   end
 
   def show
