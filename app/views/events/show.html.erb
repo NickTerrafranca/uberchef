@@ -54,7 +54,12 @@
         </strong>
       </li>
     <% end %>
+    <% if @event.user == current_user %>
+      <li>
+        <%= link_to "Edit this event's details", edit_event_path(@event) %>
+      </li>
+    <% end %>
   </ul>
 
 </div>
-<div class="row"><%= link_to "Back", events_path %></div>
+<div class="row"><%= link_to "Back to Browse Events", events_path %></div>
