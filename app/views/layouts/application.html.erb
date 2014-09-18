@@ -60,13 +60,7 @@
             </li>
           </ul>
           <% if user_signed_in? %>
-            <ul class="right">
-              <li class="has-form">
-                <div class="row collapse">
-                <%= render 'events/search' %>
-                </div>
-              </li>
-            </ul>
+            <%= render 'events/search' %>
           <% end %>
         </section>
       </nav>

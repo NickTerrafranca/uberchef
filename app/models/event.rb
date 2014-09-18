@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   before_validation :set_start_time
 
   def self.search(query)
-    where("city ilike ? OR state ilike ? OR title ilike ?", "%#{query}%", "%#{query}%", "%#{query}%")
+    where("state ilike ? OR title ilike ?", "%#{query}%", "%#{query}%").order('state').order('title')
   end
 
   def full_address
