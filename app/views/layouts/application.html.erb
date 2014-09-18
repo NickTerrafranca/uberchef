@@ -59,15 +59,15 @@
               </ul>
             </li>
           </ul>
-
-          <!-- <ul class="left">
-            <li class="has-form">
-              <div class="row collapse">
-
-              </div>
-            </li>
-          </ul> -->
-
+          <% if user_signed_in? %>
+            <ul class="right">
+              <li class="has-form">
+                <div class="row collapse">
+                <%= render 'events/search' %>
+                </div>
+              </li>
+            </ul>
+          <% end %>
         </section>
       </nav>
     </div>
