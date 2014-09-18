@@ -14,7 +14,7 @@
   <body>
 
     <div class="fixed">
-      <nav class="top-bar" data-topbar>
+      <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
           <li>
             <h3><%= link_to "UberChef", root_path %></h3>
@@ -28,6 +28,7 @@
 
         <section class="top-bar-section">
           <ul class="right">
+            <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Menu</a>
               <ul class="dropdown">
@@ -58,6 +59,15 @@
               </ul>
             </li>
           </ul>
+
+          <!-- <ul class="left">
+            <li class="has-form">
+              <div class="row collapse">
+
+              </div>
+            </li>
+          </ul> -->
+
         </section>
       </nav>
     </div>
