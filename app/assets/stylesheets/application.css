@@ -44,5 +44,9 @@
 
 #footer {
   font-size: 12px;
-  margin-top: 300px
+  margin-top: 300px;
+}
+
+.search-field {
+  border-radius: 15px;
 }
