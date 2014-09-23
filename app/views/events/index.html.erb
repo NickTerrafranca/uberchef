@@ -13,13 +13,12 @@
       </thead>
       <tbody>
         <% @event.each do |e| %>
-          <% if e.start_time >= Date.today %>
+        <!-- this is where date comparrison was -->
             <tr>
               <td><%= link_to "#{e.title}", event_path(e) %></td>
               <td><%= "#{e.city}, #{ e.state}"%></td>
               <td><%= e.start_time.strftime("%a %B %d, %l:%M %P") %></td>
             </tr>
-          <% end %>
         <% end %>
       </tbody>
     </table>

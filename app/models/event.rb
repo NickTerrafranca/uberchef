@@ -16,8 +16,12 @@ class Event < ActiveRecord::Base
 
   before_validation :set_start_time
 
+  def self.current_events
+    where('start_time >= ?', Date.today)
+  end
+
   def self.search(query)
-    where("state ilike ? OR title ilike ?", "%#{query}%", "%#{query}%").order('state').order('title')
+    where("title ilike ?", "%#{query}%").order('title')
   end
 
   def full_address
