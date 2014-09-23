@@ -21,7 +21,14 @@ class Event < ActiveRecord::Base
   end
 
   def self.search(query)
-    where("title ilike ?", "%#{query}%").order('title')
+    # where("title ilike ?", "%#{query}%").order('title')
+    if query.match(/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/)
+      where("state = ?", "%#{query}%").order('state')
+    elsif where("city = ?", "%#{query}%").any?
+      where("city = ?", "%#{query}%").order('city')
+    else
+      where("title ilike ?", "%#{query}%").order('title')
+    end
   end
 
   def full_address
