@@ -16,6 +16,10 @@ class Event < ActiveRecord::Base
 
   before_validation :set_start_time
 
+  def self.current_events
+    where('start_time >= ?', Date.today)
+  end
+
   def self.search(query)
     if query.match(/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/)
       where("state = ?", "%#{query}%").order('state')
