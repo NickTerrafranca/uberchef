@@ -3,10 +3,9 @@ class EventsController < ApplicationController
 
   def index
     if params[:search]
-      @event = Event.search(params[:search]).page(params[:page]).per(12)
+      @event = Event.current_events.search(params[:search]).page(params[:page]).per(12)
     else
       @event = Event.current_events.order('created_at DESC').page(params[:page]).per(12)
-      # @event = Event.where('created_at >= ? OR updated_at >= ?', Date.today, Date.today).page(params[:page]).per(12)
     end
   end
 
