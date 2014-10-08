@@ -19,13 +19,14 @@ class Event < ActiveRecord::Base
   def self.current_events
     where('start_time >= ?', Date.today)
   end
+
   def self.search(query)
     matching_column = [:name, :city, :title].detect do |column|
-    Event.where(column => query).presence
+    Event.where(column == query).presence
     end
 
     if matching_column
-      Event.where(matching_column => query)
+      Event.where(matching_column == query)
     else
       Event.where("city ILIKE :query OR name ILIKE :query OR title ILIKE :query", query: query)
     end
