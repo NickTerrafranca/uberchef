@@ -21,26 +21,15 @@ class Event < ActiveRecord::Base
   end
 
   def self.search(query)
-    matching_column = [:name, :city, :title].detect do |column|
-    Event.where(column == query).presence
-    end
-
-    if matching_column
-      Event.where(matching_column == query)
+    query = query.upcase #this breaks city search
+    if query.match(/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/)
+      where("state ilike ?", "%#{query}%").order('state')
+    elsif where("city = ?", %"#{query}%").presence #not working
+      where("city ilike ?", "%#{query}%").order('city')
     else
-      Event.where("city ILIKE :query OR name ILIKE :query OR title ILIKE :query", query: query)
+      where("title ilike ?", "%#{query}%").order('title')
     end
   end
-  # def self.search(query)
-  #   where("title ilike ?", "%#{query}%").order('title')
-  #   # if query.match(/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/)
-  #   #   where("state = ?", "%#{query}%").order('state')
-  #   # elsif where("city = ?", "%#{query}%").any?
-  #   #   where("city = ?", "%#{query}%").order('city') #ilike
-  #   # else
-  #   #   where("title ilike ?", "%#{query}%").order('title')
-  #   # end
-  # end
 
   def full_address
     "#{address} #{city}, #{state} #{zip}"
