@@ -21,11 +21,8 @@ class Event < ActiveRecord::Base
   end
 
   def self.search(query)
-    query = query.upcase #this breaks city search
     if query.match(/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/)
       where("state ilike ?", "%#{query}%").order('state')
-    elsif where("city = ?", %"#{query}%").presence #not working
-      where("city ilike ?", "%#{query}%").order('city')
     else
       where("title ilike ?", "%#{query}%").order('title')
     end
