@@ -36,8 +36,13 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update(event_params)
-    redirect_to @event
+    if @event.update(event_params)
+      flash[:notice] = "Event information updated"
+      redirect_to @event
+    else
+      flash[:notice] = "There was a problem saving your submission..."
+      render :edit
+    end
   end
 
   private
