@@ -33,7 +33,7 @@
 
     <% unless @user == current_user%>
       <li>
-          <%= link_to "Message #{@user.full_name}", new_user_message_path(@user) %>
+          <%= link_to "Message #{@user.full_name}", user_message_path(@user) %>
       </li>
     <%end%>
     <% if @user == current_user %>
@@ -115,8 +115,8 @@
 </div>
 
 <div class="row">
-  <div class="small-12 columns vcard">
-    <% if @user.events_bid_on.any? %>
+  <% if @user.events_bid_on.any? %>
+    <div class="small-12 columns vcard">
 
       <% if @user == current_user %>
         <h4>My Bids</h4>
@@ -173,6 +173,6 @@
           </ul>
         </li>
       <%end%>
-    <%end%>
-  </div>
+    </div>
+  <%end%>
 </div>
