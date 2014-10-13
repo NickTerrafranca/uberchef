@@ -45,7 +45,7 @@
 </div>
 
 <div class="row">
-  <%if @user.events_hosted.any? %>
+  <%unless @user.events_hosted.current_events %>
     <div class="small-12 columns vcard">
 
       <% if @user == current_user %>
