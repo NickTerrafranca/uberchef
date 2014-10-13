@@ -6,7 +6,6 @@ class Bid < ActiveRecord::Base
   validates :event_id, presence: true
   validates :message, presence: true
   validates :amount, presence: true, numericality: { greater_than: 0 }
+
 end
 
-
-# add_index :bids, [:user_id, :event_id], unique: true

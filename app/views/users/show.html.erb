@@ -45,7 +45,7 @@
 </div>
 
 <div class="row">
-  <%unless @user.events_hosted.current_events %>
+  <%unless @user.events_hosted.current_events.empty? %>
     <div class="small-12 columns vcard">
 
       <% if @user == current_user %>
@@ -115,7 +115,7 @@
 </div>
 
 <div class="row">
-  <% if @user.events_bid_on.any? %>
+  <%unless @user.events_bid_on.current_events.empty? %>
     <div class="small-12 columns vcard">
 
       <% if @user == current_user %>
@@ -124,7 +124,7 @@
         <h4><%= "#{@user.full_name}'s Bids" %></h4>
       <% end %>
 
-      <% @user.events_bid_on.each do |b| %>
+      <% @user.events_bid_on.current_events.each do |b| %>
 
         <li>
           <ul class="vcard small-12 columns">
