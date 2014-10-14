@@ -26,6 +26,11 @@
         </div>
 
         <div class="small-5 columns">
+
+            <div>
+            <%= f.label 'Upload optional profile photo' %>
+            <%= f.file_field :profile_photo %></div>
+
             <div><%= f.label :about, 'Short Description about you and/or your skills' %><br />
             <%= f.text_area :about, autofocus: true, :cols => "10", :rows => "10" %></div>
 

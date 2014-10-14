@@ -11,6 +11,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'pickadate-rails'
 gem 'kaminari'
+gem 'carrierwave'
 
 group :test, :development do
   gem 'spring'

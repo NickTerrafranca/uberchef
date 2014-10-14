@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :profile_photo, ProfilePhotoUploader
+
   def grouped_messages
     user_ids = Message.where("sender_id = ? OR receiver_id = ?", id, id).pluck(:sender_id, :receiver_id).flatten
     other_user_ids = (Set.new(user_ids) - [id]).to_a
