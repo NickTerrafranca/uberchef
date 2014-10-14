@@ -12,6 +12,7 @@ gem 'foundation-rails'
 gem 'pickadate-rails'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'mini_magick'
 
 group :test, :development do
   gem 'spring'
