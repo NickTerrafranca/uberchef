@@ -5,6 +5,9 @@
   <%= devise_error_messages! %>
   <div class="row">
     <div class="small-6 columns">
+      <div><%= f.label 'Upload optional profile photo' %>
+      <%= f.file_field :profile_photo %></div>
+
       <div><%= f.label :address %><br />
       <%= f.text_field :address, autofocus: true %></div>
 

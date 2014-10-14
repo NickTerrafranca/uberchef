@@ -1,11 +1,11 @@
-<%if @user.profile_photo && !@user.profile_photo.empty? %>
-  <li>
-    <%=@user.profile_photo %>
-  </li>
-<%end%>
 
 <div class="row">
   <ul class="no-bullet">
+    <% if @user.profile_photo %>
+      <li>
+        <%= image_tag @user.profile_photo %>
+      </li>
+    <%end%>
     <li>
       <h2><%=@user.full_name%></h2>
     </li>
