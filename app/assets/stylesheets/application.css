@@ -19,6 +19,7 @@
  */
 
 
+
 .content {
   margin-top: 60px;
 }
@@ -49,4 +50,9 @@
 
 .search-field {
   border-radius: 15px;
+}
+
+.profile_photo {
+  border: 5px solid #333333;
+  border-radius: 7px;
 }

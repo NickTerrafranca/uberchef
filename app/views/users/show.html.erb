@@ -3,7 +3,7 @@
   <ul class="no-bullet">
     <% if @user.profile_photo %>
       <li>
-        <%= image_tag @user.profile_photo %><br><br>
+        <%= image_tag @user.profile_photo, class: "profile_photo" %><br><br>
       </li>
     <%end%>
     <li>
