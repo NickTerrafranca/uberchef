@@ -91,15 +91,15 @@
               <%e.bids.map do |i|%>
                 <ul>
                   <li>
-                  <% if i.applicant.profile_photo.present? %>
-                    <li>
-                      <%= image_tag i.applicant.profile_photo_url(:thumb) %> <%=link_to i.applicant.full_name, user_path(i.applicant)%>
-                    </li>
-                  <% else %>
-                    <li>
-                      From: <%=link_to i.applicant.full_name, user_path(i.applicant)%>
-                    </li>
-                  <% end %>
+                    <% if i.applicant.profile_photo.present? %>
+                      <li>
+                        <%= image_tag i.applicant.profile_photo_url(:thumb) %> <%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                      </li>
+                    <% else %>
+                      <li>
+                        From: <%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                      </li>
+                    <% end %>
 
                     <li>
                       Message: <%= i.message %>
