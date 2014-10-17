@@ -1,7 +1,7 @@
 
 <div class="row">
   <ul class="no-bullet">
-    <% if @user.profile_photo %>
+    <% if @user.profile_photo.present? %>
       <li>
         <%= image_tag @user.profile_photo, class: "profile_photo" %><br><br>
       </li>
@@ -91,8 +91,7 @@
               <%e.bids.map do |i|%>
                 <ul>
                   <li>
-                  <% if i.applicant.profile_photo.file.exists? %>
-                  <% #binding.pry %>
+                  <% if i.applicant.profile_photo.present? %>
                     <li>
                       <%= image_tag i.applicant.profile_photo_url(:thumb) %> <%=link_to i.applicant.full_name, user_path(i.applicant)%>
                     </li>
