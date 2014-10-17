@@ -1,23 +1,30 @@
-<div class="row">
-  <div class="small-8 columns">
-    <% @all_messages.each do |m| %>
-        <% if m.sender == current_user %>
-          <div class="vcard small-12 columns sent_message">
-          <%= m.body %>
-          </div>
-        <% else %>
-            <% if m.sender.profile_photo.present?%>
-              <div>
-                <%= image_tag m.sender.profile_photo_url(:thumb), class: "profile_photo_thumb" %>
-              </div>
-            <% end %>
-          <div class="vcard small-12 columns recived_massage">
+<% @all_messages.each do |m| %>
+  <div class="row">
+    <div class="large-10 columns">
+      <% if m.sender == current_user %>
+        <div class="row">
+          <div class="vcard small-8 small-offset-2 columns sent_message">
             <%= m.body %>
           </div>
-        <% end %>
-    <% end %>
+        </div>
+      <% else %>
+        <div class="row">
+          <div class="small-1 columns">
+            <% if m.sender.profile_photo.present?%>
+              <%= image_tag m.sender.profile_photo_url(:thumb), class: "profile_photo_thumb_message" %>
+            <% else %>
+              <p>default image here</p>
+            <% end %>
+          </div>
+
+          <div class="vcard small-8 end columns recived_massage">
+            <%= m.body %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 <div class="row">
-  <%= render 'new' %>
+<%= render 'new' %>
 </div>

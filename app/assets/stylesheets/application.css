@@ -32,13 +32,14 @@
 }
 
 .sent_message {
-  margin-left: 50px;
+  border-radius: 10px;
   background-color: #A5FFAF;
   padding: 12px 20px 13px 12px;
 
 }
 
 .recived_massage {
+  border-radius: 10px;
   background-color: #00E7F9;
   padding: 12px 20px 13px 12px;
 }
@@ -59,4 +60,8 @@
 
 .profile_photo_thumb {
   border-radius: 25px;
+}
+
+.profile_photo_thumb_message {
+  border-radius: 10px
 }
