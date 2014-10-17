@@ -18,8 +18,6 @@
 *= require pickadate/default.time
  */
 
-
-
 .content {
   margin-top: 60px;
 }
@@ -55,4 +53,8 @@
 .profile_photo {
   border: 5px solid #333333;
   border-radius: 12px;
+}
+
+.profile_photo_thumb {
+  border-radius: 25px;
 }

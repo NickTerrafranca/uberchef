@@ -93,7 +93,7 @@
                   <li>
                     <% if i.applicant.profile_photo.present? %>
                       <li>
-                        <%= image_tag i.applicant.profile_photo_url(:thumb) %> <%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                        <%= image_tag i.applicant.profile_photo_url(:thumb), class: "profile_photo_thumb" %> <%=link_to i.applicant.full_name, user_path(i.applicant)%>
                       </li>
                     <% else %>
                       <li>
