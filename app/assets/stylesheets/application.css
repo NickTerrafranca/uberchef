@@ -34,11 +34,13 @@
 .sent_message {
   margin-left: 50px;
   background-color: #A5FFAF;
+  padding: 12px 20px 13px 12px;
 
 }
 
 .recived_massage {
   background-color: #00E7F9;
+  padding: 12px 20px 13px 12px;
 }
 
 #footer {
