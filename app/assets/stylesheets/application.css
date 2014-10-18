@@ -59,9 +59,12 @@
 }
 
 .profile_photo_thumb {
-  border-radius: 25px;
+  max-height: 50px;
+  max-width: 50px;
+  border-radius: 10px;
+
 }
 
 .profile_photo_thumb_message {
-  border-radius: 10px
+
 }
