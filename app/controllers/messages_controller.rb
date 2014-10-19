@@ -24,7 +24,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  # This needs to delete the entire thread.
   def destroy
     @message = current_user.received_messages.find(params[:id])
     @message.destroy

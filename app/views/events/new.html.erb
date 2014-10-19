@@ -1,5 +1,5 @@
 <%= form_for @event do |f| %>
-  <%if @event.errors.any? %>
+  <% if @event.errors.any? %>
     <ul>
       <% @event.errors.full_messages.each do |error| %>
         <li><%= error %></li>
