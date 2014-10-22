@@ -17,7 +17,19 @@
 *= require pickadate/default.date
 *= require pickadate/default.time
  */
+/*$bg-image-checker: url("/assets/images/ps_neutral_@2X.png");*/
+/*$brick_wall: url("/images/brickwall_@2X.png");*/
 
+.subtle-bg {
+  border-image: url("/images/brickwall_@2X.png");
+  background: $brick_wall: repeat;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:-5;
+}
 
 .content {
   margin-top: 60px;
@@ -63,7 +75,6 @@
   max-height: 50px;
   max-width: 50px;
   border-radius: 10px;
-
 }
 
 .profile_photo_thumb_message {
