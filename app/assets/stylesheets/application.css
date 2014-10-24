@@ -29,9 +29,11 @@
   z-index:-5;
 }*/
 
-.content {
+#content {
   margin-top: 60px;
-  background-image: url("images/brickwall_@2X.png"): repeat;
+  /*background-image: url("/Users/nterrafranca/Dropbox/launchacademy/breakabletoy/uberchef/app/assets/images/brickwall_@2X.png") repeat;*/
+  background-color: #fff;
+  /*background-image: url("/Users/nterrafranca/Dropbox/launchacademy/breakabletoy/uberchef/public/images/brickwall_@2X.png") repeat;*/
 }
 
 .landing-page-description {
