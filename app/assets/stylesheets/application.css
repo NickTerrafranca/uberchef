@@ -29,22 +29,10 @@
   z-index:-5;
 }*/
 
-body {
-  /*This id is used to wrap the yield in the layout view application.html.erb*/
-
+.window {
   background-image: url("/images/brickwall_@2X.png");
-  height:100%;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:-5;
-  /*this does not work. I am using a path to avoid any false negatives while getting this to work*/
-  /*this also does not work. I am using a path to avoid any false negatives while getting this to work*/
-  /*background-image: url("/Users/nterrafranca/Dropbox/launchacademy/breakabletoy/uberchef/public/images/brickwall_@2X.png") repeat;*/
-
-
-}
+  background-attachment: fixed;
+  }
 
 #content {
   margin-top: 60px;
