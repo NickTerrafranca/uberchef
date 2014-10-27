@@ -29,15 +29,25 @@
   z-index:-5;
 }*/
 
-#content {
+body {
   /*This id is used to wrap the yield in the layout view application.html.erb*/
-  margin-top: 60px;
 
+  background-image: url("/images/brickwall_@2X.png");
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:-5;
   /*this does not work. I am using a path to avoid any false negatives while getting this to work*/
-  background-image: url("/Users/nterrafranca/Dropbox/launchacademy/breakabletoy/uberchef/app/assets/images/brickwall_@2X.png") repeat;
-
   /*this also does not work. I am using a path to avoid any false negatives while getting this to work*/
   /*background-image: url("/Users/nterrafranca/Dropbox/launchacademy/breakabletoy/uberchef/public/images/brickwall_@2X.png") repeat;*/
+
+
+}
+
+#content {
+  margin-top: 60px;
 }
 
 .landing-page-description {
