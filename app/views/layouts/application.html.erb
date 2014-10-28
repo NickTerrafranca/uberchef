@@ -65,29 +65,28 @@
         </section>
       </nav>
     </div>
-  <div class="window">
-    <div class="row">
-      <div class="small-12 columns">
-        <% if notice %>
-          <div data-alert class="alert-box secondary radius">
-            <%= notice %>
-            <a href="#" class="close">&times;</a>
-          </div>
-        <% end %>
+    <div class="window">
+      <div class="row">
+        <div class="small-12 columns">
+          <% if notice %>
+            <div data-alert class="alert-box secondary radius">
+              <%= notice %>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
 
-        <% if alert %>
-          <div data-alert class="alert-box alert round">
-            <%= alert %>
-            <a href="#" class="close">&times;</a>
-          </div>
-        <% end %>
+          <% if alert %>
+            <div data-alert class="alert-box alert round">
+              <%= alert %>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row" id="content">
+        <%= yield %>
       </div>
     </div>
-
-    <div class="row" id="content">
-      <%= yield %>
-    </div>
-  </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

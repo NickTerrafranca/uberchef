@@ -21,6 +21,10 @@
 .window {
   background-image: url("/images/brickwall_@2X.png");
   background-attachment: fixed;
+  min-height:100%;
+  min-width: 100%;
+  top:0;
+  left:0;
   }
 
 #content {
