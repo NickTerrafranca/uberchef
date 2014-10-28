@@ -21,7 +21,7 @@
           </li>
           <li class="toggle-topbar menu-icon">
             <a href="#">
-            <span>Menu</span>
+              <span>Menu</span>
             </a>
           </li>
         </ul>
@@ -40,27 +40,27 @@
                 </li>
 
                 <%if user_signed_in?%>
-                  <li>
-                    <%= link_to "Profile", user_path(current_user) %>
-                  </li>
+                <li>
+                  <%= link_to "Profile", user_path(current_user) %>
+                </li>
 
-                  <li>
-                    <%= link_to "Message", user_messages_path(current_user) %>
-                  </li>
+                <li>
+                  <%= link_to "Message", user_messages_path(current_user) %>
+                </li>
 
-                  <li>
-                    <%= link_to "Post Event", new_event_path %>
-                  </li>
+                <li>
+                  <%= link_to "Post Event", new_event_path %>
+                </li>
 
-                  <li>
-                    <%= link_to "Browse Events", events_path %>
-                  </li>
+                <li>
+                  <%= link_to "Browse Events", events_path %>
+                </li>
                 <%end%>
               </ul>
             </li>
           </ul>
           <% if user_signed_in? %>
-            <%= render 'events/search' %>
+          <%= render 'events/search' %>
           <% end %>
         </section>
       </nav>
@@ -69,17 +69,17 @@
       <div class="row">
         <div class="small-12 columns">
           <% if notice %>
-            <div data-alert class="alert-box secondary radius">
-              <%= notice %>
-              <a href="#" class="close">&times;</a>
-            </div>
+          <div data-alert class="alert-box secondary radius">
+            <%= notice %>
+            <a href="#" class="close">&times;</a>
+          </div>
           <% end %>
 
           <% if alert %>
-            <div data-alert class="alert-box alert round">
-              <%= alert %>
-              <a href="#" class="close">&times;</a>
-            </div>
+          <div data-alert class="alert-box alert round">
+            <%= alert %>
+            <a href="#" class="close">&times;</a>
+          </div>
           <% end %>
         </div>
       </div>
