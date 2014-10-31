@@ -59,70 +59,68 @@
         <h4><%= "#{@user.full_name}'s Events" %></h4>
       <% end %>
 
-      <% @user.events_hosted.each do |e| %>
-        <!-- <% if e.start_time >= Date.today %> -->
-          <ul class="small-12 columns vcard inner-background-block">
-            <li>
-              <%=link_to e.title, event_path(e) %>
-            </li>
+      <% @user.events_hosted.current_events.each do |e| %>
+        <ul class="small-12 columns vcard inner-background-block">
+          <li>
+            <%=link_to e.title, event_path(e) %>
+          </li>
 
-            <li>
-              Details: <%=e.description%>
-            </li>
+          <li>
+            Details: <%=e.description%>
+          </li>
 
-            <li>
-              Start time: <%=e.start_time.strftime("%B %d at %I:%M %p")%>
-            </li>
+          <li>
+            Start time: <%=e.start_time.strftime("%B %d at %I:%M %p")%>
+          </li>
 
-            <li>
-              Event duration: <%=e.duration%>
-            </li>
+          <li>
+            Event duration: <%=e.duration%>
+          </li>
 
-            <li>
-              Number of guests expected: <%=e.guest_count%>
-            </li>
+          <li>
+            Number of guests expected: <%=e.guest_count%>
+          </li>
 
-            <li>
-              Budget per guest <%=e.budget%>
-            </li>
+          <li>
+            Budget per guest <%=e.budget%>
+          </li>
 
-            <li>
-              Location: <%="#{e.address} #{e.city} #{e.state}"%>
-            </li>
+          <li>
+            Location: <%="#{e.address} #{e.city} #{e.state}"%>
+          </li>
 
-            <%if e.bids.exists? && @user == current_user %>
-              <br>
-              <strong>You'r event has bids!</strong>
-              <%e.bids.map do |i|%>
-                <ul>
+          <%if e.bids.exists? && @user == current_user %>
+            <br>
+            <strong>You'r event has bids!</strong>
+            <%e.bids.map do |i|%>
+              <ul>
+                <li>
+                  <% if i.applicant.profile_photo.present? %>
+                    <li>
+                      <%= image_tag i.applicant.profile_photo_url(:thumb), class: "profile_photo_thumb" %>
+                       <%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                    </li>
+                  <% else %>
+                    <li>
+                       <%= image_tag "/assets/defaultUserIcon.png", class: "profile_photo_thumb" %>
+                       <%=link_to i.applicant.full_name, user_path(i.applicant)%>
+                    </li>
+                  <% end %>
+
                   <li>
-                    <% if i.applicant.profile_photo.present? %>
-                      <li>
-                        <%= image_tag i.applicant.profile_photo_url(:thumb), class: "profile_photo_thumb" %>
-                         <%=link_to i.applicant.full_name, user_path(i.applicant)%>
-                      </li>
-                    <% else %>
-                      <li>
-                         <%= image_tag "/assets/defaultUserIcon.png", class: "profile_photo_thumb" %>
-                         <%=link_to i.applicant.full_name, user_path(i.applicant)%>
-                      </li>
-                    <% end %>
-
-                    <li>
-                      Message: <%= i.message %>
-                    </li>
-                    <li>
-                      Bid amount: $<%= i.amount %>
-                    </li>
-                    <li>
-                      <%= link_to "Message #{i.applicant.full_name}", message_path(i.applicant.id) %>
-                    </li>
+                    Message: <%= i.message %>
                   </li>
-                </ul>
-              <%end%>
+                  <li>
+                    Bid amount: $<%= i.amount %>
+                  </li>
+                  <li>
+                    <%= link_to "Message #{i.applicant.full_name}", message_path(i.applicant.id) %>
+                  </li>
+                </li>
+              </ul>
             <%end%>
-          </ul>
-        <%end%>
+          <%end%>
+        </ul>
       <%end%>
     </div>
   <%end%>
