@@ -17,6 +17,12 @@
 *= require pickadate/default.date
 *= require pickadate/default.time
  */
+.message-wrapper {
+  border: 1px solid #C1C4C2;
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 6px;
+  padding: 20px;
+}
 
  .outer-background-block {
   background: rgba(200, 200, 200, 0.3);
@@ -52,7 +58,7 @@
 
 .sent_message {
   border-radius: 10px;
-  background-color: #A5FFAF;
+  background-color: #C3C3C3;
   padding: 12px 20px 13px 12px;
 
 }
