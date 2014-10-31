@@ -18,6 +18,16 @@
 *= require pickadate/default.time
  */
 
+ .outer-background-block {
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 6px;
+}
+.inner-background-block {
+  border: 1px solid #C1C4C2;
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 6px;
+}
+
 .window {
   background-image: url("/images/brickwall_@2X.png");
   background-attachment: fixed;
