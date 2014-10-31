@@ -1,16 +1,18 @@
-<h3><%=@bid.event.title%></h3>
-<div>
-  <ul>
-    <li>
-      Description <%=@bid.event.description%>
-    </li>
-    <br>
-    <li>
-      Your message: <%=@bid.message%>
-    </li>
-    <li>
-      Amount: $<%=@bid.amount%>
-    </li>
-  </ul>
-</div>
+<div class="row outer-background-block">
+  <h3><%=@bid.event.title%></h3>
+  <div>
+    <ul>
+      <li>
+        Description <%=@bid.event.description%>
+      </li>
+      <br>
+      <li>
+        Your message: <%=@bid.message%>
+      </li>
+      <li>
+        Amount: $<%=@bid.amount%>
+      </li>
+    </ul>
+  </div>
 <%= link_to "Back to events", events_path %>
+</div>
