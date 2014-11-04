@@ -13,6 +13,7 @@ gem 'pickadate-rails'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
 
 group :test, :development do
   gem 'spring'
