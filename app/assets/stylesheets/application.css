@@ -17,6 +17,11 @@
 *= require pickadate/default.date
 *= require pickadate/default.time
  */
+
+.event-table {
+  box-shadow: 10px 5px 30px #888888;
+}
+
 .message-wrapper {
   box-shadow: 10px 10px 50px #888888;
   background: rgba(255,255,255, 0.4);
@@ -31,10 +36,9 @@
   box-shadow: 10px 5px 30px #888888;
 }
 .inner-background-block {
-  border: 1px solid #C1C4C2;
+  border: 2px solid #C1C4C2;
   background: rgba(255,255,255, 0.3);
   border-radius: 6px;
-  /*box-shadow: 10px 5px 10px #888888;*/
 }
 
 .window {
