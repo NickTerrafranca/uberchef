@@ -27,8 +27,7 @@ feature 'user creates a new event', %Q(
     fill_in 'State', with: event.state
     fill_in 'Zip', with: event.zip
     fill_in 'Start time', with: event.start_time
-    find("option[value='1 to 2 hours']").select_option
-    # select event.duration, from: 'Approximate duration'
+    find("option[value='1 to 2 hours']").select_option #is this appropriate?
     fill_in 'Expected number of guests', with: event.guest_count
     fill_in 'Budget price per person', with: event.budget
     fill_in 'Event details', with: event.description
