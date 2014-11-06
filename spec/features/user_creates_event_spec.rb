@@ -8,7 +8,7 @@ feature 'user creates a new event', %Q(
   # Acceptance Criteria:
   #   User provides a title for the event
   #   User provides an address for the event
-  #   User proves a time for the event (no sooner that 72 hours for the event date)##
+  #   User proves a time for the event
   #   User provides a number of guests that the event is for.
   #   User provides the dollar amount per person that they want to pay.
   #   The provides a description of the event.
@@ -26,8 +26,9 @@ feature 'user creates a new event', %Q(
     fill_in 'City', with: event.city
     fill_in 'State', with: event.state
     fill_in 'Zip', with: event.zip
-    fill_in 'Event start time', with: event.start_time
-    fill_in 'Approximate duration', with: event.duration
+    fill_in 'Start time', with: event.start_time
+    find("option[value='1 to 2 hours']").select_option
+    # select event.duration, from: 'Approximate duration'
     fill_in 'Expected number of guests', with: event.guest_count
     fill_in 'Budget price per person', with: event.budget
     fill_in 'Event details', with: event.description

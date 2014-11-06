@@ -12,17 +12,17 @@ feature 'user_views_events', %Q(
     # The details should provide the event details and user email.
 
   let(:user) { FactoryGirl.create(:user) }
-  # let(:event) { FactoryGirl.create(:event) }
+  let(:event) { FactoryGirl.create(:event) }
 
   scenario 'user views all events' do
     login_as user
-    event = FactoryGirl.create(:event)
+    # event = FactoryGirl.create(:event)
 
     visit  events_path
 
-    expect(page).to have_link event.title, event_path(event)
-    expect(page).to have_content event.city
-    expect(page).to have_content event.start_time.strftime("%B %d at %I:%M %p")
+    expect(page).to have_link event_path(event)
+    expect(page).to have_content event.city, event.title, event.state
+    expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
   end
 
   scenario 'user views a single event' do
