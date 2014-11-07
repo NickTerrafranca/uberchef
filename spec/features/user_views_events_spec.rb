@@ -5,28 +5,24 @@ feature 'user_views_events', %Q(
   I want I to view a list of events
   so that I can apply for them.
   ) do
-  # Acceptance Criteria:
-    # The chef must sign in.
-    # The chef is provided with a list of events that are sorted by location.
-    # The chef can click on the event to view its details.
-    # The details should provide the event details and user email.
 
   let(:user) { FactoryGirl.create(:user) }
-  let(:event) { FactoryGirl.create(:event) }
+
+  before :each do
+    login_as user
+  end
 
   scenario 'user views all events' do
-    login_as user
-    # event = FactoryGirl.create(:event)
+    event = FactoryGirl.create(:event)
 
     visit  events_path
 
-    expect(page).to have_link event_path(event)
+    expect(page).to have_link(event.title, href: event_path(event))
     expect(page).to have_content event.city, event.title, event.state
     expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
   end
 
   scenario 'user views a single event' do
-    login_as user
     event = FactoryGirl.create(:event)
 
     visit event_path(event)

@@ -6,7 +6,7 @@ FactoryGirl.define do
     city "Boston"
     state "MA"
     zip "12345"
-    start_time DateTime.parse('2014-07-19T19:30:00+04:00')
+    start_time { Date.tomorrow }
     duration '1 to 2 hours'
     guest_count 30
     budget 20

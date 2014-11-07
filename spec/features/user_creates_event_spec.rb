@@ -5,13 +5,6 @@ feature 'user creates a new event', %Q(
   I want to create an event
   so that I can hire a chef.
   ) do
-  # Acceptance Criteria:
-  #   User provides a title for the event
-  #   User provides an address for the event
-  #   User proves a time for the event
-  #   User provides a number of guests that the event is for.
-  #   User provides the dollar amount per person that they want to pay.
-  #   The provides a description of the event.
 
   let(:user) { FactoryGirl.create(:user) }
 
@@ -27,7 +20,7 @@ feature 'user creates a new event', %Q(
     fill_in 'State', with: event.state
     fill_in 'Zip', with: event.zip
     fill_in 'Start time', with: event.start_time
-    find("option[value='1 to 2 hours']").select_option #is this appropriate?
+    find("option[value='1 to 2 hours']").select_option
     fill_in 'Expected number of guests', with: event.guest_count
     fill_in 'Budget price per person', with: event.budget
     fill_in 'Event details', with: event.description

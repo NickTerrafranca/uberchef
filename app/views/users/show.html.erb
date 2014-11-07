@@ -102,7 +102,7 @@
                     </li>
                   <% else %>
                     <li>
-                       <%= image_tag "/assets/defaultUserIcon.png", class: "profile_photo_thumb" %>
+                       <%= image_tag "https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png", class: "profile_photo_thumb" %>
                        <%=link_to i.applicant.full_name, user_path(i.applicant)%>
                     </li>
                   <% end %>
