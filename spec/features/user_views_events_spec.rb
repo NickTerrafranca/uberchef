@@ -28,7 +28,13 @@ feature 'user_views_events', %Q(
     visit event_path(event)
 
     expect(page).to have_content event.title
+    expect(page).to have_content event.address
+    expect(page).to have_content event.city
+    expect(page).to have_content event.state
+    expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
+    expect(page).to have_content event.duration
+    expect(page).to have_content event.guest_count
+    expect(page).to have_content event.budget
     expect(page).to have_content event.description
-    # expect(page).to have_content event.user.email
   end
 end
