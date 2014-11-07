@@ -35,6 +35,7 @@ feature 'user_views_events', %Q(
     expect(page).to have_content event.duration
     expect(page).to have_content event.guest_count
     expect(page).to have_content event.budget
+    expect(page).to have_content event.bid_total
     expect(page).to have_content event.description
   end
 end
