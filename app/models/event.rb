@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
     if query.match(/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/)
       where("state ilike ?", "%#{query}%")
     else
-    where("to_tsvector(title || ' ' || city || ' ' || state || ' ' || description) @@ plainto_tsquery(?)", query)
+      where("to_tsvector(title || ' ' || city || ' ' || state || ' ' || description) @@ plainto_tsquery(?)", query)
     end
   end
 
