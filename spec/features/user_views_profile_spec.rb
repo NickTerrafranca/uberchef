@@ -15,7 +15,8 @@ feature 'User views profile page', %Q(
   scenario 'User views their own profile' do
     visit user_path(user)
     # The line below is not working.
-    expect(page).to have_xpath("/fixtures/images/profile_image.png")
+    expect(page).to have_xpath("spec/fixtures/images/profile_image.png")
+
     expect(page).to have_content user.full_name
     expect(page).to have_content user.email
     expect(page).to have_content user.address_helper

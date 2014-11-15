@@ -14,8 +14,9 @@ feature 'user creates a new account', %Q(
     fill_in 'City', with: "CityName"
     fill_in 'State', with: "StateName"
     fill_in 'Description', with: 'This is an optioinal short description about the user.'
-    # The line below is not working.
-    page.attach_file('user[profile_photo]', '/fixtures/images/profile_image.png')
+
+    page.attach_file('user[profile_photo]', Rails.root.join('spec/fixtures/images/profile_image.png'))
+
     fill_in 'Email', with: "example@example.com"
     fill_in 'Password', with: "password"
     fill_in 'Password confirmation', with: "password"
