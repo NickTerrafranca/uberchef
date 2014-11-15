@@ -1,6 +1,7 @@
 
 <div class="row">
   <ul class="no-bullet">
+
     <% if @user.profile_photo.present? %>
       <li>
         <%= image_tag @user.profile_photo, class: "profile_photo" %><br><br>
@@ -10,6 +11,7 @@
           <%= image_tag "https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png", class: "profile_photo" %>
       </li>
     <%end%>
+
     <li>
       <h2><%=@user.full_name%></h2>
     </li>
@@ -22,7 +24,6 @@
       <li>
         Address: <%= @user.address_helper %>
       </li>
-
     <% else %>
       <li>
         Location: <%= @user.location %>
@@ -39,13 +40,13 @@
       <li>
           <%= link_to "Message #{@user.full_name}", message_path(@user) %>
       </li>
-    <%end%>
-    <% if @user == current_user %>
+    <% else %>
       <li>
         <strong><%= link_to "Edit account", edit_user_registration_path %></strong>
       </li>
     <% end %>
-    <li><div><%= link_to "Back", :back %></div></li>
+
+    <br><li><div><%= link_to "Back", :back %></div></li>
   </ul>
 </div>
 
