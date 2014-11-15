@@ -6,13 +6,9 @@ feature 'User views profile page', %Q(
   of my information and activity.
   ) do
 
-  let(:user) { FactoryGirl.create(:user) }
-
-  before :each do
+  scenario 'User views their own profile with a custom photo uploaded' do
+    user = FactoryGirl.create(:user, :with_photo)
     login_as user
-  end
-
-  scenario 'User views their own profile' do
     visit user_path(user)
 
     expect(page).to have_xpath("//img[@src = \"/uploads/user/profile_photo/#{user.id}/profile_image.png\"]")
@@ -21,9 +17,14 @@ feature 'User views profile page', %Q(
     expect(page).to have_content user.address_helper
   end
 
-  # scenario "User views someone else's profile page" do
+  scenario 'User views their own profile with a NO photo uploaded' do
+    user = FactoryGirl.create(:user)
+    login_as user
+    visit user_path(user)
 
-  # end
-
-
+    expect(page).to have_xpath("//img[@src = \"https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png\"]")
+    expect(page).to have_content user.full_name
+    expect(page).to have_content user.email
+    expect(page).to have_content user.address_helper
+  end
 end

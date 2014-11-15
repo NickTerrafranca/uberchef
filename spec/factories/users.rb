@@ -9,6 +9,13 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
 
-    profile_photo { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'images', 'profile_image.png')) }
+
+    trait :with_photo do
+      # photo true
+      profile_photo { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'images', 'profile_image.png')) }
+    end
+
+
+
   end
 end
