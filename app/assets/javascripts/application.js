@@ -22,10 +22,6 @@
 
 $(function(){
   $(document).foundation();
-// This is a work in progress!
-//   setTimeout(function() {
-//     $(".alert-box").hide();
-//     }, 4000);
   });
 
 $('.datepicker').pickadate();

@@ -3,7 +3,7 @@
     <div class="row collapse">
       <%= form_tag(events_path, method: 'get') do %>
         <div class="large-8 small-9 columns">
-          <%= text_field_tag :search, params[:search], placeholder: 'Keyword or state', class: "search-field"%>
+          <%= text_field_tag :search, params[:search], placeholder: 'Keyword, City or State', class: "search-field"%>
         </div>
         <div class="large-4 small-3 columns">
           <%= submit_tag "Search", class: "button radius round" %>

@@ -60,9 +60,8 @@
   text-align: center
 }
 
-.sub-content {
-  margin: 10px;
-  color: black;
+.landing_page_buttons {
+  margin-top:  10px;
 }
 
 .sent_message {
@@ -80,7 +79,6 @@
 
 #footer {
   font-size: 12px;
-  margin-top: 300px;
 }
 
 .search-field {
