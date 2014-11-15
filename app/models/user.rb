@@ -15,6 +15,14 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
+  def default_profile_photo
+    if Rails.env.test?
+      File.join(Rails.root, 'spec', 'fixtures', 'images', 'defaultUserIcon.png')
+    else
+      "https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png"
+    end
+  end
+
   def grouped_messages
     user_ids = Message.where("sender_id = ? OR receiver_id = ?", id, id).pluck(:sender_id, :receiver_id).flatten
     other_user_ids = (Set.new(user_ids) - [id]).to_a

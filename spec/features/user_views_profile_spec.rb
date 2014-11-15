@@ -22,7 +22,7 @@ feature 'User views profile page', %Q(
     login_as user
     visit user_path(user)
 
-    expect(page).to have_xpath("//img[@src = \"https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png\"]")
+    expect(page).to have_xpath("//img[@src = \"#{File.join(Rails.root, 'spec', 'fixtures', 'images', 'defaultUserIcon.png')}\"]")
     expect(page).to have_content user.full_name
     expect(page).to have_content user.email
     expect(page).to have_content user.address_helper
