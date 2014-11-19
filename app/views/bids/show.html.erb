@@ -1,16 +1,20 @@
 <div class="row outer-background-block">
-  <h3><%=@bid.event.title%></h3>
+  <h3>Your bid on <%=@bid.event.title%></h3>
   <div>
-    <ul>
+    <ul class="no-bullet">
       <li>
-        Description <%=@bid.event.description%>
+        <strong>Description</strong><br>
+        <%=@bid.event.description%>
       </li>
       <br>
       <li>
-        Your message: <%=@bid.message%>
+        <strong>Your message</strong><br>
+        <%=@bid.message%>
       </li>
+      <br>
       <li>
-        Amount: $<%=@bid.amount%>
+        <strong>Amount</strong><br>
+        $<%=@bid.amount%>
       </li>
     </ul>
   </div>
