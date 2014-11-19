@@ -51,38 +51,34 @@
         <%=@event.description %>
       </li>
     </ul>
+  </div>
 
+  <div class="small-7 columns">
     <%= form_for [@event, @bid] do |f| %>
       <% if @bid.errors.any? %>
         <ul>
           <% @bid.errors.full_messages.each do |error| %>
             <li><%= error %></li>
+          <% end %>
         </ul>
       <% end %>
-    <% end %>
+
+      <div>
+        <%= f.label :message %><br>
+        <%= f.text_area :message, autofocus: true, :cols => "20", :rows => "10" %>
       </div>
-        <div class="row">
-          <div class="small-4 columns">
-            <div>
-              <%= f.label :message %><br>
-              <%= f.text_area :message, autofocus: true, :cols => "20", :rows => "10" %>
-            </div>
 
-            <div>
-              <%= f.label :amount, 'Bid amount' %><br>
-              <%= f.text_field :amount, autofocus: true, placeholder: '$' %>
-            </div>
+      <div>
+        <%= f.label :amount, 'Bid amount' %><br>
+        <%= f.text_field :amount, autofocus: true, placeholder: '$' %>
+      </div>
 
-            <div>
-              <%= f.submit "Submit", class: "button expand" %>
-            </div>
-          </div>
-        </div>
+      <div>
+        <%= f.submit "Submit", class: "button expand" %>
       </div>
     <% end %>
   </div>
-  <div class="row">
+
   <div><br><br><%= link_to "Back", :back %></div>
-</div>
 </div>
 
