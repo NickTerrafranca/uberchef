@@ -26,8 +26,19 @@ feature 'user creates a new event', %Q(
     fill_in 'Event details', with: event.description
 
     click_on 'Submit'
+
     expect(page).to have_content 'Successfully created...'
+    expect(page).to_not have_content "There was a problem saving your submission..."
     expect(page).to have_content event.title
+    expect(page).to have_content event.address
+    expect(page).to have_content event.city
+    expect(page).to have_content event.state
+    expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
+    expect(page).to have_content event.duration
+    expect(page).to have_content event.guest_count
+    expect(page).to have_content event.budget
+    expect(page).to have_content event.bid_total
+    expect(page).to have_content event.description
   end
 
   scenario 'user does not provide required information' do
@@ -37,5 +48,7 @@ feature 'user creates a new event', %Q(
     click_on 'Submit'
     expect(page).to_not have_content "Event successfully added"
     expect(page).to have_content "can't be blank"
+    expect(page).to have_content "There was a problem saving your submission..."
+
   end
 end

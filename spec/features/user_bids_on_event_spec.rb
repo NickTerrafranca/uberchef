@@ -13,24 +13,31 @@ require 'rails_helper'
     event
   end
 
-  # scenario 'User fills in all fields.', focus: true do
-  #   # event = FactoryGirl.create(:event)
-  #   bid = FactoryGirl.build(:bid)
-  #   visit event_path(event)
-  #   click_on 'Make an offer on this event'
+  scenario 'User fills in all fields.', focus: true do
+    # event = FactoryGirl.create(:event)
+    # I don't think that the bid is getting the user_id or event_id
 
-  #   fill_in 'Message', with: bid.message
-  #   fill_in 'Bid amount', with: bid.amount
+    bid = FactoryGirl.build(:bid)
+    # bid.user_id = user.id
+    # bid.event_id = event.id
 
-  #   click_on 'Submit'
-  #   # binding.pry
-  #   # expect(page).to have_content 'Successfully created...'
-  #   expect(page).to have_content event.title
-  #   expect(page).to have_content event.description
-  #   expect(page).to have_content bid.message
-  #   # expect(page).to have_content bid.amount
+    visit event_path(event)
+    click_link 'Make an offer on this event'
 
-  # end
+    fill_in 'Message', with: bid.message
+    fill_in 'Bid amount', with: bid.amount
+
+    click_on 'Submit'
+    # save_and_open_page
+
+    expect(page).to have_content 'Successfully created...'
+    expect(page).to_not have_content "can't be blank"
+    expect(page).to have_content event.title
+    expect(page).to have_content event.description
+    expect(page).to have_content bid.message
+    expect(page).to have_content bid.amount
+
+  end
 
   scenario 'User only fills in message.' do
     bid = FactoryGirl.build(:bid)
@@ -48,7 +55,6 @@ require 'rails_helper'
     expect(page).to have_content event.address
     expect(page).to have_content event.city
     expect(page).to have_content event.state
-
     expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
     expect(page).to have_content event.duration
     expect(page).to have_content event.guest_count
@@ -74,7 +80,6 @@ require 'rails_helper'
     expect(page).to have_content event.address
     expect(page).to have_content event.city
     expect(page).to have_content event.state
-
     expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
     expect(page).to have_content event.duration
     expect(page).to have_content event.guest_count
@@ -99,7 +104,6 @@ require 'rails_helper'
     expect(page).to have_content event.address
     expect(page).to have_content event.city
     expect(page).to have_content event.state
-
     expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
     expect(page).to have_content event.duration
     expect(page).to have_content event.guest_count
