@@ -8,7 +8,7 @@ feature 'User sends another user a message',
 
   let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'User sends sends a message', focus: true do
+  scenario 'User sends sends a message' do
     message = FactoryGirl.build(:message)
     login_as user
     visit message_path(user)
