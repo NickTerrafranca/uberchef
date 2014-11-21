@@ -5,7 +5,7 @@ FactoryGirl.define do
     last_name "LastName"
     city "City"
     state "State"
-    sequence(:email) { |n| "example#{n}@example.com" }
+    sequence(:email) { |n| "#{n}example#{n}email@example.com" }
     password "password"
     password_confirmation "password"
 

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-feature 'user signs in', %Q(As a site visitor
+feature 'user signs in',
+%Q(As a site visitor
 I want to be able to visit the site
 So that I can sign in
 ) do

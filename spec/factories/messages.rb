@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :message do
+    association :sender, factory: :user
+    association :receiver, factory: :user
+    body "This is a message"
   end
 end

@@ -1,5 +1,6 @@
 <div class="small-8 columns ">
   <%= form_for [@user, @message] do |m| %>
+
     <% if @message.errors.any? %>
       <ul>
         <% @message.errors.full_messages.each do |error| %>
@@ -7,16 +8,21 @@
         <% end %>
       </ul>
     <% end %>
+
     <div>
+      <%= m.label :body, "Message" %>
       <%= m.text_area :body, :cols => "8", :rows => "8" %>
     </div>
 
     <div>
       <%= m.submit "Send message", class: "button [tiny small large]"  %>
     </div>
+
+  <% end %>
+
     <div>
       <div><%= link_to "Back", :back %></div>
     </div>
-  <% end %>
+
 </div>
 

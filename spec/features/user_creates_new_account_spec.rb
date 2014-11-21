@@ -3,10 +3,10 @@ require 'rails_helper'
 feature 'user creates a new account', %Q(
   As a site visitor
   I want to be able to visit the site
-  So that I can create a new account
+  So that I can create a new account.
   ) do
 
-  scenario 'user creates a new account' do
+  scenario 'User creates a new account' do
     visit new_user_registration_path
 
     fill_in 'First name', with: "FirstName"
@@ -23,14 +23,14 @@ feature 'user creates a new account', %Q(
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
-  scenario 'without requirements' do
+  scenario 'User creates a new account without requirements.' do
     visit new_user_registration_path
     click_on 'Sign up'
 
     expect(page).to have_content "can't be blank"
   end
 
-  scenario 'account already exists' do
+  scenario 'User creates a new account, but account already exists.' do
     user = FactoryGirl.create(:user)
 
     visit new_user_registration_path
