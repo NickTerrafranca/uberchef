@@ -12,7 +12,6 @@ feature 'User sends another user a message',
     message = FactoryGirl.build(:message)
     login_as user
     visit message_path(user)
-    save_and_open_page
     fill_in "Message", with: message.body
 
     expect(page).to have_content message.body
