@@ -8,17 +8,19 @@
       </thead>
       <tbody>
 
-      <%@associated_users.each do |m| %>
-        <tr>
-          <td><%=link_to "#{m.full_name}", message_path(m) %></td>
-        </tr>
-      <%end%>
+        <%@associated_users.each do |m| %>
+          <tr>
+            <td><%=link_to "#{m.full_name}", message_path(m) %></td>
+          </tr>
+        <%end%>
 
       </tbody>
     </table>
   </ul>
   <div class="row">
-  <div><%= link_to "Back", :back %></div>
-</div>
+    <div>
+      <%= link_to "Back", :back %>
+    </div>
+  </div>
 </div>
 
