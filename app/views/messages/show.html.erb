@@ -11,11 +11,7 @@
         <% else %>
           <div class="row">
             <div class="small-1 columns">
-              <% if m.sender.profile_photo.present?%>
-                <%= image_tag m.sender.profile_photo_url(:thumb), class: "profile_photo_thumb" %>
-              <% else %>
-                <%= image_tag m.sender.default_profile_photo, class: "profile_photo_thumb" %>
-              <% end %>
+              <%= image_tag m.sender.photo(:thumb), class: "profile_photo_thumb" %>
             </div>
             <div class="vcard small-8 end columns recived_massage">
               <%= m.body %>
@@ -25,6 +21,7 @@
       </div>
     </div>
   <% end %>
+
   <div class="row small-offset-2">
     <%= render 'new' %>
   </div>

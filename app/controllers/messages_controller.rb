@@ -24,18 +24,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  def destroy
-    @message = current_user.received_messages.find(params[:id])
-    @message.destroy
-    if @message.destroy
-      flash[:notice] = 'Your message was not deleted...'
-      redirect_to user_messages_path(current_user)
-    else
-      flash[:notice] = 'Message deleted...'
-      render :index
-    end
-  end
-
   private
 
   def message_params

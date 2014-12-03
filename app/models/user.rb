@@ -15,8 +15,13 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
-  def photo
-    profile_photo.url || "https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png"
+
+  def photo(thumb = nil)
+    if thumb
+      profile_photo.url(:thumb) || "https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png"
+    else
+      profile_photo.url || "https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png"
+    end
   end
 
   def grouped_messages
