@@ -27,6 +27,8 @@ group :test, :development do
   gem 'valid_attribute'
   gem 'shoulda-matchers'
   gem 'quiet_assets'
+  gem 'database_cleaner'
+
 end
 
 group :production do

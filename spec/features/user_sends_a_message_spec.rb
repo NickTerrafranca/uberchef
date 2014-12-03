@@ -8,13 +8,23 @@ feature 'User sends another user a message',
 
   let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'User sends sends a message' do
+  scenario 'User sends a message' do
     message = FactoryGirl.build(:message)
     login_as user
     visit message_path(user)
     fill_in "Message", with: message.body
 
+    click_on 'Send message'
     expect(page).to have_content message.body
   end
 
+  scenario 'User sends an empty message' do
+    login_as user
+    visit message_path(user)
+
+    click_on 'Send message'
+
+    expect(page).to have_content 'There was a problem sending your message...'
+    expect(page).to_not have_content 'Message sent...'
+  end
 end

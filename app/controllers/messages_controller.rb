@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
       redirect_to message_path(params[:user_id])
     else
       flash[:notice] = 'There was a problem sending your message...'
-      render :show
+      redirect_to message_path(params[:user_id])
     end
   end
 
