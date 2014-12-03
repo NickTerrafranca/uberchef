@@ -2,16 +2,18 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :bids, dependent: :destroy
   has_many :applicants, through: :bids
+  validate :start_time_cannot_be_in_the_past
 
   validates :user, presence: true
   validates :title, presence: true
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
+  validates :zip, allow_nil: true, format: { with: /(^\d{5}$)|(^\d{5}-\d{4}$)/ }
   validates :start_time, presence: true
   validates :duration, presence: true
-  validates :guest_count, presence: true, numericality: { only_integer: true }
-  validates :budget, presence: true
+  validates :guest_count, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :budget, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :description, presence: true
 
   before_validation :set_start_time
@@ -50,6 +52,12 @@ class Event < ActiveRecord::Base
 
   def pickadate_date
     @pickadate_date
+  end
+
+  def start_time_cannot_be_in_the_past
+    if start_time.present? && start_time < Date.today
+      errors.add(:start_time, "can't be in the past")
+    end
   end
 
   private
