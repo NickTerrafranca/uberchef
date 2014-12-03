@@ -1,10 +1,8 @@
 <ul class="no-bullet">
 
-  <% if @user.profile_photo %>
-    <li>
-        <%= image_tag @user.photo, class: "profile_photo" %>
-    </li>
-  <%end%>
+  <li>
+    <%= image_tag @user.photo, class: "profile_photo" %>
+  </li>
 
   <li>
     <h2><%=@user.full_name%></h2>
@@ -19,6 +17,7 @@
       Address: <%= @user.address_helper %>
     </li>
   <% else %>
+
     <li>
       Location: <%= @user.location %>
     </li>

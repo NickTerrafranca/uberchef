@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
-
   def photo(thumb = nil)
     if thumb
       profile_photo.url(:thumb) || "https://s3.amazonaws.com/uberchef-production/uberchef-assets/defaultUserIcon.png"
@@ -49,5 +48,4 @@ class User < ActiveRecord::Base
   def received_messages
     Message.where(receiver: self)
   end
-
 end

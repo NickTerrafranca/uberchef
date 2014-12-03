@@ -43,23 +43,23 @@
           <%e.bids.map do |i|%>
             <ul>
               <li>
+                <%= image_tag i.applicant.photo(:thumb), class: "profile_photo_thumb" %>
+              </li>
 
+              <li>
+                <%=link_to i.applicant.full_name, user_path(i.applicant)%>
+              </li>
 
-                  <li>
-                    <%= image_tag i.applicant.photo(:thumb), class: "profile_photo_thumb" %>
-                    <%=link_to i.applicant.full_name, user_path(i.applicant)%>
-                  </li>
+              <li>
+                Message: <%= i.message %>
+              </li>
 
+              <li>
+                Bid amount: $<%= i.amount %>
+              </li>
 
-                <li>
-                  Message: <%= i.message %>
-                </li>
-                <li>
-                  Bid amount: $<%= i.amount %>
-                </li>
-                <li>
-                  <%= link_to "Message #{i.applicant.full_name}", message_path(i.applicant.id) %>
-                </li>
+              <li>
+                <%= link_to "Message #{i.applicant.full_name}", message_path(i.applicant.id) %>
               </li>
             </ul>
           <%end%>
