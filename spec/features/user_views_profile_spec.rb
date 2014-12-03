@@ -7,7 +7,7 @@ feature 'User views profile page', %Q(
   ) do
 
   scenario 'User views their profile with a custom photo uploaded' do
-    user = FactoryGirl.create(:user, :with_photo)
+    user = FactoryGirl.create(:user, :with_custom_photo)
     login_as user
     visit user_path(user)
 
@@ -18,7 +18,7 @@ feature 'User views profile page', %Q(
   end
 
   scenario 'User views their profile with a NO photo uploaded' do
-    user = FactoryGirl.create(:user, :default_photo)
+    user = FactoryGirl.create(:user, :with_default_photo)
     login_as user
     visit user_path(user)
 
