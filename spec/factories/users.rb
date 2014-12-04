@@ -1,13 +1,14 @@
 
 FactoryGirl.define do
   factory :user do
-    first_name "FirstName"
-    last_name "LastName"
-    city "City"
-    state "State"
+    first_name 'FirstName'
+    last_name 'LastName'
+    city 'City'
+    state 'State'
+    zip '25985'
     sequence(:email) { |n| "example#{n}email@example.com" }
-    password "password"
-    password_confirmation "password"
+    password 'password12345'
+    password_confirmation 'password12345'
 
     trait :with_custom_photo do
       profile_photo { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'images', 'profile_image.png')) }

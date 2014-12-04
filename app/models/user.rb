@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :city, presence: true
   validates :state, presence: true
+  # validates :zip, allow_nil: true, format: { with: /\A\d{5}(?:[-\s]\d{4})?\Z/ }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
