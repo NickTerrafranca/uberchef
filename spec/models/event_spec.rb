@@ -35,4 +35,28 @@ RSpec.describe Event, :type => :model do
 
   it { should have_valid(:description).when(event.description,'This is an awesome description!') }
   it { should_not have_valid(:description).when(nil) }
+
+  describe 'full_event_address' do
+    it 'compiles an address' do
+      event = FactoryGirl.create(:event)
+      expect(event.full_address).to eq "123 Street St. Boston, MA 12345"
+    end
+  end
+
+  # describe 'current_events' do
+  #   it 'returns events that are only in the future' do
+  #     old_event = Date.yesterday
+  #     new_event = Date.tomorrow
+  #     # event = FactoryGirl.create(:event, start_time: new_event)
+  #     expect(Event.current_events).to be > old_event
+  #   end
+  # end
+  describe 'total_bid' do
+    it "Totals the amount of the bid" do
+      event = FactoryGirl.create(:event)
+      total = (event.guest_count * event.budget)
+     expect(event.bid_total).to eq(total)
+    end
+
+  end
 end
