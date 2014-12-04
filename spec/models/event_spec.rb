@@ -51,6 +51,10 @@ RSpec.describe Event, :type => :model do
   #     expect(Event.current_events).to be > old_event
   #   end
   # end
+
+  # describe 'search event'do
+  # end
+
   describe 'total_bid' do
     it "Totals the amount of the bid" do
       event = FactoryGirl.create(:event)
