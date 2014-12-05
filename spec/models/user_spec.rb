@@ -25,4 +25,25 @@ RSpec.describe User, :type => :model do
 
   # it { should have_valid(:zip).when(nil, user.zip, '02141', '02141-0005') }
   # it { should_not have_valid(:zip).when('123', '021410', 'one 2 three 4') }
+
+  describe 'full_name' do
+    it "Creates a full name from first_name and last_name" do
+      user = FactoryGirl.create(:user)
+      expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+    end
+  end
+
+  describe 'address_helper' do
+    it "Creates an address string from the address fields" do
+      user = FactoryGirl.create(:user)
+      expect(user.address_helper).to eq("#{user.address}, #{user.city}, #{user.state} #{user.zip}")
+    end
+  end
+
+  describe 'location' do
+    it "Creates an location string from the user's city and state" do
+      user = FactoryGirl.create(:user)
+      expect(user.location).to eq("#{user.city}, #{user.state}")
+    end
+  end
 end

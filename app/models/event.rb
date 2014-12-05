@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  # validates :zip, allow_nil: true, format: { with: /\A\d{5}(?:[-\s]\d{4})?\Z)/ }
+  # validates :zip, allow_nil: true, format: { with: /(^\d{5}$)|(^\d{5}-\d{4}$)/ }
   validates :start_time, presence: true
   validates :duration, presence: true
   validates :guest_count, presence: true, numericality: { only_integer: true, greater_than: 0 }

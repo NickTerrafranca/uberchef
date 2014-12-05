@@ -22,7 +22,7 @@ RSpec.describe Event, :type => :model do
   # it { should_not have_valid(:zip).when('123', '021410', 'one 2 three 4') }
 
   it { should have_valid(:start_time).when(event.start_time, Date.today) }
-  it { should_not have_valid(:start_time).when(nil, '', Date.yesterday) }
+  it { should_not have_valid(:start_time).when(nil, Date.yesterday) }
 
   it { should have_valid(:duration).when(event.duration, '6 + hours') }
   it { should_not have_valid(:duration).when(nil, '') }
