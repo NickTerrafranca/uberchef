@@ -40,6 +40,8 @@ RSpec.describe Event, :type => :model do
     it 'compiles an address' do
       event = FactoryGirl.create(:event)
       expect(event.full_address).to eq "123 Street St. Boston, MA 12345"
+      expect(event.full_address).not_to be('')
+      expect(event.full_address).not_to be(nil)
     end
   end
 
@@ -59,7 +61,9 @@ RSpec.describe Event, :type => :model do
     it "Totals the amount of the bid" do
       event = FactoryGirl.create(:event)
       total = (event.guest_count * event.budget)
-     expect(event.bid_total).to eq(total)
+      expect(event.bid_total).to eq(total)
+      expect(event.bid_total).not_to be('')
+      expect(event.bid_total).not_to be(nil)
     end
 
   end
