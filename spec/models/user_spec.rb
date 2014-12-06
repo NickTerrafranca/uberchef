@@ -30,6 +30,8 @@ RSpec.describe User, :type => :model do
     it "Creates a full name from first_name and last_name" do
       user = FactoryGirl.create(:user)
       expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+      expect(user.full_name).not_to be_nil
+      expect(user.full_name).not_to be('')
     end
   end
 
@@ -37,6 +39,8 @@ RSpec.describe User, :type => :model do
     it "Creates an address string from the address fields" do
       user = FactoryGirl.create(:user)
       expect(user.address_helper).to eq("#{user.address}, #{user.city}, #{user.state} #{user.zip}")
+      expect(user.address_helper).not_to be_nil
+      expect(user.address_helper).not_to be('')
     end
   end
 
@@ -44,6 +48,26 @@ RSpec.describe User, :type => :model do
     it "Creates an location string from the user's city and state" do
       user = FactoryGirl.create(:user)
       expect(user.location).to eq("#{user.city}, #{user.state}")
+      expect(user.location).not_to be_nil
+      expect(user.location).not_to be('')
+    end
+  end
+
+  describe 'sent_messages' do
+    it "Finds the messages that the user sent" do
+      user = FactoryGirl.create(:user)
+      message = FactoryGirl.create(:message, sender: user)
+      expect(user.sent_messages).to eq([message])
+      expect(user.received_messages).not_to be_nil
+    end
+  end
+
+  describe 'received_messages' do
+    it "Finds the messages that the user received" do
+      user = FactoryGirl.create(:user)
+      message = FactoryGirl.create(:message, receiver: user)
+      expect(user.received_messages).to eq([message])
+      expect(user.received_messages).not_to be_nil
     end
   end
 end
