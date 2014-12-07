@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Message, :type => :model do
   user = FactoryGirl.create(:user)
-
   it { should belong_to :sender }
   it { should belong_to :receiver }
 

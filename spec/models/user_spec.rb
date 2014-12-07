@@ -4,7 +4,6 @@ RSpec.describe User, :type => :model do
   user = FactoryGirl.create(:user)
 
   it { should have_many :bids }
-  # it { should have_many :messages }
   it { should have_many :events_bid_on }
   it { should have_many :events_hosted }
 
@@ -22,9 +21,6 @@ RSpec.describe User, :type => :model do
 
   it { should have_valid(:state).when(user.state, 'MA') }
   it { should_not have_valid(:state).when(nil) }
-
-  # it { should have_valid(:zip).when(nil, user.zip, '02141', '02141-0005') }
-  # it { should_not have_valid(:zip).when('123', '021410', 'one 2 three 4') }
 
   describe 'full_name' do
     it "Creates a full name from first_name and last_name" do
