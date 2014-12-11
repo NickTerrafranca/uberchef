@@ -41,17 +41,6 @@ RSpec.describe Event, :type => :model do
       expect(event.full_address).not_to be(nil)
     end
   end
-  # describe 'current_events' do
-  #   it 'returns events that are only in the future' do
-  #     old_event = Date.yesterday
-  #     new_event = Date.tomorrow
-  #     # event = FactoryGirl.create(:event, start_time: new_event)
-  #     expect(Event.current_events).to be > old_event
-  #   end
-  # end
-
-  # describe 'search event'do
-  # end
 
   describe 'total_bid' do
     it "Totals the amount of the bid" do
