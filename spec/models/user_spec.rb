@@ -4,7 +4,8 @@ RSpec.describe User, :type => :model do
   user = FactoryGirl.create(:user)
 
   it { should have_many :bids }
-  # it { should have_many :messages }
+  it { should have_many :sent_messages }
+  it { should have_many :received_messages }
   it { should have_many :events_bid_on }
   it { should have_many :events_hosted }
 
