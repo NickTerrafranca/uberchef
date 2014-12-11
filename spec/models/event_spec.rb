@@ -18,9 +18,6 @@ RSpec.describe Event, :type => :model do
   it { should have_valid(:state).when(event.state, 'DC', 'Massachusetts') }
   it { should_not have_valid(:state).when(nil, '') }
 
-  # it { should have_valid(:zip).when(nil, event.zip, '02141', '02141-0005') }
-  # it { should_not have_valid(:zip).when('123', '021410', 'one 2 three 4') }
-
   it { should have_valid(:start_time).when(event.start_time, Date.today) }
   it { should_not have_valid(:start_time).when(nil, Date.yesterday) }
 
