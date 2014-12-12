@@ -10,6 +10,6 @@ FactoryGirl.define do
     duration '1 to 2 hours'
     guest_count 30
     budget 20
-    description 'Description'
+    description 'This is a short description'
   end
 end
