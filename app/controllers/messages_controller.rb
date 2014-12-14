@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @message = Message.new
-    @all_messages = Message.where(sender_id: [current_user.id, params[:id]], receiver_id: [current_user.id, params[:id]]).order('created_at ASC')
+    @all_messages = Message.message_thread(current_user, params[:id])
   end
 
   def create

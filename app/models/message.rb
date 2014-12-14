@@ -5,4 +5,10 @@ class Message < ActiveRecord::Base
   validates :sender, presence: true
   validates :receiver, presence: true
   validates :body, presence: true
+
+  def self.message_thread(user, params)
+    where(sender_id: [user.id, params], receiver_id: [user.id, params]).order('created_at ASC')
+  end
+
+
 end
