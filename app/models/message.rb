@@ -9,6 +9,4 @@ class Message < ActiveRecord::Base
   def self.message_thread(user, params)
     where(sender_id: [user.id, params], receiver_id: [user.id, params]).order('created_at ASC')
   end
-
-
 end

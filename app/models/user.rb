@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def grouped_messages
+  def users_associated_by_message
     user_ids = Message.where("sender_id = ? OR receiver_id = ?", id, id).pluck(:sender_id, :receiver_id).flatten
     other_user_ids = (Set.new(user_ids) - [id]).to_a
     User.where(id: other_user_ids)
