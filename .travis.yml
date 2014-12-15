@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.0.0
 before_script:
-  - psql -c 'create database YOUR_APP_NAME_test;' -U postgres
+  - psql -c 'create database uberchef_test;' -U postgres
