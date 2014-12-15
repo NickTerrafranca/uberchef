@@ -28,7 +28,7 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'quiet_assets'
   gem 'database_cleaner'
-  gem 'rake'
+  gem 'rake', '~> 10.3.2'
 
 end
 
