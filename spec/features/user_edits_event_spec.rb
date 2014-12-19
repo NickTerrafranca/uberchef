@@ -6,7 +6,7 @@ feature 'user edits an events details', %Q(
   So that I can keep them up to date.
   ) do
 
-  let(:user) {FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   scenario 'user changes the date and location of the event' do
     new_date = Date.tomorrow.next.strftime("%a %B %d, %l:%M %P")
