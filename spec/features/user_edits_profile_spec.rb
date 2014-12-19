@@ -7,7 +7,7 @@ feature 'user edits their profile information', %Q(
 
   let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'User updates profile and properly fills in required information', focus: true do
+  scenario 'User updates profile and properly fills in required information' do
     login_as user
     visit edit_user_registration_path
 
@@ -22,6 +22,16 @@ feature 'user edits their profile information', %Q(
   end
 
   scenario 'User updates profile does not to enter confirmation password' do
+    login_as user
+    visit edit_user_registration_path
+
+    fill_in 'Address', with: '11235 New Address'
+    fill_in 'City', with: 'New City'
+    fill_in 'State', with: 'New State'
+    click_button 'Update'
+
+    expect(page).to have_content("Current password can't be blank")
+    expect(page).to_not have_content('You updated your account successfully.')
   end
 
   scenario 'User changes password with required information' do
@@ -32,6 +42,4 @@ feature 'user edits their profile information', %Q(
 
   scenario 'User deletes the account' do
   end
-
 end
-
