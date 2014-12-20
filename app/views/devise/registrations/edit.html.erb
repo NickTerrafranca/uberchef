@@ -22,7 +22,11 @@
           <%= f.label 'Upload optional profile photo' %>
           <%= f.file_field :profile_photo %>
         </div>
-
+        <div class="small-12 columns inner-background-block">
+          <h3>Cancel my account</h3>
+          <p>Unhappy?</p>
+          <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button [tiny small large]" %>
+        </div>
       </div>
 
       <div class="small-6 columns">
@@ -39,8 +43,6 @@
         <div><%= f.label :current_password %><br />
         <%= f.password_field :current_password, autocomplete: "off", placeholder: "Enter password to confirm your changes" %></div>
 
-
-
         <div class="small-12 columns inner-background-block">
           <h3>Change my Password</h3>
 
@@ -50,15 +52,12 @@
           <div><%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm new password' %></div>
 
-          <div><%= f.submit "Update", class: "button [tiny small large]" %></div><br />
+
         </div>
       </div>
+      <div class="small-12 columns">
+        <%= f.submit "Update", class: "button [tiny small large]" %>
+      </div>
     <% end %>
-
-    <div class="small-6 columns inner-background-block">
-      <h3>Cancel my account</h3>
-      <p>Unhappy?</p>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button [tiny small large]" %>
-    </div>
   </div>
 </div>
