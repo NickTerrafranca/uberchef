@@ -41,10 +41,10 @@
         <%= f.password_field :current_password, autocomplete: "off", placeholder: "Enter password to confirm your changes" %></div>
 
         <div><%= f.label :change_password %><br />
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Leave blank if you don't want to change it" %></div>
+        <%= f.password_field :change_password, autocomplete: "off", placeholder: "Leave blank if you don't want to change it" %></div>
 
         <div><%= f.label :new_password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+        <%= f.password_field :new_password_confirmation, autocomplete: "off" %></div>
 
         <div><%= f.submit "Update", class: "button [tiny small large]" %></div><br>
       </div>

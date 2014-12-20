@@ -34,7 +34,17 @@ feature 'user edits their profile information', %Q(
     expect(page).to_not have_content('You updated your account successfully.')
   end
 
-  scenario 'User changes password with required information' do
+  scenario 'User changes password with required information', focus: true do
+    login_as user
+    visit edit_user_registration_path
+
+    fill_in 'Current password', with: user.password
+    fill_in 'Change password', with: 'newpassword1234'
+    fill_in 'New password confirmation', with: 'newpassword1234'
+    click_button 'Update'
+
+    expect(page).to have_content('You updated your account successfully.')
+    expect(page).to_not have_content("Password confirmation doesn't match Password")
   end
 
   scenario 'User changes password without entering confirmation password' do
