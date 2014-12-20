@@ -28,8 +28,10 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'quiet_assets'
   gem 'database_cleaner'
-  gem 'rake', '~> 10.4.2'
+end
 
+group :test do
+  gem 'rake', '~> 10.4.2'
 end
 
 group :production do
