@@ -60,5 +60,13 @@ feature 'user edits their profile information', %Q(
   end
 
   scenario 'User deletes the account' do
+    the_user = FactoryGirl.create(:user)
+    login_as the_user
+    visit edit_user_registration_path
+
+    click_button 'Cancel my account'
+    expect(page).to have_content('Bye! Your account was successfully cancelled. We hope to see you again soon.')
+    expect(page).to have_content('Sign in')
+    expect(page).to_not have_content('Cancel my account')
   end
 end
