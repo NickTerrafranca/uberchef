@@ -38,7 +38,12 @@ feature 'user edits an events details', %Q(
   end
 
   scenario 'User deletes the event' do
+    login_as user
+    event = FactoryGirl.create(:event)
+    visit edit_event_path(event)
 
+    click_on 'Cancel this event'
+    expect(page).to have_content'Event has been deleted'
   end
 
 end
