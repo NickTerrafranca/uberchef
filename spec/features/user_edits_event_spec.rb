@@ -36,4 +36,9 @@ feature 'user edits an events details', %Q(
     click_on 'Submit'
     expect(page).to have_content "Start time can't be blank"
   end
+
+  scenario 'User deletes the event' do
+
+  end
+
 end
