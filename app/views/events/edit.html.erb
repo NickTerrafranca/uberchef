@@ -45,6 +45,10 @@
           <%= f.text_field :pickadate_time, class: "timepicker" %>
         </div>
 
+        <div>
+          <div><%= link_to "Back", :back %></div>
+        </div>
+
       </div>
 
       <div class="small-5 columns">
@@ -70,12 +74,11 @@
         <div>
           <%= f.submit "Submit", class: "button expand" %>
         </div>
+
         <div>
-          <div><%= link_to "Back", :back %></div>
+          <%= link_to 'Cancel this event', event_path(@event), method: :delete, class: 'button expand'  %>
         </div>
-        <div>
-          <%= link_to 'Cancel this event', event_path(@event), method: :delete %>
-        </div>
+
       </div>
     </div>
   </div>

@@ -37,7 +37,7 @@ feature 'user edits an events details', %Q(
     expect(page).to have_content "Start time can't be blank"
   end
 
-  scenario 'User deletes the event', focus: true do
+  scenario 'User deletes the event' do
     login_as user
     event = FactoryGirl.create(:event)
     visit edit_event_path(event)
