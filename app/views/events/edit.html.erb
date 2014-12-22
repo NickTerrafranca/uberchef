@@ -73,6 +73,9 @@
         <div>
           <div><%= link_to "Back", :back %></div>
         </div>
+        <div>
+          <%= link_to 'Cancel this event', event_path(@event), method: :delete %>
+        </div>
       </div>
     </div>
   </div>

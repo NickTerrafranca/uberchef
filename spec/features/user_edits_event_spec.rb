@@ -37,13 +37,14 @@ feature 'user edits an events details', %Q(
     expect(page).to have_content "Start time can't be blank"
   end
 
-  scenario 'User deletes the event' do
+  scenario 'User deletes the event', focus: true do
     login_as user
     event = FactoryGirl.create(:event)
     visit edit_event_path(event)
 
     click_on 'Cancel this event'
-    expect(page).to have_content'Event has been deleted'
+    expect(page).to have_content'Event has been deleted...'
+    expect(page).to_not have_content'There was a problem deleting your event...'
   end
 
 end

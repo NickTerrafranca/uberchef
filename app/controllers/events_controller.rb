@@ -45,6 +45,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.delete
+    if @event.delete
+      flash[:notice] = 'Event has been deleted...'
+      redirect_to landing_page_path
+    else
+      flash[:notice] = 'There was a problem deleting your event...'
+      render :edit
+    end
+  end
+
   private
 
   def event_params

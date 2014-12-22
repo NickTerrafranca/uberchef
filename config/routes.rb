@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :messages, except: [:edit, :update]
 
-  resources :events, except: [:destroy] do
+  resources :events do
     resources :bids, only: [:index, :show, :new, :create]
   end
 end
