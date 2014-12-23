@@ -46,5 +46,4 @@ feature 'user edits an events details', %Q(
     expect(page).to have_content'Event has been deleted...'
     expect(page).to_not have_content'There was a problem deleting your event...'
   end
-
 end
