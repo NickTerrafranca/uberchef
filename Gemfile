@@ -29,7 +29,7 @@ group :test, :development do
   gem 'quiet_assets'
   gem 'database_cleaner'
   gem 'rake', '~> 10.4.2'
-
+  gem 'travis'
 end
 
 group :production do
