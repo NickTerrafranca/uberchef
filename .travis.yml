@@ -3,3 +3,7 @@ rvm:
   - 2.0.0
 before_script:
   - psql -c 'create database uberchef_test;' -U postgres
+
+secure: "L1sPat/xsofAFtFShQanfzal1qYKCM/BSp2cUlmHp3NJXpRmjfju3oPKsHMXgHNB87jT0abuDZJbc1XRZm1IQZOnN1BchVlqKFZ27DjIMxn+2W+02OoySa4AEbL/8NV4EVs3wXsRMmny5+SVOBT9dUfgNaChePf0vhtt9Rg3GBQ="
+secure: "j/0UZEDj4f+ACsEdT8QZGvno+xcamS4lCtsh/+JUaY7SHXXoYSVZWJZhA7pg8CIEGyQOjtWIjfU0xaN3Lq+hWxQvXgr4QcN+013uEUWsBjkO6GeOIV+T/boANzP6xL6Js4DYCjkmEWziEabj0QeIh4pk2e7J6Ckct8cuDt04iYc="
+secure: "UYrxv6ltltNSX3r9YjzUvMtqXqM5PLjsqNdG648RTSVbKMsxefCDpjULz6RpMU9GcI8750GoCoSNcFnhyyuj2vE/Fvr/u9UnITE62rVUHhoru8QAhST6uq5jzH60U00Buil1D6j5bKSsAWYRbMpm9V+eDh0wQYdqM//WZUGm7tQ="
