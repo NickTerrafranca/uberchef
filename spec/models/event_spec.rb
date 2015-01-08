@@ -19,7 +19,7 @@ RSpec.describe Event, :type => :model do
   it { should_not have_valid(:state).when(nil, '') }
 
   it { should have_valid(:start_time).when(event.start_time, Date.today) }
-  it { should_not have_valid(:start_time).when(nil, Date.yesterday) }
+  it { should_not have_valid(:start_time).when(nil, Date.today.advance(days: -1)) }
 
   it { should have_valid(:duration).when(event.duration, '6 + hours') }
   it { should_not have_valid(:duration).when(nil, '') }
