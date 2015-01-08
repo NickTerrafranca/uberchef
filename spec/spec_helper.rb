@@ -35,6 +35,9 @@ RSpec.configure do |config|
     config.default_formatter = 'doc'
   end
 
+  require 'coveralls'
+  Coveralls.wear!('rails')
+
   # Print the 10 slowest examples and example groups at the
   # end of the spec run, to help surface which specs are running
   # particularly slow.
