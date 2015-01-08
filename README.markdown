@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/NickTerrafranca/uberchef.svg?branch=master)](https://travis-ci.org/NickTerrafranca/uberchef)
-
-
+[![Coverage Status](https://coveralls.io/repos/NickTerrafranca/uberchef/badge.png)](https://coveralls.io/r/NickTerrafranca/uberchef)
 
 UberChef is a not intended to function as a business but fully functional nonetheless, UberChef is a Rails 4.0 application that allows users to hire professional chefs in their area. The app uses Devise for authentication and was developed using PostgreSQL as the database and tested with Capybara and RSpec.
 
