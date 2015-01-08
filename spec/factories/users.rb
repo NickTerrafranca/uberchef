@@ -1,8 +1,9 @@
 
 FactoryGirl.define do
   factory :user do
-    first_name 'FirstName'
-    last_name 'LastName'
+    sequence(:first_name) { |i| "#{i}Albert"}
+    sequence(:last_name) { |i| "#{i}Einstein"}
+
     city 'City'
     state 'State'
     zip '25985'
