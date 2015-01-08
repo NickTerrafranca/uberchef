@@ -11,7 +11,7 @@ feature 'User views a list of all the messages threads',
 
     login_as sender
     visit message_path(receiver)
-    fill_in "Message", with: 'This is a message from sender'
+    fill_in 'Message', with: 'This is a message from sending user'
     click_on 'Send message'
 
     login_as receiver
@@ -21,13 +21,13 @@ feature 'User views a list of all the messages threads',
     expect(page).to_not have_content receiver.full_name
   end
 
-  scenario "the sending user can see a message sent to the receiving user" do
+  scenario 'the sending user can see a message sent to the receiving user' do
     sender = FactoryGirl.create(:user)
     receiver = FactoryGirl.create(:user)
 
     login_as sender
     visit message_path(receiver)
-    fill_in "Message", with: 'This is a message from sending user'
+    fill_in 'Message', with: 'This is a message from sending user'
     click_on 'Send message'
 
     visit user_messages_path(sender)
