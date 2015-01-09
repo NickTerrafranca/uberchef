@@ -27,4 +27,8 @@ feature 'User views profile page', %Q(
     expect(page).to have_content user.email
     expect(page).to have_content user.address_helper
   end
+  scenario 'User views their events on their profile page' do
+
+  end
+
 end
