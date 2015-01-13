@@ -27,8 +27,29 @@ feature 'User views profile page', %Q(
     expect(page).to have_content user.email
     expect(page).to have_content user.address_helper
   end
-  scenario 'User views their events on their profile page' do
 
+  scenario 'User views their events on their profile page', focus: true do
+    user = FactoryGirl.create(:user)
+    login_as user
+    visit new_event_path
+    event = FactoryGirl.build(:event)
+
+    fill_in 'Event title', with: event.title
+    fill_in 'Address', with: event.address
+    fill_in 'City', with: event.city
+    fill_in 'State', with: event.state
+    fill_in 'Start time', with: event.start_time
+    find("option[value='1 to 2 hours']").select_option
+    fill_in 'Expected number of guests', with: event.guest_count
+    fill_in 'Budget price per person', with: event.budget
+    fill_in 'Event details', with: event.description
+
+    click_on 'Submit'
+
+    visit user_path(user)
+
+    # binding.pry
+    expect(page).to have_content event.title
   end
 
 end
