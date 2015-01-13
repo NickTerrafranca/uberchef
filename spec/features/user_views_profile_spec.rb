@@ -28,7 +28,7 @@ feature 'User views profile page', %Q(
     expect(page).to have_content user.address_helper
   end
 
-  scenario 'User views their events on their profile page', focus: true do
+  scenario 'User views their events on their profile page' do
     user = FactoryGirl.create(:user)
     login_as user
     visit new_event_path
@@ -47,9 +47,10 @@ feature 'User views profile page', %Q(
     click_on 'Submit'
 
     visit user_path(user)
-
-    # binding.pry
     expect(page).to have_content event.title
   end
 
+  scenario 'User views their bids on their profile page', focus: true do
+
+  end
 end
