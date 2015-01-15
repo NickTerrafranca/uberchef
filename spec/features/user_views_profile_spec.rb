@@ -50,26 +50,24 @@ feature 'User views profile page', %Q(
     expect(page).to have_content event.title
   end
 
-  scenario 'User views their bids on their profile page', focus: true do
+  scenario 'User views their events bids on their profile page', focus: true do
     host = FactoryGirl.create(:user)
     chef = FactoryGirl.create(:user)
-    event = FactoryGirl.create(:event)
+    event_data = FactoryGirl.build(:event)
+    event = Event.new
     bid =  FactoryGirl.build(:bid)
 
-    login_as host
-    visit new_event_path
-
-    fill_in 'Event title', with: event.title
-    fill_in 'Address', with: event.address
-    fill_in 'City', with: event.city
-    fill_in 'State', with: event.state
-    fill_in 'Start time', with: event.start_time
-    find("option[value='1 to 2 hours']").select_option
-    fill_in 'Expected number of guests', with: event.guest_count
-    fill_in 'Budget price per person', with: event.budget
-    fill_in 'Event details', with: event.description
-
-    click_on 'Submit'
+    event.user_id = host.id
+    event.title = event_data.title
+    event.address = event_data.address
+    event.city = event_data.city
+    event.state = event_data.state
+    event.start_time = event_data.start_time
+    event.duration = event_data.duration
+    event.guest_count = event_data.guest_count
+    event.budget = event_data.budget
+    event.description = event_data.description
+    event.save
 
     login_as chef
     visit new_event_bid_path(event)
@@ -79,8 +77,12 @@ feature 'User views profile page', %Q(
     click_on 'Submit'
     login_as host
     visit user_path(host)
-    save_and_open_page
-    # expect(page).to have_content "You'r event has bids!"
-
+    # save_and_open_page
+    expect(page).to_not have_content 'There was a problem saving your submission...'
+    expect(page).to have_content "You'r event has bids!"
+    expect(page).to have_content bid.message
+    expect(page).to have_content bid.amount
+    # expect(page).to have_content event.bids.applicant
+    # expect(page).to have_content "Message #{event.bid.applicant.full_name}"
   end
 end
