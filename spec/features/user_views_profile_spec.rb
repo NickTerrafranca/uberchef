@@ -85,7 +85,37 @@ feature 'User views profile page', %Q(
     expect(page).to have_link "Message #{chef.full_name}"
   end
 
-  scenario "User views the user's bids on the events of others on on the users profile page" do
-  end
+  scenario "on on the users profile page, the user views the bids they have placed on the events of others" do
+    host = FactoryGirl.create(:user)
+    chef = FactoryGirl.create(:user)
+    event_data = FactoryGirl.build(:event)
+    event = Event.new
+    bid =  FactoryGirl.build(:bid)
 
+    event.user_id = host.id
+    event.title = event_data.title
+    event.address = event_data.address
+    event.city = event_data.city
+    event.state = event_data.state
+    event.start_time = event_data.start_time
+    event.duration = event_data.duration
+    event.guest_count = event_data.guest_count
+    event.budget = event_data.budget
+    event.description = event_data.description
+    event.save
+
+    login_as chef
+    visit new_event_bid_path(event)
+    fill_in 'Message', with: bid.message
+    fill_in 'Bid amount', with: bid.amount
+
+    click_on 'Submit'
+    visit user_path(chef)
+
+    expect(page).to have_content 'My Bids'
+    expect(page).to have_content event.title
+    expect(page).to have_content 'Bid Details'
+    expect(page).to have_content "My Message: #{bid.message}"
+    expect(page).to have_content "My Bid Amount: $#{bid.amount}"
+  end
 end
