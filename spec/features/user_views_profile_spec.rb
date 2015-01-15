@@ -84,4 +84,8 @@ feature 'User views profile page', %Q(
     expect(page).to have_content chef.full_name
     expect(page).to have_link "Message #{chef.full_name}"
   end
+
+  scenario "User views the user's bids on the events of others on on the users profile page" do
+  end
+
 end
