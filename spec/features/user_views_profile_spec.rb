@@ -50,7 +50,7 @@ feature 'User views profile page', %Q(
     expect(page).to have_content event.title
   end
 
-  scenario 'User views their events bids on their profile page', focus: true do
+  scenario 'User views their events bids on their profile page' do
     host = FactoryGirl.create(:user)
     chef = FactoryGirl.create(:user)
     event_data = FactoryGirl.build(:event)
@@ -77,12 +77,11 @@ feature 'User views profile page', %Q(
     click_on 'Submit'
     login_as host
     visit user_path(host)
-    # save_and_open_page
     expect(page).to_not have_content 'There was a problem saving your submission...'
     expect(page).to have_content "You'r event has bids!"
     expect(page).to have_content bid.message
     expect(page).to have_content bid.amount
-    # expect(page).to have_content event.bids.applicant
-    # expect(page).to have_content "Message #{event.bid.applicant.full_name}"
+    expect(page).to have_content chef.full_name
+    expect(page).to have_link "Message #{chef.full_name}"
   end
 end
