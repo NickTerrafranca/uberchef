@@ -51,6 +51,36 @@ feature 'User views profile page', %Q(
   end
 
   scenario 'User views their bids on their profile page', focus: true do
+    host = FactoryGirl.create(:user)
+    chef = FactoryGirl.create(:user)
+    event = FactoryGirl.create(:event)
+    bid =  FactoryGirl.build(:bid)
+
+    login_as host
+    visit new_event_path
+
+    fill_in 'Event title', with: event.title
+    fill_in 'Address', with: event.address
+    fill_in 'City', with: event.city
+    fill_in 'State', with: event.state
+    fill_in 'Start time', with: event.start_time
+    find("option[value='1 to 2 hours']").select_option
+    fill_in 'Expected number of guests', with: event.guest_count
+    fill_in 'Budget price per person', with: event.budget
+    fill_in 'Event details', with: event.description
+
+    click_on 'Submit'
+
+    login_as chef
+    visit new_event_bid_path(event)
+    fill_in 'Message', with: bid.message
+    fill_in 'Bid amount', with: bid.amount
+
+    click_on 'Submit'
+    login_as host
+    visit user_path(host)
+    save_and_open_page
+    # expect(page).to have_content "You'r event has bids!"
 
   end
 end
