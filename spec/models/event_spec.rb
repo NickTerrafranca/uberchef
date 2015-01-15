@@ -50,6 +50,11 @@ RSpec.describe Event, :type => :model do
       expect(event.bid_total).not_to be('')
       expect(event.bid_total).not_to be(nil)
     end
+  end
 
+  describe 'search' do
+    it 'searches for events buy state abbreviation, full state name, title, city or description' do
+
+    end
   end
 end
