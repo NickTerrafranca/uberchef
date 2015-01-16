@@ -5,7 +5,8 @@ RSpec.describe Event, :type => :model do
   it { should have_many :bids }
   it { should have_many :applicants }
 
-  event = FactoryGirl.create(:event)
+  let(:event) { FactoryGirl.create(:event) }
+
   it { should have_valid(:user).when(event.user) }
   it { should_not have_valid(:user).when(nil) }
 
@@ -35,7 +36,6 @@ RSpec.describe Event, :type => :model do
 
   describe 'full_event_address' do
     it 'compiles an address' do
-      event = FactoryGirl.create(:event)
       expect(event.full_address).to eq "123 Street St. Boston, MA 12345"
       expect(event.full_address).not_to be('')
       expect(event.full_address).not_to be(nil)
@@ -44,7 +44,6 @@ RSpec.describe Event, :type => :model do
 
   describe 'total_bid' do
     it "Totals the amount of the bid" do
-      event = FactoryGirl.create(:event)
       total = (event.guest_count * event.budget)
       expect(event.bid_total).to eq(total)
       expect(event.bid_total).not_to be('')
@@ -52,9 +51,9 @@ RSpec.describe Event, :type => :model do
     end
   end
 
-  describe 'search' do
-    it 'searches for events buy state abbreviation, full state name, title, city or description' do
+  # describe 'search' do
+  #   it 'searches for events buy state abbreviation, full state name, title, city or description' do
 
-    end
-  end
+  #   end
+  # end
 end
