@@ -88,21 +88,8 @@ feature 'User views profile page', %Q(
   scenario "on on the users profile page, the user views the bids they have placed on the events of others" do
     host = FactoryGirl.create(:user)
     chef = FactoryGirl.create(:user)
-    event_data = FactoryGirl.build(:event)
-    event = Event.new
     bid =  FactoryGirl.build(:bid)
-
-    event.user_id = host.id
-    event.title = event_data.title
-    event.address = event_data.address
-    event.city = event_data.city
-    event.state = event_data.state
-    event.start_time = event_data.start_time
-    event.duration = event_data.duration
-    event.guest_count = event_data.guest_count
-    event.budget = event_data.budget
-    event.description = event_data.description
-    event.save
+    event = FactoryGirl.create(:event, user: host)
 
     login_as chef
     visit new_event_bid_path(event)
