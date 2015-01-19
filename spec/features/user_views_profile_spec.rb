@@ -28,7 +28,7 @@ feature 'User views profile page', %Q(
     expect(page).to have_content user.address_helper
   end
 
-  scenario 'User views their events on their profile page' do
+  scenario 'on the users profile page, the user views the events they have posted' do
     user = FactoryGirl.create(:user)
     login_as user
     visit new_event_path
@@ -50,7 +50,7 @@ feature 'User views profile page', %Q(
     expect(page).to have_content event.title
   end
 
-  scenario 'User views their events bids on their profile page' do
+  scenario 'on the users profile page, the user views the bids others have placed on their events' do
     host = FactoryGirl.create(:user)
     chef = FactoryGirl.create(:user)
     event_data = FactoryGirl.build(:event)
@@ -85,18 +85,13 @@ feature 'User views profile page', %Q(
     expect(page).to have_link "Message #{chef.full_name}"
   end
 
-  scenario "on on the users profile page, the user views the bids they have placed on the events of others" do
+  scenario "on the users profile page, the user views the bids they have placed on the events posted by others", focuss: true do
     host = FactoryGirl.create(:user)
     chef = FactoryGirl.create(:user)
-    bid =  FactoryGirl.build(:bid)
     event = FactoryGirl.create(:event, user: host)
+    bid =  FactoryGirl.create(:bid, applicant: chef, event: event)
 
     login_as chef
-    visit new_event_bid_path(event)
-    fill_in 'Message', with: bid.message
-    fill_in 'Bid amount', with: bid.amount
-
-    click_on 'Submit'
     visit user_path(chef)
 
     expect(page).to have_content 'My Bids'
