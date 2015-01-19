@@ -2,12 +2,13 @@ require 'rails_helper'
 
 feature 'User views profile page', %Q(
   As a user, I want to view a profile page
-  so that I can have an overview
+  so that I can get an overview
   of my information and activity.
   ) do
 
   scenario 'User views their profile with a custom photo uploaded' do
     user = FactoryGirl.create(:user, :with_custom_photo)
+
     login_as user
     visit user_path(user)
 
@@ -19,6 +20,7 @@ feature 'User views profile page', %Q(
 
   scenario 'User views their profile with a NO photo uploaded' do
     user = FactoryGirl.create(:user, :with_default_photo)
+
     login_as user
     visit user_path(user)
 
@@ -30,24 +32,15 @@ feature 'User views profile page', %Q(
 
   scenario 'on the users profile page, the user views the events they have posted' do
     user = FactoryGirl.create(:user)
+    event = FactoryGirl.create(:event, user: user)
+
     login_as user
     visit new_event_path
-    event = FactoryGirl.build(:event)
-
-    fill_in 'Event title', with: event.title
-    fill_in 'Address', with: event.address
-    fill_in 'City', with: event.city
-    fill_in 'State', with: event.state
-    fill_in 'Start time', with: event.start_time
-    find("option[value='1 to 2 hours']").select_option
-    fill_in 'Expected number of guests', with: event.guest_count
-    fill_in 'Budget price per person', with: event.budget
-    fill_in 'Event details', with: event.description
-
-    click_on 'Submit'
 
     visit user_path(user)
     expect(page).to have_content event.title
+    expect(page).to have_content event.start_time.strftime("%a %B %d, %l:%M %P")
+    expect(page).to have_content event.description
   end
 
   scenario 'on the users profile page, the user views the bids others have placed on their events' do
