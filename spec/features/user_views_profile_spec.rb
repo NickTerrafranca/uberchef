@@ -53,39 +53,20 @@ feature 'User views profile page', %Q(
   scenario 'on the users profile page, the user views the bids others have placed on their events' do
     host = FactoryGirl.create(:user)
     chef = FactoryGirl.create(:user)
-    event_data = FactoryGirl.build(:event)
-    event = Event.new
-    bid =  FactoryGirl.build(:bid)
+    event = FactoryGirl.create(:event, user: host)
+    bid =  FactoryGirl.create(:bid, applicant: chef, event: event)
 
-    event.user_id = host.id
-    event.title = event_data.title
-    event.address = event_data.address
-    event.city = event_data.city
-    event.state = event_data.state
-    event.start_time = event_data.start_time
-    event.duration = event_data.duration
-    event.guest_count = event_data.guest_count
-    event.budget = event_data.budget
-    event.description = event_data.description
-    event.save
-
-    login_as chef
-    visit new_event_bid_path(event)
-    fill_in 'Message', with: bid.message
-    fill_in 'Bid amount', with: bid.amount
-
-    click_on 'Submit'
     login_as host
     visit user_path(host)
-    expect(page).to_not have_content 'There was a problem saving your submission...'
-    expect(page).to have_content "You'r event has bids!"
+
+    expect(page).to have_content "Your event has bids!"
     expect(page).to have_content bid.message
     expect(page).to have_content bid.amount
     expect(page).to have_content chef.full_name
     expect(page).to have_link "Message #{chef.full_name}"
   end
 
-  scenario "on the users profile page, the user views the bids they have placed on the events posted by others", focuss: true do
+  scenario "on the users profile page, the user views the bids they have placed on the events posted by others" do
     host = FactoryGirl.create(:user)
     chef = FactoryGirl.create(:user)
     event = FactoryGirl.create(:event, user: host)
