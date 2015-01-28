@@ -52,19 +52,26 @@ RSpec.describe Event, :type => :model do
   end
 
   describe 'search', focus: true do
-    it 'searches for events buy state abbreviation' do
+    it 'searches for events by state abbreviation' do
       event_1 = FactoryGirl.create(:event, state: "MA")
       event_2 = FactoryGirl.create(:event, state: "CT")
       expect(Event.search("MA")).to eq([event_1])
       expect(Event.search("MA")).not_to eq([event_2])
     end
 
-    it 'searches for events buy full state name' do
+    it 'searches for events by full state name' do
       event_1 = FactoryGirl.create(:event, state: "California")
       event_2 = FactoryGirl.create(:event, state: "Massachusetts")
       expect(Event.search("California")).to eq([event_1])
       expect(Event.search("California")).not_to eq([event_2])
     end
+
+    it 'searches for events by event title' do
+      event_1 = FactoryGirl.create(:event, title: "Texas BBQ party")
+      event_2 = FactoryGirl.create(:event, title: "Soggy potato party")
+      expect(Event.search("Texas BBQ party")).to eq([event_1])
+      expect(Event.search("Texas BBQ party")).not_to eq([event_2])
+    end
   end
 end
-# it 'searches for events buy state abbreviation, full state name, title, city or description' do
+# it 'searches for events by state abbreviation, full state name, title, city or description' do
