@@ -51,9 +51,14 @@ RSpec.describe Event, :type => :model do
     end
   end
 
-  # describe 'search' do
-  #   it 'searches for events buy state abbreviation, full state name, title, city or description' do
+  describe 'search' do
+    it 'searches for events buy state abbreviation', focus: true do
+      event_1 = FactoryGirl.create(:event, state: "MA")
+      event_2 = FactoryGirl.create(:event, state: "CT")
+      # binding.pry
+      expect(Event.current_events.search("MA")).to eq([event_1])
 
-  #   end
-  # end
+    end
+  end
 end
+# it 'searches for events buy state abbreviation, full state name, title, city or description' do
