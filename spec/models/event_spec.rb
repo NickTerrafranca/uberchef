@@ -55,6 +55,7 @@ RSpec.describe Event, :type => :model do
     it 'searches for events by state abbreviation' do
       event_1 = FactoryGirl.create(:event, state: 'MA')
       event_2 = FactoryGirl.create(:event, state: 'CT')
+
       expect(Event.search('MA')).to eq([event_1])
       expect(Event.search('MA')).not_to eq([event_2])
     end
@@ -62,6 +63,7 @@ RSpec.describe Event, :type => :model do
     it 'searches for events by full state name' do
       event_1 = FactoryGirl.create(:event, state: 'California')
       event_2 = FactoryGirl.create(:event, state: 'Massachusetts')
+
       expect(Event.search('California')).to eq([event_1])
       expect(Event.search('California')).not_to eq([event_2])
     end
@@ -69,6 +71,7 @@ RSpec.describe Event, :type => :model do
     it 'searches for events by event title' do
       event_1 = FactoryGirl.create(:event, title: 'Texas BBQ party')
       event_2 = FactoryGirl.create(:event, title: 'Soggy potato party')
+
       expect(Event.search('Texas BBQ party')).to eq([event_1])
       expect(Event.search('Texas BBQ party')).not_to eq([event_2])
     end
@@ -77,8 +80,18 @@ RSpec.describe Event, :type => :model do
       local_event_1 = FactoryGirl.create(:event, city: 'Boston')
       local_event_2 = FactoryGirl.create(:event, city: 'Boston')
       distant_event_1 = FactoryGirl.create(:event, city: 'Wellesley')
+
       expect(Event.search('Boston')).to eq([local_event_1, local_event_2])
       expect(Event.search('Boston')).not_to eq([local_event_1, local_event_2, distant_event_1])
+    end
+
+    it 'searches for events by event description' do
+      event_1 = FactoryGirl.create(:event, description: 'My husband needs help with family dinners for the week while I travel for work')
+      event_2 = FactoryGirl.create(:event, description: 'I want to surprise my wife with a romantic anniversary dinner at home')
+      event_3 = FactoryGirl.create(:event, description: 'help with a back door BBQ')
+
+      expect(Event.search('dinner')).to eq([event_1, event_2])
+      expect(Event.search('dinner')).not_to eq([event_1, event_2, event_3])
     end
 
   end
