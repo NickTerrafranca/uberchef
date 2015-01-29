@@ -36,14 +36,14 @@ RSpec.describe Event, :type => :model do
 
   describe 'full_event_address' do
     it 'compiles an address' do
-      expect(event.full_address).to eq "123 Street St. Boston, MA 12345"
+      expect(event.full_address).to eq '123 Street St. Boston, MA 12345'
       expect(event.full_address).not_to be('')
       expect(event.full_address).not_to be(nil)
     end
   end
 
   describe 'total_bid' do
-    it "Totals the amount of the bid" do
+    it 'Totals the amount of the bid' do
       total = (event.guest_count * event.budget)
       expect(event.bid_total).to eq(total)
       expect(event.bid_total).not_to be('')
@@ -52,26 +52,25 @@ RSpec.describe Event, :type => :model do
   end
 
   describe 'search', focus: true do
-# 'searches for events by state abbreviation, full state name, title, city or description'
     it 'searches for events by state abbreviation' do
-      event_1 = FactoryGirl.create(:event, state: "MA")
-      event_2 = FactoryGirl.create(:event, state: "CT")
-      expect(Event.search("MA")).to eq([event_1])
-      expect(Event.search("MA")).not_to eq([event_2])
+      event_1 = FactoryGirl.create(:event, state: 'MA')
+      event_2 = FactoryGirl.create(:event, state: 'CT')
+      expect(Event.search('MA')).to eq([event_1])
+      expect(Event.search('MA')).not_to eq([event_2])
     end
 
     it 'searches for events by full state name' do
-      event_1 = FactoryGirl.create(:event, state: "California")
-      event_2 = FactoryGirl.create(:event, state: "Massachusetts")
-      expect(Event.search("California")).to eq([event_1])
-      expect(Event.search("California")).not_to eq([event_2])
+      event_1 = FactoryGirl.create(:event, state: 'California')
+      event_2 = FactoryGirl.create(:event, state: 'Massachusetts')
+      expect(Event.search('California')).to eq([event_1])
+      expect(Event.search('California')).not_to eq([event_2])
     end
 
     it 'searches for events by event title' do
-      event_1 = FactoryGirl.create(:event, title: "Texas BBQ party")
-      event_2 = FactoryGirl.create(:event, title: "Soggy potato party")
-      expect(Event.search("Texas BBQ party")).to eq([event_1])
-      expect(Event.search("Texas BBQ party")).not_to eq([event_2])
+      event_1 = FactoryGirl.create(:event, title: 'Texas BBQ party')
+      event_2 = FactoryGirl.create(:event, title: 'Soggy potato party')
+      expect(Event.search('Texas BBQ party')).to eq([event_1])
+      expect(Event.search('Texas BBQ party')).not_to eq([event_2])
     end
 
     it 'searches for events by city name' do
@@ -81,6 +80,6 @@ RSpec.describe Event, :type => :model do
       expect(Event.search('Boston')).to eq([local_event_1, local_event_2])
       expect(Event.search('Boston')).not_to eq([local_event_1, local_event_2, distant_event_1])
     end
+
   end
 end
-
