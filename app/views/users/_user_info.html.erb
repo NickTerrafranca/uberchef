@@ -31,7 +31,7 @@
 
   <% unless @user == current_user%>
     <li>
-        <%= link_to "Message #{@user.full_name}", message_path(@user) %>
+      <%= link_to "Message #{@user.full_name}", message_path(@user) %>
     </li>
   <% else %>
     <li>
