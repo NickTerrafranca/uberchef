@@ -1,3 +1,128 @@
+users = [
+  {
+    first_name: 'Sue',
+    last_name: 'Qi',
+    email: 'exafdfsdfsmple1@example.com',
+    address: '3530n Tilden St',
+    city: 'Washington',
+    state: 'DC',
+    zip: '09888',
+    password: 'a1234dsad56hg78'
+  },
+  {
+    first_name: 'Ron',
+    last_name: 'Burgundy',
+    email: 'examplfasdfasde2@example.com',
+    address: '1 Appleton Street',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02118',
+    password: 'b1fhjkh2345678'
+  },
+  {
+    first_name: 'Ruth',
+    last_name: 'Wadsworth',
+    email: 'kjsbdgas6dfg@example.com',
+    address: '127 Waban st.',
+    city: "Wellesley",
+    state: 'MA',
+    zip: '02119',
+    password: 'cl12345d678'
+  },
+  {
+    first_name: 'Michael',
+    last_name: 'Michaelson',
+    email: 'fasdfsafertv_@example.com',
+    address: '1 Arbor Way',
+    city: 'Jamaica Plain',
+    state: 'MA',
+    zip: '02130',
+    about: 'Single dad. Working hard as a hand model and caring for two kids.',
+    password: 'k1234dsaad5678'
+  },
+  {
+    first_name: 'Kevin',
+    last_name: 'Smith',
+    email: 'bfysd7f68ywoiebr@example.com',
+    address: '34 Water Street',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02130',
+    about: 'I am awesome!',
+    password: 'r123ddasdasd45678'
+  },
+  {
+    first_name: 'Travis',
+    last_name: 'Ci',
+    email: 'kjagpasd7g@example.com',
+    address: '34 Winter Street',
+    city: 'Cambridge',
+    state: 'MA',
+    zip: '02142',
+
+    about: 'I am great at what I do!',
+    password: 'e123456dsa78'
+  },
+  {
+    first_name: 'Robert',
+    last_name: 'Smith',
+    email: '6gsdgsfsdfsew4+@example.com',
+    address: '60 Perkins Street',
+    city: 'Jamaica Plain',
+    state: 'MA',
+    zip: '02160',
+    password: 'e12345ds678'
+  },
+  {
+    first_name: 'Kevin',
+    last_name: 'Smith',
+    email: 'hfw7ff@example.com',
+    address: '34 Water Street',
+    city: 'Boston',
+    state: 'MA',
+    zip: '02130',
+    password: 'u123456ds78'
+  },
+  {
+    first_name: 'Gaius ',
+    last_name: 'Baltar',
+    email: 'fgteggd@example.com',
+    address: '100 Galaxy Way',
+    city: 'Caprica City',
+    state: 'CAP',
+    zip: '021302466453',
+    about: 'I specialize in the manufacture of Cylon detectors.',
+    password: 'w123ds45678'
+  },
+  {
+    first_name: 'Han',
+    last_name: 'Solo',
+    email: 'asdfasdfasfert@example.com',
+    address: '6560',
+    city: 'Cloud City',
+    state: 'CL',
+    zip: '0212342111',
+    password: 'ewe4123das45678'
+  }
+]
+users.each do |user_hash|
+  user_attr = {
+    first_name: user_hash[:first_name],
+    last_name: user_hash[:last_name],
+    email: user_hash[:email],
+    address: user_hash[:address],
+    city: user_hash[:city],
+    state: user_hash[:state],
+    zip: user_hash[:zip],
+    profile_photo: user_hash[:profile_photo],
+    about: user_hash[:about],
+    password: user_hash[:password]
+  }
+
+  # user = User.find_by(user_attr)
+  user ||= User.create!(user_attr)
+end
+
 events = [
   {
     user_id: 1,
@@ -6,7 +131,7 @@ events = [
     city: 'Washington',
     state: 'DC',
     zip: '09888',
-    start_time: DateTime.parse('2014-09-19T17:30:00+00:00'),
+    start_time: DateTime.parse('2015-09-19T17:30:00+00:00'),
     duration: '1 to 2 hours',
     guest_count: 9,
     budget: 30,
@@ -22,7 +147,7 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02130',
-    start_time: DateTime.parse('2014-10-19T19:30:00+00:00'),
+    start_time: DateTime.parse('2016-10-19T19:30:00+00:00'),
     duration: '4 to 5 hours',
     guest_count: 30,
     budget: 12,
@@ -36,7 +161,7 @@ events = [
     city: "Wellesley",
     state: 'MA',
     zip: '02119',
-    start_time: DateTime.parse('2014-11-21T13:00:00+00:00'),
+    start_time: DateTime.parse('2016-11-21T13:00:00+00:00'),
     duration: '1 to 2 hours',
     guest_count: 5,
     budget: 30,
@@ -50,7 +175,7 @@ events = [
     city: 'North Redding',
     state: 'MA',
     zip: '02663',
-    start_time: DateTime.parse('2014-09-10T12:00:00+00:00'),
+    start_time: DateTime.parse('2016-09-10T12:00:00+00:00'),
     duration: '2 to 3 hours',
     guest_count: 15,
     budget: 10,
@@ -65,7 +190,7 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02130',
-    start_time: DateTime.parse('2014-12-27T11:00:00+00:00'),
+    start_time: DateTime.parse('2016-12-27T11:00:00+00:00'),
     duration: '1 to 2 hours',
     guest_count: 4,
     budget: 50,
@@ -81,7 +206,7 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02130',
-    start_time: DateTime.parse('2015-07-27T11:00:00+00:00'),
+    start_time: DateTime.parse('2017-07-27T11:00:00+00:00'),
     duration: '2 to 3 hours',
     guest_count: 50,
     budget: 10,
@@ -96,7 +221,7 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02166',
-    start_time: DateTime.parse('2014-11-27T19:00:00+00:00'),
+    start_time: DateTime.parse('2016-11-27T19:00:00+00:00'),
     duration: '2 to 3 hours',
     guest_count: 4,
     budget: 500,
@@ -110,7 +235,7 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02188',
-    start_time: DateTime.parse('2014-10-12T13:00:00+00:00'),
+    start_time: DateTime.parse('2016-10-12T13:00:00+00:00'),
     duration: '6 + hours',
     guest_count: 40,
     budget: 100,
@@ -125,7 +250,7 @@ events = [
     city: 'Boston',
     state: 'MA',
     zip: '02119',
-    start_time: DateTime.parse('2014-12-29T20:00:00+00:00'),
+    start_time: DateTime.parse('2016-12-29T20:00:00+00:00'),
     duration: '3 to 4 hours',
     guest_count: 30,
     budget: 100,
@@ -140,7 +265,7 @@ events = [
     city: 'Sommerville',
     state: 'MA',
     zip: '02110',
-    start_time: DateTime.parse('2014-11-10T11:00:00+00:00'),
+    start_time: DateTime.parse('2016-11-10T11:00:00+00:00'),
     duration: '2 to 3 hours',
     guest_count: 4,
     budget: 100,
@@ -166,129 +291,4 @@ events.each do |event_hash|
 
   event = Event.find_by(event_attr)
   event ||= Event.create!(event_attr)
-end
-
-users = [
-  {
-    first_name: 'Sue',
-    last_name: 'Qi',
-    email: 'example1@example.com',
-    address: '3530n Tilden St',
-    city: 'Washington',
-    state: 'DC',
-    zip: '09888',
-    password: 'a123456hg78'
-  },
-  {
-    first_name: 'Ron',
-    last_name: 'Burgundy',
-    email: 'example2@example.com',
-    address: '1 Appleton Street',
-    city: 'Boston',
-    state: 'MA',
-    zip: '02118',
-    password: 'b1fhjkh2345678'
-  },
-  {
-    first_name: 'Ruth',
-    last_name: 'Wadsworth',
-    email: 'example3@example.com',
-    address: '127 Waban st.',
-    city: "Wellesley",
-    state: 'MA',
-    zip: '02119',
-    password: 'cl12345678'
-  },
-  {
-    first_name: 'Michael',
-    last_name: 'Michaelson',
-    email: 'example4@example.com',
-    address: '1 Arbor Way',
-    city: 'Jamaica Plain',
-    state: 'MA',
-    zip: '02130',
-    about: 'Single dad. Working hard as a hand model and caring for two kids.',
-    password: 'k12345678'
-  },
-  {
-    first_name: 'Kevin',
-    last_name: 'Smith',
-    email: 'example5@example.com',
-    address: '34 Water Street',
-    city: 'Boston',
-    state: 'MA',
-    zip: '02130',
-    about: 'I am awesome!',
-    password: 'r12345678'
-  },
-  {
-    first_name: 'Travis',
-    last_name: 'Ci',
-    email: 'example6@example.com',
-    address: '34 Winter Street',
-    city: 'Cambridge',
-    state: 'MA',
-    zip: '02142',
-
-    about: 'I am great at what I do!',
-    password: 'e12345678'
-  },
-  {
-    first_name: 'Robert',
-    last_name: 'Smith',
-    email: 'example7@example.com',
-    address: '60 Perkins Street',
-    city: 'Jamaica Plain',
-    state: 'MA',
-    zip: '02160',
-    password: 'e12345678'
-  },
-  {
-    first_name: 'Kevin',
-    last_name: 'Smith',
-    email: 'example8@example.com',
-    address: '34 Water Street',
-    city: 'Boston',
-    state: 'MA',
-    zip: '02130',
-    password: 'u12345678'
-  },
-  {
-    first_name: 'Gaius ',
-    last_name: 'Baltar',
-    email: 'example9@example.com',
-    address: '100 Galaxy Way',
-    city: 'Caprica City',
-    state: 'CAP',
-    zip: '021302466453',
-    about: 'I specialize in the manufacture of Cylon detectors.',
-    password: 'w12345678'
-  },
-  {
-    first_name: 'Han',
-    last_name: 'Solo',
-    email: 'example0@example.com',
-    address: '6560',
-    city: 'Cloud City',
-    state: 'CL',
-    zip: '0212342111',
-    password: 'ewe412345678'
-  }
-]
-users.each do |user_hash|
-  user_attr = {
-    first_name: user_hash[:first_name],
-    last_name: user_hash[:last_name],
-    email: user_hash[:email],
-    address: user_hash[:address],
-    city: user_hash[:city],
-    state: user_hash[:state],
-    zip: user_hash[:zip],
-    profile_photo: user_hash[:profile_photo],
-    about: user_hash[:about],
-    password: user_hash[:password]
-  }
-
-  # user = User.find_by(user_attr)
-  user ||= User.create!(user_attr)
 end
