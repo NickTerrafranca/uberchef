@@ -34,10 +34,13 @@
   margin: 5px;
   overflow: auto;
 }
+
 .inner-background-block {
   border: 2px solid #C1C4C2;
   background: rgba(255,255,255, 0.3);
   border-radius: 6px;
+  margin-bottom: 10px !important;
+  padding: 15px;
 }
 
 .window {
@@ -51,11 +54,13 @@
   }
 
 #content {
-  margin-top: 60px;
+  margin-top: 40px;
 }
+
 #content ul {
   margin: 0;
 }
+
 .landing-page-description {
   text-align: center
 }
