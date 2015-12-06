@@ -8,7 +8,7 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
-        <div class="small-6 columns">
+        <div class="small-12 medium-6 columns">
           <div><%= f.label :address %><br />
           <%= f.text_field :address, autofocus: true %></div>
 
@@ -34,7 +34,7 @@
 
         </div>
 
-        <div class="small-6 columns">
+        <div class="small-12 medium-6 columns">
 
           <div><%= f.label :about, 'Short Description about you and/or your skills' %><br />
           <%= f.text_area :about, autofocus: true, :cols => "10", :rows => "10" %></div>

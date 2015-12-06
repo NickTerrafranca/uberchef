@@ -18,6 +18,35 @@
  *= require pickadate/default.time
  */
 
+
+.window {
+  background-image: url(https://s3.amazonaws.com/uberchef-production/uberchef-assets/houndstooth.png);
+  -webkit-background-image-size: cover;
+  -moz-background-image-size: cover;
+  -o-background-image-size: cover;
+  background-image-size: cover;
+  height: 100%;
+  overflow: auto;
+}
+nav {
+  background-color: #333333 !important;
+}
+#content {
+  padding-top: 30px;
+}
+
+#content ul {
+  margin: 0;
+}
+
+.landing-page-description {
+  text-align: center
+}
+
+.landing_page_buttons {
+  margin-top:  10px;
+}
+
 .event-table {
   box-shadow: 10px 5px 30px #888888;
 }
@@ -41,32 +70,6 @@
   border-radius: 6px;
   margin-bottom: 10px !important;
   padding: 15px;
-}
-
-.window {
-  background-image: url(https://s3.amazonaws.com/uberchef-production/uberchef-assets/houndstooth.png);
-  -webkit-background-image-size: cover;
-  -moz-background-image-size: cover;
-  -o-background-image-size: cover;
-  background-image-size: cover;
-  height: 100%;
-  overflow: auto;
-  }
-
-#content {
-  margin-top: 40px;
-}
-
-#content ul {
-  margin: 0;
-}
-
-.landing-page-description {
-  text-align: center
-}
-
-.landing_page_buttons {
-  margin-top:  10px;
 }
 
 .sent_message {
