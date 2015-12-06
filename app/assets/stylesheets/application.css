@@ -12,4 +12,116 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate/default.time
  */
+
+
+.window {
+  background-image: url(https://s3.amazonaws.com/uberchef-production/uberchef-assets/houndstooth.png);
+  -webkit-background-image-size: cover;
+  -moz-background-image-size: cover;
+  -o-background-image-size: cover;
+  background-image-size: cover;
+  height: 100%;
+  overflow: auto;
+}
+nav {
+  background-color: #333333 !important;
+}
+#content {
+  padding-top: 30px;
+}
+
+#content ul {
+  margin: 0;
+}
+
+.landing-page-description {
+  text-align: center
+}
+
+.landing_page_buttons {
+  margin-top:  10px;
+}
+
+.event-table {
+  box-shadow: 10px 5px 30px #888888;
+}
+
+.message-wrapper {
+  padding: 20px;
+}
+
+ .outer-background-block {
+  background: rgba(255,255,255, 0.5);
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 10px 5px 30px #888888;
+  margin: 5px;
+  overflow: auto;
+}
+
+.inner-background-block {
+  border: 2px solid #C1C4C2;
+  background: rgba(255,255,255, 0.3);
+  border-radius: 6px;
+  margin-bottom: 10px !important;
+  padding: 15px;
+}
+
+.sent_message {
+  border-radius: 10px;
+  background-color: #C3C3C3;
+  padding: 12px 20px 13px 12px;
+  margin-bottom: 10px;
+}
+
+.recived_massage {
+  border-radius: 10px;
+  background-color: #00E7F9;
+  padding: 5px 20px 5px 12px;
+  margin-bottom: 10px;
+}
+.message-table {
+width: 100%;
+max-width: 900px;
+}
+#footer {
+  font-size: 12px;
+}
+
+.search-field {
+  border-radius: 15px;
+}
+
+.profile_photo {
+  border: 5px solid #333333;
+  border-radius: 12px;
+}
+
+.profile_photo_thumb {
+  max-height: 50px;
+  max-width: 50px;
+  border-radius: 10px;
+}
+
+.photo-upload-field {
+  background-color: #FFFFFF
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+
+    }
+  .nav-search {
+    margin-right: 45px !important;
+  }
+
+}
+

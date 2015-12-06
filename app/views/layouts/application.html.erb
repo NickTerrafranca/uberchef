@@ -1,17 +1,86 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Uberchef</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : "UberChef" %>
+    </title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <div class="fixed">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li>
+            <h3><%= link_to "UberChef", root_path %></h3>
+          </li>
+          <li class="toggle-topbar menu-icon">
+            <a href="#">
+              <span>Menu</span>
+            </a>
+          </li>
+        </ul>
 
-</body>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Menu</a>
+              <ul class="dropdown">
+
+                <%= render 'devise/menu/login_items' %>
+                <%= render 'devise/menu/registration_items' %>
+
+                <%if user_signed_in?%>
+                  <li>
+                    <%= link_to "Profile", user_path(current_user) %>
+                  </li>
+
+                  <li>
+                    <%= link_to "Messages", user_messages_path(current_user) %>
+                  </li>
+
+                  <li>
+                    <%= link_to "Post Event", new_event_path %>
+                  </li>
+                <%end%>
+
+                <li>
+                  <%= link_to "Browse Events", events_path %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <%= render 'events/search' %>
+        </section>
+      </nav>
+    </div>
+    <div class="window">
+      <div class="row">
+        <div class="small-12 columns">
+          <% if notice %>
+            <div data-alert class="alert-box secondary radius">
+              <%= notice %>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
+          <% if alert %>
+            <div data-alert class="alert-box alert round">
+              <%= alert %>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row" id="content">
+        <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

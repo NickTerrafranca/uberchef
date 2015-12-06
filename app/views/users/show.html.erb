@@ -1,0 +1,14 @@
+
+<div class="row">
+  <%= render 'user_info' %>
+</div>
+
+<div class="row">
+  <%= render 'user_event_info' %>
+</div>
+
+<% if @user == current_user %>
+  <div class="row">
+    <%= render 'user_bid_info' %>
+  </div>
+<% end %>

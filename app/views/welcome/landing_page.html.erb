@@ -1,0 +1,27 @@
+<div class="small-12 columns">
+  <div class="outer-background-block">
+    <ul class="small-block-grid-1 large-block-grid-2">
+      <li>
+        <h3>Welcome to UberChef!<br>The quick and easy place to get help with your next party!</h3>
+        <footer id="footer" >
+          Notice: This is an experimental test site only, not a business.<br>That being said, please play around and enjoy!
+        </footer>
+      </li>
+
+      <li>
+        <h4>How it works:</h4>
+        <p>
+          UberChef is a simple service that connects people with professional chefs in their city. You can find a chef to teach a cooking class in your own kitchen, or get help with a backyard clambake. If you are a professional chef it is easy book gig by browsing and bidding on events in your area.
+        </p>
+        <p>
+          Start by <%= link_to "creating an account", new_user_registration_path%> or <%= link_to "signing in", new_user_session_path %>. Everything you need can be found in the Menu drop-down on the bar at the top of the window. Once you have signed it you can post your event (don't forget to be detailed in your description).
+        </p>
+        <div class="landing_page_buttons">
+          <p><%= link_to 'Browse events', events_path, class: "button expand round" %></p>
+        </div>
+
+      </li>
+
+    </ul>
+  </div>
+</div>

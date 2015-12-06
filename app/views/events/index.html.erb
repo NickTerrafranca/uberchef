@@ -1,0 +1,27 @@
+<div class="small-12 columns text-center">
+  <h3>Events</h3>
+  <ul class="pagination-centered">
+    <table class="event-table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Date/Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.each do |e| %>
+          <tr>
+            <td><%= link_to "#{e.title}", event_path(e) %></td>
+            <td><%= "#{e.city}, #{ e.state}"%></td>
+            <td><%= e.start_time.strftime("%a %B %d, %l:%M %P") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div><%= paginate @event %></div>
+  </ul>
+  <div class="text-center">
+    <%= link_to "Back", :back %>
+  </div>
+</div>

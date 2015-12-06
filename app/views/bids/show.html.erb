@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="small-12 columns outer-background-block">
+    <h3>Your bid on <u><%=@bid.event.title%></u></h3>
+    <ul class="no-bullet">
+      <li>
+        <strong>Description</strong><br>
+        <%=@bid.event.description%>
+      </li>
+      <br>
+      <li>
+        <strong>Your message</strong><br>
+        <%=@bid.message%>
+      </li>
+      <br>
+      <li>
+        <strong>Amount</strong><br>
+        $<%=@bid.amount%>
+      </li>
+    </ul>
+    <%= link_to "Back to events", events_path %>
+  </div>
+</div>

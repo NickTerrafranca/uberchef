@@ -1,0 +1,66 @@
+<div class="small-12 columns">
+  <div class=" outer-background-block">
+    <h3><%=@event.title %></h3>
+    <ul class="columns vcard inner-background-block">
+      <li>
+        <strong>Event location</strong><br> <%= @event.full_address %>
+      </li>
+
+      <li>
+        <strong>
+          Event start time<br>
+        </strong>
+        <%=@event.start_time.strftime("%a %B %d, %l:%M %P") %>
+      </li>
+
+      <li>
+        <strong>
+          Event duration<br>
+        </strong>
+        <%=@event.duration%>
+      </li>
+
+      <li>
+        <strong>
+          Expected number of guests<br>
+        </strong>
+        <%=@event.guest_count %>
+      </li>
+
+      <li>
+        <strong>
+          Budget per person<br>
+        </strong>
+        $<%=@event.budget %>
+      </li>
+
+       <li>
+         <strong>
+          Starting bid price<br>
+        </strong>
+        $<%= @event.bid_total %>
+      </li>
+
+      <li>
+        <strong>
+          Event details<br>
+        </strong>
+        <%=@event.description %>
+      </li>
+      <br>
+      <% unless @event.applicants.include?(current_user) || @event.user == current_user %>
+        <li>
+          <strong>
+            <%= link_to "Make an offer on this event", new_event_bid_path(@event) %>
+          </strong>
+        </li>
+      <% end %>
+      <% if @event.user == current_user %>
+        <li>
+          <%= link_to "Edit this event's details", edit_event_path(@event) %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="text-center"><%= link_to "Back", :back %></div>
+  </div>
+</div>

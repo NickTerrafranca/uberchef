@@ -12,5 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require foundation
 //= require_tree .
+
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
+
+
+$(function(){
+  $(document).foundation();
+  setTimeout(function() {
+    $(".alert-box").hide();
+  }, 5000);
+});
+
+$('.datepicker').pickadate();
+$('.timepicker').pickatime();

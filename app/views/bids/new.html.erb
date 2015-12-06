@@ -1,0 +1,83 @@
+<div class="row outer-background-block">
+  <div class="small-12 medium-5 columns">
+    <h3><%=@event.title%></h3>
+    <ul class="no-bullet">
+      <li>
+        <strong>
+          Event location:
+        </strong>
+        <%=@event.full_address%>
+      </li>
+
+      <li>
+        <strong>
+          Event start time:
+        </strong>
+        <%=@event.start_time.strftime("%a %B %d, %l:%M %P") %>
+      </li>
+
+      <li>
+        <strong>
+          Event duration<br>
+        </strong>
+        <%=@event.duration%>
+      </li>
+
+      <li>
+        <strong>
+          Expected number of guests:
+        </strong>
+        <%=@event.guest_count %>
+      </li>
+
+      <li>
+        <strong>
+          Budget per person:
+        </strong>
+        $<%=@event.budget %>
+      </li>
+
+      <li>
+        <strong>
+          This events total bid price:
+        </strong>
+        $<%= @event.bid_total %>
+      </li>
+
+      <li>
+        <strong>
+          Event details:
+        </strong>
+        <%=@event.description %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="small-12 medium-7 columns">
+    <%= form_for [@event, @bid] do |f| %>
+      <% if @bid.errors.any? %>
+        <ul>
+          <% @bid.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <div>
+        <%= f.label :message %><br>
+        <%= f.text_area :message, autofocus: true, :cols => "20", :rows => "10" %>
+      </div>
+
+      <div>
+        <%= f.label :amount, 'Bid amount' %><br>
+        <%= f.text_field :amount, autofocus: true, placeholder: '$' %>
+      </div>
+
+      <div>
+        <%= f.submit "Submit", class: "button expand" %>
+      </div>
+    <% end %>
+  </div>
+  <div><br><br><%= link_to "Back", :back %></div>
+</div>
+

@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+- 2.0.0
+before_script:
+- psql -c 'create database uberchef_test;' -U postgres
+env:
+  global:
+  - secure: gupYCES5wMfoQJcpnrpLUvAHTyQIxP9uZaP88GqMsmOP/qW1MQrl1qCaaQWrOTqhcMjL/P5JiQSZS7aPWEJHrSQyjRRd2rz4RMcczoJSWQWiB8D99HRM1eVMmBJCIslRnbmeNUDL70AiCVvLrPK5/ZlepEkUOvOL5vqlN8VXmhc=
+  - secure: L3PeXkKA6swYCZXmhcbeDZUk5EDS4V3zFJuMrLiIRX6su0NQFx92/L9tyF05fCUmcjzf9BEM/u1ptaIbh50KDiCCL5M2woHr+/smx2siDmscllma/wZrSzwxkEdtbOLzawjo/LT6dTffyMQIJ/XcQM1UhrxkenVu7T3Uf8gHMdA=
+  - secure: iJ3YrHfYvcyqRBt5MnbYeEtBlrElNW41d7PZH7ROOdnXkLVHPM8Qhk558uFDKZ8ty1VOVsA0ueIARSy7QOhqGeO4eSr5Hg+wAkWGCnTYQANwt5H7dtBt36aGuIvN2+EEz0lcIhHMMWDcMqcCfk1jAI/PXCBSyPlP8mvpF46n4ME=
