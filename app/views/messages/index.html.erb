@@ -3,21 +3,18 @@
     <table class="message-table">
       <thead>
         <tr>
-          <th>Messages</th>
+          <th>Messages from:</th>
         </tr>
       </thead>
       <tbody>
-
         <%@associated_users.each do |m| %>
           <tr>
             <td><%=link_to "#{m.full_name}", message_path(m) %></td>
           </tr>
         <%end%>
-
       </tbody>
     </table>
   </ul>
-
   <div>
     <%= link_to "Back", :back %>
   </div>
