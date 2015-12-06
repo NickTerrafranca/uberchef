@@ -53,7 +53,9 @@
 #content {
   margin-top: 60px;
 }
-
+#content ul {
+  margin: 0;
+}
 .landing-page-description {
   text-align: center
 }

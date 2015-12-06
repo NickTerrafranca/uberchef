@@ -1,36 +1,27 @@
-<div class="row">
-  <div class="small-12 columns text-center">
-    <h3>Events</h3>
-  </div>
-
-  <div class="row">
-    <div class="small-12 columns">
-      <ul class="pagination-centered">
-        <table class="event-table">
-          <thead>
-            <tr>
-              <th width="400">Description</th>
-              <th width="300">Location</th>
-              <th width="300">Date/Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @event.each do |e| %>
-              <tr>
-                <td><%= link_to "#{e.title}", event_path(e) %></td>
-                <td><%= "#{e.city}, #{ e.state}"%></td>
-                <td><%= e.start_time.strftime("%a %B %d, %l:%M %P") %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <div><%= paginate @event %></div>
-      </ul>
-      <div class="small-12 columns text-center">
-        <%= link_to "Back", :back %>
-      </div>
-    </div>
+<div class="small-12 columns text-center">
+  <h3>Events</h3>
+  <ul class="pagination-centered">
+    <table class="event-table">
+      <thead>
+        <tr>
+          <th width="400">Description</th>
+          <th width="300">Location</th>
+          <th width="300">Date/Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.each do |e| %>
+          <tr>
+            <td><%= link_to "#{e.title}", event_path(e) %></td>
+            <td><%= "#{e.city}, #{ e.state}"%></td>
+            <td><%= e.start_time.strftime("%a %B %d, %l:%M %P") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div><%= paginate @event %></div>
+  </ul>
+  <div class="text-center">
+    <%= link_to "Back", :back %>
   </div>
 </div>
-
-
