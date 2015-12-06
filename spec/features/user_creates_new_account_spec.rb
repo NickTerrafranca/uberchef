@@ -9,17 +9,17 @@ feature 'user creates a new account', %Q(
   scenario 'User creates a new account by filling out all fields including profile_photo upload' do
     visit new_user_registration_path
 
-    fill_in 'First name', with: "FirstName"
-    fill_in 'Last name', with: "LastName"
+    fill_in "First Name", with: "FirstName"
+    fill_in 'Last Name', with: "LastName"
     fill_in 'Address', with: '1600 Pennsylvania Ave.'
     fill_in 'City', with: "CityName"
     fill_in 'State', with: "StateName"
-    fill_in 'Zip', with: '12345'
+    fill_in "Postal Code", with: '12345'
     page.attach_file('user[profile_photo]', Rails.root.join('spec/fixtures/images/profile_image.png'))
-    fill_in 'about', with: 'This is an optioinal short description about the user'
-    fill_in 'Email', with: "example@example.com"
-    fill_in 'Password', with: "password"
-    fill_in 'Password confirmation', with: "password"
+    fill_in "Short Description about you and/or your skills", with: 'This is an optioinal short description about the user'
+    fill_in "Email Address", with: "example@example.com"
+    fill_in 'Password, minimum of 8 characters', with: "password"
+    fill_in "Password Confirmation", with: "password"
 
     click_on 'Sign up'
     expect(page).to have_content "Welcome! You have signed up successfully."
@@ -29,13 +29,13 @@ feature 'user creates a new account', %Q(
   scenario 'User creates a new account by filling out only required fields' do
     visit new_user_registration_path
 
-    fill_in 'First name', with: "FirstName"
-    fill_in 'Last name', with: "LastName"
+    fill_in "First Name", with: "FirstName"
+    fill_in 'Last Name', with: "LastName"
     fill_in 'City', with: "CityName"
     fill_in 'State', with: "StateName"
-    fill_in 'Email', with: "example@example.com"
-    fill_in 'Password', with: "password"
-    fill_in 'Password confirmation', with: "password"
+    fill_in "Email Address", with: "example@example.com"
+    fill_in 'Password, minimum of 8 characters', with: "password"
+    fill_in "Password Confirmation", with: "password"
 
     click_on 'Sign up'
     expect(page).to have_content "Welcome! You have signed up successfully."
@@ -54,13 +54,13 @@ feature 'user creates a new account', %Q(
     user = FactoryGirl.create(:user)
     visit new_user_registration_path
 
-    fill_in 'First name', with: user.first_name
-    fill_in 'Last name', with: user.last_name
+    fill_in "First Name", with: user.first_name
+    fill_in 'Last Name', with: user.last_name
     fill_in 'City', with: user.city
     fill_in 'State', with: user.state
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    fill_in 'Password confirmation', with: user.password
+    fill_in "Email Address", with: user.email
+    fill_in 'Password, minimum of 8 characters', with: user.password
+    fill_in "Password Confirmation", with: user.password
 
     click_on "Sign up"
     expect(page).to have_content 'Email has already been taken'
