@@ -1,4 +1,4 @@
-<div class="small-8 columns ">
+<div class="small-12 columns ">
   <%= form_for [@user, @message] do |m| %>
 
     <% if @message.errors.any? %>
@@ -15,14 +15,11 @@
     </div>
 
     <div>
-      <%= m.submit "Send message", class: "button [tiny small large]"  %>
+      <%= m.submit "Send message", class: "button round text-left"  %>
     </div>
-
   <% end %>
-
     <div>
       <div><%= link_to "Back", :back %></div>
     </div>
-
 </div>
 

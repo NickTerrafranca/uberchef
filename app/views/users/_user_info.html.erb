@@ -1,49 +1,49 @@
-<ul class="no-bullet">
-
-  <li>
-    <%= image_tag @user.photo, class: "profile_photo" %>
-  </li>
-
-  <li>
-    <h2><%=@user.full_name%></h2>
-  </li>
-
-  <% if @user == current_user %>
+<div class="small-12 columns">
+  <ul class="no-bullet">
     <li>
-      Email: <%=@user.email%>
+      <%= image_tag @user.photo, class: "profile_photo" %>
     </li>
 
     <li>
-      Address: <%= @user.address_helper %>
+      <h2><%=@user.full_name%></h2>
     </li>
-  <% else %>
 
+    <% if @user == current_user %>
+      <li>
+        Email: <%=@user.email%>
+      </li>
+
+      <li>
+        Address: <%= @user.address_helper %>
+      </li>
+    <% else %>
+
+      <li>
+        Location: <%= @user.location %>
+      </li>
+    <% end %>
+
+    <% if @user.about %>
+      <li>
+        About: <%= @user.about %>
+      </li>
+    <% end %>
+
+    <% unless @user == current_user%>
+      <li>
+        <%= link_to "Message #{@user.full_name}", message_path(@user) %>
+      </li>
+    <% else %>
+      <li>
+        <strong><%= link_to "Edit account", edit_user_registration_path %></strong>
+      </li>
+    <% end %>
+
+    <br>
     <li>
-      Location: <%= @user.location %>
+      <div>
+        <%= link_to "Back", :back %>
+      </div>
     </li>
-  <% end %>
-
-  <% if @user.about %>
-    <li>
-      About: <%= @user.about %>
-    </li>
-  <% end %>
-
-  <% unless @user == current_user%>
-    <li>
-      <%= link_to "Message #{@user.full_name}", message_path(@user) %>
-    </li>
-  <% else %>
-    <li>
-      <strong><%= link_to "Edit account", edit_user_registration_path %></strong>
-    </li>
-  <% end %>
-
-  <br>
-  <li>
-    <div>
-      <%= link_to "Back", :back %>
-    </div>
-  </li>
-
-</ul>
+  </ul>
+</div>

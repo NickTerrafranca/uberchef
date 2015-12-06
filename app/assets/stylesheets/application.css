@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-*= require pickadate/default
-*= require pickadate/default.date
-*= require pickadate/default.time
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate/default.time
  */
 
 .event-table {
@@ -23,9 +23,6 @@
 }
 
 .message-wrapper {
-  box-shadow: 10px 10px 50px #888888;
-  background: rgba(255,255,255, 0.4);
-  border-radius: 6px;
   padding: 20px;
 }
 
@@ -34,6 +31,7 @@
   border-radius: 6px;
   padding: 20px;
   box-shadow: 10px 5px 30px #888888;
+  margin: 5px;
 }
 .inner-background-block {
   border: 2px solid #C1C4C2;
@@ -43,13 +41,12 @@
 
 .window {
   background-image: url(https://s3.amazonaws.com/uberchef-production/uberchef-assets/houndstooth.png);
-  background-attachment: fixed;
-  min-height: 100%;
-  min-width: 1024px;
-  width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
+  -webkit-background-image-size: cover;
+  -moz-background-image-size: cover;
+  -o-background-image-size: cover;
+  background-image-size: cover;
+  height: 100%;
+  overflow: auto;
   }
 
 #content {
@@ -68,15 +65,19 @@
   border-radius: 10px;
   background-color: #C3C3C3;
   padding: 12px 20px 13px 12px;
-
+  margin-bottom: 10px;
 }
 
 .recived_massage {
   border-radius: 10px;
   background-color: #00E7F9;
-  padding: 12px 20px 13px 12px;
+  padding: 5px 20px 5px 12px;
+  margin-bottom: 10px;
 }
-
+.message-table {
+width: 100%;
+max-width: 900px;
+}
 #footer {
   font-size: 12px;
 }

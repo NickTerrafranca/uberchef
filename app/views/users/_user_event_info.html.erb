@@ -1,5 +1,5 @@
-<%unless @user.events_hosted.current_events.empty? %>
-  <div class="small-12 columns vcard outer-background-block">
+<div class="small-12 columns">
+  <%unless @user.events_hosted.current_events.empty? %>
 
     <% if @user == current_user %>
       <h4>My Events</h4>
@@ -8,7 +8,7 @@
     <% end %>
 
     <% @user.events_hosted.current_events.each do |e| %>
-      <ul class="small-12 columns vcard inner-background-block">
+      <ul class="small-12 columns no-bullet inner-background-block">
         <li>
           <%=link_to e.title, event_path(e) %>
         </li>
@@ -41,7 +41,7 @@
           <br>
           <strong>Your event has bids!</strong>
           <%e.bids.map do |i|%>
-            <ul>
+            <ul class="no-bullet">
               <li>
                 <%= image_tag i.applicant.photo(:thumb), class: "profile_photo_thumb" %>
               </li>
@@ -66,5 +66,5 @@
         <%end%>
       </ul>
     <%end%>
-  </div>
-<%end%>
+  <%end%>
+</div>

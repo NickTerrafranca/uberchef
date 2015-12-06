@@ -1,54 +1,54 @@
-<%unless @user.events_bid_on.current_events.empty? %>
-  <div class="small-12 columns vcard outer-background-block">
-  <h4>My Bids</h4>
-    <% @user.events_bid_on.current_events.each do |b| %>
+<div class="small-12 columns no-bullet outer-background-block">
+  <%unless @user.events_bid_on.current_events.empty? %>
+    <h4>My Bids</h4>
+      <% @user.events_bid_on.current_events.each do |b| %>
 
-      <li>
-        <ul class="vcard small-12 columns inner-background-block">
-          <li>
-            Event: <%=link_to b.title, event_path(b)%>
-          </li>
+        <!-- <li> -->
+          <ul class="no-bullet small-12 columns inner-background-block">
+            <li>
+              Event: <%=link_to b.title, event_path(b)%>
+            </li>
 
-          <li>
-            Details: <%=b.description%>
-          </li>
+            <li>
+              Details: <%=b.description%>
+            </li>
 
-          <li>
-            Start time: <%=b.start_time.strftime("%B %d at %I:%M %p")%>
-          </li>
+            <li>
+              Start time: <%=b.start_time.strftime("%B %d at %I:%M %p")%>
+            </li>
 
-          <li>
-            Event duration: <%=b.duration%>
-          </li>
+            <li>
+              Event duration: <%=b.duration%>
+            </li>
 
-          <li>
-            Number of guests expected: <%=b.guest_count%>
-          </li>
+            <li>
+              Number of guests expected: <%=b.guest_count%>
+            </li>
 
-          <li>
-            Budget per guest: <%=b.budget%>
-          </li>
+            <li>
+              Budget per guest: <%=b.budget%>
+            </li>
 
-          <li>
-            Location: <%="#{b.address} #{b.city} #{b.state}"%>
-          </li>
+            <li>
+              Location: <%="#{b.address} #{b.city} #{b.state}"%>
+            </li>
 
-          <br>
+            <br>
 
-          <% b.bids.each do |i| %>
-            <% if i.applicant == current_user %>
-              <li>
-                Bid Details<br>
-                My Message: <%=i.message %>
-              </li>
+            <% b.bids.each do |i| %>
+              <% if i.applicant == current_user %>
+                <li>
+                  Bid Details<br>
+                  My Message: <%=i.message %>
+                </li>
 
-              <li>
-                My Bid Amount: $<%=i.amount%>
-              </li>
-            <% end %>
-          <%end%>
-        </ul>
-      </li>
-    <%end%>
-  </div>
-<%end%>
+                <li>
+                  My Bid Amount: $<%=i.amount%>
+                </li>
+              <% end %>
+            <%end%>
+          </ul>
+        <!-- </li> -->
+      <%end%>
+  <%end%>
+</div>
