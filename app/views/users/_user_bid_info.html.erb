@@ -1,4 +1,5 @@
-<div class="small-12 columns no-bullet outer-background-block">
+<div class="small-12 columns">
+  <div class="outer-background-block">
   <%unless @user.events_bid_on.current_events.empty? %>
     <h4>My Bids</h4>
       <% @user.events_bid_on.current_events.each do |b| %>
@@ -51,4 +52,5 @@
         <!-- </li> -->
       <%end%>
   <%end%>
+  </div>
 </div>

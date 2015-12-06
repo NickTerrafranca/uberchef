@@ -10,7 +10,7 @@
     <% end %>
 
     <div>
-      <%= m.label :body, "Message" %>
+      <%= m.label :body, "Message #{@user.full_name}" %>
       <%= m.text_area :body, :cols => "8", :rows => "8" %>
     </div>
 
